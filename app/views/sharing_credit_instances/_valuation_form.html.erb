@@ -1,0 +1,18 @@
+<%= include_javascript "valuations/base.js.erb" %>
+<%= include_javascript "valuations/credit.js.erb" %>
+
+<%= render 'layouts/text_banner', locals: { title: "Assign Credit - #{@instance.name}" } %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag "#{@instance.id}/valuations/" + params[:p], honeypot: true do %>
+      <%= render 'instances/valuation_form_header' %>
+      <h2 style="margin-bottom:0">Peer Evaluations</h2>
+      <p>
+        Please use the sliders to indicate the relative contributions of each of your peers (credit is out of 100%). Your ratings should reflect the percentage of the total project that each individual is responsible for, <em>not taking your own contributions into account</em>. Your ratings must sum to 100%. You can use the <em>rescale</em> button to automatically adjust your ratings to add up to 100%. <a href = "<%= root_url + 'apps/credit' %>" target="_blank">Click here</a> to learn how we use your ratings to arrive at a fair division.</a>
+      </p>
+
+      <%= render 'instances/sliders' %>
+    <% end %>
+  </div>
+</div>

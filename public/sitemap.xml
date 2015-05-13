@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.spliddit.org/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/rent</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/goods</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/goods/two-people</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/goods/three-or-more-people</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/credit</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/tasks</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/fare</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/about</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://www.spliddit.org/feedback</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/rent/demo</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/rent/new</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/goods/demo</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/goods/new</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/credit/demo</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/credit/new</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/fare/new</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/tasks/demo</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://www.spliddit.org/apps/tasks/new</loc>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>

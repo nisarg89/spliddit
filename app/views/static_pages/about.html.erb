@@ -1,0 +1,79 @@
+<% provide(:title, 'About') %>
+<% provide(:description, "Spliddit is a non-for-profit academic endeavor that provides access to fair division methods to share rent, divide goods, assign credit, split fare, and distribute tasks. It was developed at Carnegie Mellon University by Ariel Procaccia and Jonathan Goldman.") %>
+
+<%= render 'layouts/text_banner', locals: { title: "About" } %>
+
+<div class="page-content">
+    <div class="wrap">
+
+        <h1>Mission</h1>
+
+        <p class="lead-paragraph">Spliddit is a not-for-profit academic endeavor. Its mission is twofold:</p>
+        
+        <ul class="steps">
+            <li>To provide easy access to carefully designed fair division methods, thereby making the world a bit fairer.</li>
+            <li>To communicate to the public the beauty and value of theoretical research in computer science, mathematics, and economics, from an unusual perspective.</li>
+        </ul>
+
+        <br>
+        <h1>Fairness Guarantees</h1>
+        <p>
+            When we say that we guarantee a fairness property, we are stating a mathematical fact. In other words, there are formal proofs showing that each of our algorithms provides rigorous fairness guarantees. The surprising possibility of formulating fairness in mathematical terms is the beauty of the scientific field of fair division, and the force behind Spliddit.
+        </p>
+
+        <div class="content-block">
+            
+            <h1>The Team</h1>
+
+            <div class="align-right" style="padding-left:10px">
+                <%= image_tag "about/ariel.jpg", width: 250, height: 250, alt: "Ariel Procaccia" %>
+            </div>
+            
+            <p>
+                <strong><a target="_blank" href="http://www.cs.cmu.edu/~arielpro">Ariel Procaccia</a></strong> is an Assistant Professor in the Computer Science 
+                Department at <a target="_blank" href="http://www.cmu.edu">Carnegie Mellon University</a>. He usually works on problems at the interface of computer 
+                science and economics. Besides computational fair divison, some of his current research interests include computational social choice, and its 
+                applications to crowdsourcing and human computation; computational game theory, and its applications to physical security and cybersecurity; and 
+                computational mechanism design, and its applications to kidney exchange. His distinctions include the IJCAI Computers and Thought Award (2015), the Sloan Research Fellowship (2015), the NSF Faculty Early Career Development Award (2014), and the IFAAMAS Victor Lesser Distinguished Dissertation Award (2009).
+            </p>
+
+            <br><br>
+
+            <div class="align-left" style="padding-right:10px">
+                <%= image_tag "about/jon.jpg", width: 250, height: 250, alt: "Jonathan Goldman" %>
+            </div>
+            
+            <p>
+                <strong><a target="_blank" href="http://www.jagoldman.com/">Jonathan Goldman</a></strong> is an undergraduate student in the School of Computer Science at Carnegie Mellon University. He has been working with Ariel as a research assistant since 2012, and is developing Spliddit as part of his senior research thesis. Jonathan has internship experience at leading software companies including <a target="_blank" href="http://facebook.com">Facebook</a> and <a target="_blank" href="http://knewton.com">Knewton</a>.
+            </p>
+
+        </div><!--.content-block-->
+
+        <div class="content-block">
+
+            <h1>Advisor</h1>
+
+            <div class="align-right" style="padding-left:10px">
+                <%= image_tag "about/herve.jpg", width: 250, height: 250, alt: "Herve Moulin" %>
+            </div>
+
+            <p>
+                <strong><a target = "_blank" href = "http://www.gla.ac.uk/schools/business/staff/hervemoulin/">Hervé Moulin</a></strong> graduated in 1971 from the École Normale Supérieure in Paris, and received his Ph.D. in mathematics from the Université de Paris in 1975.  He has taught at the École Nationale de la Statistique et Administration Économique, University of Paris at Dauphine, Virginia Polytechnic Institute and State University, Duke University and Rice University. He is currently the DJ Robertson Chair in Economics at the University of Glasgow. He has been a Fellow of the Econometric Society since 1983, of the Economic Theory Society since 2012, and of the Royal Society of Edinburgh since 2015. He has written five books and over 100 peer-reviewed articles.
+            </p>
+        </div>
+
+        <div class="content-block sponsors">
+            <h1>Sponsors</h1>
+            <a class="no-underline" href = "http://www.nsf.gov/awardsearch/showAward?AWD_ID=1215883" target="_blank">
+                <%= image_tag "about/logo-nsf.gif", width: 100, height: 100, alt:"National Science Foundation", style: "max-width: 25%; height: auto" %>
+            </a>
+            <a class="no-underline" href = "http://aws.amazon.com/grants/" target="_blank">
+                <%= image_tag "about/amazon.gif", width: 100, height: 100, alt: "Amazon", style: "max-width: 25%; height: auto" %>
+            </a>
+            <a class="no-underline" href = "http://taxifarefinder.com/" target="_blank">
+                <%= image_tag "about/tff.jpg", width: 117, height: 100, alt: "TaxiFareFinder", style: "max-width: 25%; height: auto" %>
+            </a>
+        </div><!--.content-block-->
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

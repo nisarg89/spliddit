@@ -1,0 +1,21 @@
+<p id="valuations-error" class="error-msg error-text"></p>
+<% if !@instance.separate_passwords %>
+  <h2 style="margin-bottom:0">Name</h2>
+    <%= select_tag "name".to_sym, options_for_select(@name_list, params[:name]), include_blank: true, class: "ipt-small" %>
+    <br>
+    <br>
+<% else %>
+  <h1>Welcome, <%= @agent.name %>!</h1>
+<% end %>
+<h2 style="margin-bottom:0">Email Address (Optional)</h2>
+<%= text_field_tag "email".to_sym, @agent ? @agent.email : "", class: 'email-field ipt-small', maxlength: 100 %><br>
+<p class="checkboxes">
+  <%= label_tag :send_results, "" do %>
+    <%= check_box_tag :send_results, "1", true, style: "width:20px;position:relative;top:1.5px;" %>
+    Send final results to this address
+  <% end %>
+  <%= label_tag :mailing_list, "" do %>
+    <%= check_box_tag :mailing_list, "1", true, style: "width:20px;position:relative;top:1.5px;" %>
+    Inform me about new Spliddit features (Spliddit is not-for-profit; your email will not be shared)
+  <% end %>
+</p>

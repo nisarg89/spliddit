@@ -1,0 +1,50 @@
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="primary-footer">
+            <div class="footer-logo">
+                <a href="<%= root_url %>">
+                    <%= image_tag "shared/footer-logo.png", width: 180, height: 63, alt: "Spliddit" %>
+                </a>
+            </div><!--.footer-logo-->
+            <div class="footer-nav">
+                <ul class="nav-set-1">
+                    <li><%= link_to "Share Rent", root_url + 'apps/rent' %></li>
+                    <li><%= link_to "Split Fare", root_url + 'apps/fare' %></li>
+                    <li><%= link_to "Assign Credit", root_url + 'apps/credit' %></li>
+                    <li><%= link_to "Divide Goods", root_url + 'apps/goods' %></li>                    
+                    <li><%= link_to "Distribute Tasks", root_url + 'apps/tasks' %></li>
+                </ul>
+                <ul class="nav-set-2">
+                  <li><%= link_to "About", about_path %></li>
+                  <li><%= link_to "Feedback", feedback_path %></li>
+                </ul>
+            </div><!--.footer-nav-->
+            <div class="social">
+                <ul>
+                    <li class="share"><span>Follow</span></li>
+                    <li class="fb"><a target="_blank" href="https://www.facebook.com/SplidditOrg">Facebook</a></li>
+                    <li class="tw"><a target="_blank" href="http://twitter.com/Spliddit">Twitter</a></li>
+                    <li class="gp"><a target="_blank" href="https://plus.google.com/102161671080031579471/posts">Google Plus</a></li>
+                    <br><br><br><br>
+                    <div id = "mailing-list">
+                        <li class="share"><span>Newsletter</span></li>
+                        <br><br>
+                        <div style="width:100%">
+                            <li style="width:80%"><%= text_field_tag :mailing_list_email, nil, maxlength: 50, placeholder: "Email", id: "ipt-mailing-list", style: "width: 100%" %></li>
+                            <li style="width:20%"><%= submit_tag "Go", id: "btn-mailing-list", onclick: "return addToMailingList()", style: "width: 100%" %></li>
+                        </div>
+                    </div>
+                </ul>
+            </div><!--.social-->
+        </div><!--.primary-footer-->
+        <div class="credits">
+            <p class="copyright">
+                &copy; <%= Time.now.year %> <a href = "http://www.cs.cmu.edu/~arielpro/" target="_blank">Ariel Procaccia</a> and <a href = "http://jagoldman.com" target="_blank">Jonathan Goldman</a>
+            </p>
+            <p class="imagebox">
+                <a href="http://imagebox.com" target="_blank">Site designed by Imagebox</a>
+            </p>
+        </div><!--.credits-->
+    </div><!--.wrap-->
+</footer><!--.site-footer-->
+</div><!--.site-->

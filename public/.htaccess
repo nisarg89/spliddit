@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^spliddit.org [NC]
+RewriteRule ^(.*)$ http://www.spliddit.org/$1 [L,R=301]

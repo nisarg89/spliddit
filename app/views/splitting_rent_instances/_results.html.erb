@@ -1,0 +1,20 @@
+<p class="lead-paragraph">Here are the results from the <%= link_to "Sharing Rent App", root_url + 'apps/rent' %>. Thank you for using Spliddit!</p>
+
+<table class = "table ">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Room</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @instance.agents.each do |agent| %>
+      <tr>
+        <td><%= agent.name %></td>
+        <td><%= @room_for[agent.id] %></td>
+        <td><%= @currency %><%= @price_for[agent.id] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

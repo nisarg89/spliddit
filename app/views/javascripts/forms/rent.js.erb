@@ -1,0 +1,85 @@
+//validation specific to splitting rent
+function validateHelper() {
+  var valid = true;
+
+  //check that the rent is reasonable
+  if (!$.isNumeric($("#rent").val())) {      
+    $('#rent').addClass('error');
+    valid = false;
+  } else {
+    var rent = parseInt($("#rent").val());
+    if (rent < 10 || rent > 1000000) {
+      $('#rent').addClass('error');
+      valid = false;
+    } else {
+       $('#rent').removeClass('error');
+    }
+  }
+
+  //need 2-15 people
+  if (participants < 2 || participants > 15) {
+    $("#participants-error").append("<div class='alert alert-error'>There must be between 2 and 15 roommates.</div>");
+    valid = false;
+  }
+
+  if (!validateRooms()) valid = false;
+
+  return valid;
+}
+
+// checks for duplicate room names, and appropriate # of beds
+function validateRooms() {
+  var valid = true;
+
+  //check that the room names/descriptions are reasonable
+  var rnames = new Array();
+  var descriptions = new Array();
+  var beds = 0;
+  for (var i=0; i<resources; i++) {
+    rnames[i] = $("#rnames_"+i).val();
+    descriptions[i] = $("#descriptions_"+i).val();
+
+    if (rnames[i].length < 1 || rnames[i].length > 50) {
+      valid = false;
+      $('#rnames_'+i).addClass('error');
+    } else {
+      $('#rnames_'+i).removeClass('error');
+    }
+    if (descriptions[i].length > 200) {
+      valid = false;
+      $('#descriptions_'+i).addClass('error');
+    } else {
+      $('#descriptions_'+i).removeClass('error');
+    }
+    $('#types_'+i).removeClass('error');
+    switch($("#types_"+i).val()) {
+      case "single":
+        beds += 1;
+        break;
+      case "double":
+        beds += 2;
+        break;
+      case "triple":
+        beds += 3;
+        break;
+      case "quad":
+        beds += 4;
+        break;
+      default:
+        $('#types_'+i).addClass('error');
+        valid = false;
+        break;
+    }
+  }
+  if (containsDuplicates(rnames)) {
+    $("#resources-error").append("<div class='alert alert-error'>There are duplicate room names.</div>");
+    valid = false;
+  }
+
+  //check that #agents = #beds
+  if (beds != participants) {
+    $("#resources-error").append("<div class='alert alert-error'>There are "+beds+" beds but "+participants+" roommates!</br>");
+    valid = false;
+  }
+  return valid;
+}

@@ -1,0 +1,114 @@
+<% provide(:title, 'Fair Division of Rent, Goods, Credit, Fare, and Tasks') %>
+<% provide(:description, 'Fair division calculators to share rent and assign rooms when moving into an apartment with roommates, divide goods and assets in inheritance and divorce cases, assign credit for a project, split taxi (Uber, Lyft) fares, and distribute tasks and chores.') %>
+<div class="home-banner narrow">
+    <div class="wrap">
+        
+        <h1>Provably Fair Solutions.</h1>
+        <h3>Spliddit offers quick, free solutions to everyday fair division problems, using methods that provide indisputable fairness guarantees and build on decades of research in economics, mathematics, and computer science.</h3>
+
+    </div>
+</div><!--.home-banner-->
+
+<div class="page-content home narrow" id="panel-1">
+    <div class="wrap">
+
+        <div class="home-columns">
+            <div class="column column-one row-one">
+                <div class="icon">
+                    <a class="no-underline" href="<%= root_url + 'apps/rent' %>">
+                        <%= image_tag "home/icon-rent.gif", width: "246px", height: "246px", alt: "Share rent and assign rooms" %>
+                    </a>
+                </div>
+                <h1>Share Rent</h1>
+                <p>Moving into a new apartment with roommates? Create harmony by fairly assigning rooms and sharing the rent.</p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= root_url + 'apps/rent' %>">Start <span>&raquo;</span></a>
+                </div>
+            </div>
+
+            <div class="column column-two row-one">
+                <div class="icon">
+                    <a class="no-underline" href="<%= root_url + 'apps/fare' %>">
+                        <%= image_tag "home/icon-fare.gif", width: "246px", height: "246px", alt: "Split Fare" %>
+                    </a>
+                </div>
+                <h1>Split Fare</h1>
+                <p>Fairly split taxi fare, or the cost of an Uber or Lyft ride, when sharing a ride with friends. </p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= root_url + 'apps/fare' %>">Start <span>&raquo;</span></a>
+                </div>
+            </div>
+            
+            <div class="column column-three row-one">
+                <div class="icon">
+                    <a class="no-underline" href="<%= root_url + 'apps/credit' %>">
+                        <%= image_tag "home/icon-ordering.gif", width: "246px", height: "246px", alt: "Assign credit for a project or order authors on a research paper" %>
+                    </a>
+                </div>
+                <h1>Assign Credit</h1>
+                <p>Determine the contribution of each individual to a school project, academic paper, or business endeavor.</p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= root_url + 'apps/credit' %>">Start <span>&raquo;</span></a>
+                </div>
+            </div>
+        </div><!--.home-columns-->
+    </div><!--.wrap-->
+    <div class="wrap">
+        <div class="home-columns">
+            <div class="column column-one row-two">
+                <div class="icon">
+                    <a class="no-underline" href="<%= root_url + 'apps/goods' %>">
+                        <%= image_tag "home/icon-goods.gif", width: "246px", height: "246px", alt: "Divide goods in inheritance and divorce cases" %>
+                    </a>
+                </div>
+                <h1>Divide Goods</h1>
+                <p>Fairly divide jewelry, artworks, electronics, toys, furniture, financial assets, or even an entire estate.</p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= root_url + 'apps/goods' %>">Start <span>&raquo;</span></a>
+                </div>
+            </div>
+
+            <div class="column column-two row-two">
+                <div class="icon">
+                    <a class="no-underline" href="<%= root_url + 'apps/tasks' %>">
+                        <%= image_tag "home/icon-chores.gif", width: "246px", height: "246px", alt: "Distribute Tasks" %>
+                    </a>
+                </div>
+                <h1>Distribute Tasks</h1>
+                <p>Divvy up household chores, work shifts, or tasks for a school project among two or more people.</p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= root_url + 'apps/tasks' %>">Start <span>&raquo;</span></a>
+                </div>
+            </div>
+            
+            <div class="column column-three row-two">
+                <div class="icon">
+                    <a class="no-underline" href="<%= feedback_path %>">
+                        <%= image_tag "home/icon-suggestion.gif", width: "246px", height: "246px", alt: "Suggest an App" %>
+                    </a>
+                </div>
+                <h1>Suggest an App</h1>
+                <p>We're always looking for ideas for new apps. Have something else you'd like to divide?</p>
+                <div class="btn-group">
+                    <a class="btn" href="<%= feedback_path %>">Send Feedback</a>
+                </div>
+            </div>
+        </div><!--.home-columns-->
+    </div><!--.wrap-->
+</div><!--.page-content-->
+
+<div class="seen-on">
+    <div class="wrap">
+        <ul>
+            <li class="fc press-pic"><a target="_blank" href = "http://www.fastcoexist.com/3038923/finally-computer-scientists-come-up-with-a-way-to-split-rent-that-is-undeniably-fair"><img src="assets/home/logo-fc.png" width="200" height="91" alt="Fast Company (Fast Co.Exist)"/></a></li>
+
+            <li class="pg press-pic"><a target="_blank" href = "http://www.post-gazette.com/business/money/2014/11/14/CMU-prof-devises-website-that-helps-divide-bills-credit-material-items-fairly/stories/201411140016"><img src="assets/home/logo-pg.png" width="189" height="91" alt="Pittsburgh Post-Gazette"/></a></li>
+
+            <li class="nyt press-pic"><a target="_blank" href = "http://www.nytimes.com/2014/04/29/science/to-divide-the-rent-start-with-a-triangle.html"><img src="assets/home/logo-nyt.png" width="176" height="91" alt="New York Times"/></a></li>
+
+            <li class="naut press-pic"><a target="_blank" href = "http://nautil.us/issue/13/symmetry/math-shall-set-you-freefrom-envy"><img src="assets/home/logo-naut.png" width="125" height="91" alt="Nautilus Magazine"/></a></li>
+
+            <li class="giz press-pic"><a target="_blank" href = "http://gizmodo.com/this-nifty-tool-helps-roommates-find-the-fairest-way-to-1655217174"><img src="assets/home/logo-gizmodo.gif" width="200" height="91" alt="Gizmodo"/></a></li>            
+        </ul>
+    </div>
+</div>

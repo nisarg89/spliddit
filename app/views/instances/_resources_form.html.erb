@@ -1,0 +1,51 @@
+<div class="form-row">
+  <h2 style="margin-bottom:0"><%= @resource_name.pluralize(2) %></h2>
+  <% if @instructions %>
+    <p class="description"><%= @instructions %></p>
+  <% end %>
+  <div>
+    <p id="resources-error" class="error-msg"></p>
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <th><%= @resource_name %> Name</th>
+              <% if @show_types %><th>Type</th><% end %>
+              <% if @show_quantities %><th style="max-width: 50px;">Amount</th><% end %>
+              <% if @show_descriptions %><th class = "description-field">Description (Optional)</th><% end %>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody id="resources">
+        <% @resources.times do |i| %>
+          <tr id="resource-<%= i %>">
+              <td data-title="Name">
+                <%= text_field_tag "rnames[#{i}]".to_sym, nil, maxlength: 50 %>
+              </td>
+              <% if @show_types %>
+                <td>
+                  <%= select_tag "types[#{i}]".to_sym, 
+                        options_for_select(@resource_types, 
+                        params["types[#{i}]".to_sym]) %>
+                </td>
+              <% end %>
+              <% if @show_quantities %>
+                <td data-title="Quantity" style="max-width: 50px">
+                  <%= text_field_tag "quantities[#{i}]".to_sym, nil, maxlength: 6 %>
+                </td>
+              <% end %>
+              <% if @show_descriptions %>
+                <td data-title="Description" class = "description-field">
+                  <%= text_area_tag "descriptions[#{i}]".to_sym, nil, maxlength: 200 %>
+                </td>
+              <% end %>
+              <td id = "resource-delete-<%= i %>">
+                <a class="btn-remove" href="#" title="Remove" onclick = "remove_resource(<%= i %>); return false">Remove</a>
+              </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table> 
+  <%= hidden_field_tag(:resources_ct, nil, value: @resources, id: "resources_ct") %>
+  <a href = "#" onclick = "add_resource(); return false;">Add <%= @resource_name %>...</a>
+</div>

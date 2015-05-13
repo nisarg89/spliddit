@@ -1,0 +1,52 @@
+<%= include_javascript "valuations/base.js.erb" %>
+<%= include_javascript "valuations/tasks.js.erb" %>
+
+<%= render 'layouts/text_banner', locals: { title: "Distribute Tasks - #{@instance.name}" } %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag "#{@instance.id}/valuations/" + params[:p], honeypot: true do %>
+      <%= render 'instances/valuation_form_header' %>
+      <h2 style="margin-bottom:0">Evaluations</h2>
+      <p>
+        For each row, choose which task you'd prefer. Then, enter a <strong>multiplier</strong> to indicate how many times you'd be willing to complete your preferred task instead of completing the other task <strong>once</strong>. For example, if you believe that working the night shift is equal to working one and a half day shifts, select <strong>day shift</strong> and enter a multiplier of <strong>1.5</strong>. <a href = "<%= root_url + 'apps/tasks' %>" target="_blank">Click here</a> to learn how we use your evaluations to arrive at a fair division.</a>
+      </p>
+
+      <table class = "table">
+        <thead>
+          <tr>
+            <td style="width:25%">Select Preferred Task</td>
+            <td style="width:25%"></td>
+            <td style="width:25%"></td>
+            <td style="width:25%">Multiplier</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @instance.resources.each do |r| %>
+          <%= hidden_field :values, r.id.to_s.to_sym %>
+          <% next if r.id == @max_task.id %>
+          <tr style="border-bottom:1px">
+              <td>
+                <%= radio_button_tag "comparisons[#{r.id}]", "first", true, class: "comparison" %>
+                <%= label_tag "comparisons[#{r.id}]_first", @max_task.name, style: "display:inline" %>
+              </td>
+              <td>
+                <%= radio_button_tag "comparisons[#{r.id}]", "second", false, class: "comparison" %>
+                <%= label_tag "comparisons[#{r.id}]_second", r.name, style: "display:inline" %>
+              </td>
+              <td>
+                <%= radio_button_tag "comparisons[#{r.id}]", "equal", false, class: "comparison" %>
+                <%= label_tag "comparisons[#{r.id}]_equal", "No Preference", style: "display:inline" %>
+              </td>
+              <td>
+                <%= text_field_tag "multipliers[#{r.id}]".to_sym, "1.0", class: "valuation_ipt " %>
+              </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= submit_tag "Submit", class: "btn submit", onclick: "return checkValidTasks();" %>
+      <%= render 'instances/descriptions' %>
+    <% end %>
+  </div>
+</div>

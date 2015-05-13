@@ -1,0 +1,44 @@
+<% provide(:title, 'Live Demo: Distribute Tasks') %>
+<% provide(:description, "Spliddit's tasks calculator fairly divides household chores, work shifts at a hospital, or any other set of tasks. With the live demo, you can experiment with the calculator and view the results on a single screen in a matter of seconds.") %>
+<%= include_javascript 'demos/tasks.js' %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <h1>Live Demo</h1><br>
+        <div class="accordion curved" id="basics">The Basics<span class="symbol"></span></div>
+        <div class="accordion-container">
+            <div class="accordion-content">
+                <form>
+                    <div class="form-row">
+                        <div class="form-row">
+                            <p id="basics-error" class="error-msg error-text"></p>
+                        </div>
+                        <div class="form-row">
+                            <h2 style="margin-bottom:0">Participants (comma-separated)</h2>
+                            <%= text_field_tag :participants, "Alice, Bob", maxlength: 150, style: "width:90%" %>
+                        </div>
+                        <div class="form-row">
+                            <h2 style="margin-bottom:0">Tasks (comma-separated)</h2>
+                            <p class="description">For tasks that need to be completed more than once, put the number of times in parentheses.</p>
+                            <%= text_field_tag :tasks, "Mow Lawn (2), Water Plants (7), Wash Dishes (14), Laundry (2)", maxlength: 150, style: "width:90%" %>
+                        </div>
+                        <%= submit_tag "   Update   ", class: "btn", onclick: "validateUpdateForm(); return false" %>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="accordion" id="results">Results<span class="symbol"></span></div>
+        <div class="accordion-container">
+            <div class="accordion-content">
+                <div id="update-results">
+                    <p id="update-results-msg">Click the button to assign the tasks!</p>
+                    <button id="submit-demo" type="button" class="btn update" onclick="checkBids(); return false">Get Results</button>
+                </div>
+                <br><br>
+                <div id="results-table"></div>
+            </div>
+        </div>
+    </div>
+</div>

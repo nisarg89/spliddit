@@ -1,0 +1,30 @@
+<div class="range-calc">
+  <div class="calculations">
+    <% @instance.resources.each do |r| %>
+      <div class="calc-row" id="slider_<%= r.name.gsub(' ', '_') %>">
+        <div class="name">
+            <p><%= r.name %> <%= "(#{r.rtype})" if @show_types && r.rtype && r.rtype != "" %></p>
+        </div><!--.name-->
+        <div class="nstSlider range" data-range_min="<%= @slider_min %>" data-range_max="<%= @instance.valuations_sum %>" data-cur_min="<%= @slider_min %>">
+            <div class="leftGrip"></div>
+        </div>
+
+        <span class="calc-value">
+          <%= @prefix %><%= text_field_tag "values[#{r.id}]".to_sym, nil, class: "valuation_ipt leftLabel cost #{r.rtype}" %><%= @postfix %>
+        </span>
+      </div><!--.calc-row-->
+    <% end %>
+  </div>
+  <%= render 'instances/descriptions' %>
+  <div class="calc-control">
+      <div class="btns">
+          <button type="button" class="btn reset" onclick="return resetSliders()">Reset</button>
+          <button type="button" class="btn update" onclick="return updateSliders()">Rescale</button>
+          <%= submit_tag "Submit", class: "btn submit", onclick: "return checkValid();" %>
+      </div>
+      <div class="totals">
+          <p><strong>Current Total:</strong> <%= @prefix %><span id = "sum"><%= @init_sum %></span><%= @postfix %></p>
+          <p><strong>Target:</strong> <%= @prefix %><%= @instance.valuations_sum %><%= @postfix %></p>
+      </div><!--.totals-->
+  </div><!--.calc-control-->
+</div>

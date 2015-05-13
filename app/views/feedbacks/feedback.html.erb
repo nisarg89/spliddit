@@ -1,0 +1,33 @@
+<% provide(:title, 'Feedback') %>
+<%= include_javascript 'contact.js' %>
+
+<%= render 'layouts/text_banner', locals: { title: "Feedback" } %>
+
+<div class="page-content">
+    <div class="wrap">
+        <p class="lead-paragraph">
+          Please use the space below to report bugs, request features, or inform us of any fair division problems you're aware of that are not covered by our existing applications. If you leave your email address, we'll do our best to respond in a timely manner. We look forward to hearing from you!
+        </p>
+        <%= form_tag "/submit-feedback", honeypot: true, autocomplete: "off" do %>
+          <div class="form-row">
+            <h2 style="margin-bottom:0">Name</h2>
+            <%= text_field_tag :name, nil, maxlength: 50, class: "form-field" %>
+          </div>
+
+          <div class="form-row">
+            <h2 style="margin-bottom:0">Email Address (Optional)</h2>
+            <%= text_field_tag :email, nil, maxlength: 50, class: "form-field" %>
+          </div>
+
+          <div class="form-row">
+            <h2 style="margin-bottom:0">Message</h2>
+            <%= text_area_tag :message, nil, maxlength: 1000, class: "form-field", style: "width:80%;height:200px" %>
+          </div>
+
+          <div class="form-row">
+            <%= submit_tag "   Send   ", id: "submit", class: "btn" %>
+          </div>
+        <% end %>
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

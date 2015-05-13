@@ -1,0 +1,56 @@
+$(document).ready(function() {
+  sum = 0;
+  target = <%= @instance.valuations_sum %>;
+  $(".comparison").change(function() {
+    if ($(this).val() == "equal") {
+      $(this).parent().parent().find(".valuation_ipt").attr("disabled", "disabled");
+      $(this).parent().parent().find(".valuation_ipt").val("");
+    } else {
+      $(this).parent().parent().find(".valuation_ipt").removeAttr("disabled");
+    }
+  });
+  $(".comparison").each(function() {
+    if ($(this).val() == "equal" && $(this).attr("checked") == "checked") {
+      $(this).parent().parent().find(".valuation_ipt").attr("disabled", "disabled");
+      $(this).parent().parent().find(".valuation_ipt").val("");
+    } else {
+      $(this).parent().parent().find(".valuation_ipt").removeAttr("disabled");
+    }
+  });
+  
+});
+
+function checkValidTasks() {
+  sum = 0.0;
+  values = {};
+  values[<%= @max_task.id %>] = <%= @max_task.quantity %>*1.0;
+  values_sum = values[<%= @max_task.id %>];
+  <% @instance.resources.each do |r| %>
+    <% next if r.id == @max_task.id %>
+    var checked = $("input[name='comparisons[<%= r.id %>]']:checked").val();
+    var multiplier = parseFloat($("#multipliers_<%= r.id %>").val());
+    if (checked == "first" || checked == "second") {
+      if (isNaN(multiplier) || multiplier < 1 || multiplier > 1000) {
+        displayError("Multipliers must be between 1 and 1000.");
+        return false;
+      }
+      if (checked == "first") {
+        values[<%= r.id %>] = <%= r.quantity %>*multiplier;
+      } else {
+        values[<%= r.id %>] = <%= r.quantity %>*1.0/multiplier;
+      }
+    } else if (checked == "equal") {
+      values[<%= r.id %>] = <%= r.quantity %>*1.0;
+    } else {
+      displayError("Please select a task from every row.");
+      return false;
+    }
+    values_sum += values[<%= r.id %>];
+  <% end %>
+  <% @instance.resources.each do |r| %>
+    $('#values_<%= r.id %>').val(values[<%= r.id %>] * 100.0 / values_sum);
+    sum += parseFloat($('#values_<%= r.id %>').val());
+  <% end %>
+  sum = 100.0;
+  return checkValid();
+}

@@ -1,0 +1,133 @@
+.taxi1 {
+	margin-top: 30px;
+	position: relative;
+	width: 281px; height: 281px;
+	img {
+		//transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+    	-moz-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	}
+	// background-image: url(../img/circle-ret.gif);
+ 	// background-size: 281px 281px;
+ 	// background-repeat: no-repeat;
+	background: url(circle.gif) no-repeat;
+	@include transition(all, 2s);
+	@include opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		@include opacity(1);
+	}
+	&.fadeOut {
+		@include opacity(0);
+	}
+	.taxi {
+		position: absolute;
+		top: 40px;
+		left: -10px;
+		width: 315px; height: 201px;
+		@include transition(all, 2s);
+		//@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+	.dollar {
+		height: 53px; width: 38px;
+		position: absolute;
+		top: -25px;
+		@include transition(all, 2s);
+		@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+		&.dollar1 {
+			left: 75px;
+		}
+		&.dollar2 {
+			left: 125px;
+		}
+		&.dollar3 {
+			left: 175px;
+		}
+	}
+	.guy {
+		width: 38px; height: 61px;
+		position: absolute;
+		top: 83px; left: 74px;
+		@include transition(all, 2s);
+		//@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+	.frown {
+		width: 13px; height: 3px;
+		position: absolute;
+		top: 120px;
+		left: 87px;
+		@include transition(all, 2s);
+		//@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+	.smile {
+		width: 14px; height: 7px;
+		position: absolute;
+		top: 120px;
+		left: 87px;
+		@include transition(all, 2s);
+		@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+	.girl {
+		width: 39px; height: 55px;
+		position: absolute;
+		top: 89px; left: 26px;
+		@include opacity(0);
+		@include transition(all, 2s);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+	.guy2 {
+		width: 36px; height: 60px;
+		position: absolute;
+		top: 84px; left: 123px;
+		@include transition(all, 2s);
+		@include opacity(0);
+		&.fadeIn {
+			@include opacity(1);
+		}
+		&.fadeOut {
+			@include opacity(0);
+		}
+	}
+}//taxi1
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+<% provide(:title, 'New Assign Credit Instance') %>
+<% provide(:description, "Enter a list of participants to get started. We'll then send everyone a link where they evaluate the contribution of their peers.") %>
+<%= include_javascript 'forms/base.js' %>
+<%= include_javascript 'forms/credit.js' %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag sharing_credit_instances_path + '/create', honeypot: true, autocomplete: "off" do %>
+      <div class="form-row">
+        <h2 style="margin-bottom:0">Project Name</h2>
+        <%= text_field_tag :instance_name, nil, maxlength: 50, class: "ipt-small" %>
+      </div>
+      <%= render 'instances/participants_form', locals: { title: "Project Contributors (at least 4)" } %>
+      <br />
+      <%= render 'instances/admin_email_form' %>
+      <%= render 'instances/submit' %>
+    <% end %>
+  </div>
+</div>
+
+

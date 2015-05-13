@@ -1,0 +1,1659 @@
+
+Log started (V12.5.1.0) Mon Sep 02 16:00:04 2013
+
+
+Log started (V12.5.1.0) Sun Dec 08 03:06:20 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.08 sec. (0.00 ticks)
+Integer infeasible equality row 'c6'.
+Presolve time = 0.03 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.05 sec. (0.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.05 sec. (0.02 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 1.0000000000e+001 (gap is infinite)
+Solution time =    0.05 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (0.34 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 03:07:15 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Integer infeasible equality row 'c6'.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.02 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 1.0000000000e+001 (gap is infinite)
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (16.11 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 03:08:47 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Integer infeasible equality row 'c6'.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.02 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 1.0000000000e+001 (gap is infinite)
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (16.11 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 03:09:20 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.05 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.05 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.05 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.05 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (0.56 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:38:48 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:39:58 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:40:25 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:41:56 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:47:40 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:48:17 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:48:37 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:48:52 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 03:51:08 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef38.lp' read.
+Read time = 0.03 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (26.34 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:00:59 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:00:59 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:01:40 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:01:40 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:02:11 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:02:12 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:02:12 2013
+
+Warning, line 9: Characters after RHS value are ignored.
+Warning, line 11: Unfinished constraint is discarded.
+
+Problem 'C:/Sites/spliddit/tmp/ccg38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Not a mixed integer problem.
+No solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:03:28 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:03:28 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:03:28 2013
+
+Warning, line 9: Characters after RHS value are ignored.
+Warning, line 11: Unfinished constraint is discarded.
+
+Problem 'C:/Sites/spliddit/tmp/ccg38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Not a mixed integer problem.
+No solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:03:59 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:03:59 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:04:00 2013
+
+Warning, line 9: Characters after RHS value are ignored.
+Warning, line 11: Unfinished constraint is discarded.
+
+Problem 'C:/Sites/spliddit/tmp/ccg38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Not a mixed integer problem.
+No solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:06 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:06 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:06 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg38.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 7 rows and 10 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (11.72 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:30 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:30 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:05:30 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg35.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 5 rows and 6 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 1.3400000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (9.10 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x164,117                      1.000000
+x164,118                      1.000000
+x165,119                      1.000000
+All other variables in the range 1-6 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:09:14 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Bound infeasibility column 'x173,133'.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 2.0000000000e+002 (gap is infinite)
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (9.55 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:09:14 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:09:14 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:09:14 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:12:23 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:12:23 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:12:23 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:12:26 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Bound infeasibility column 'x173,133'.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 2.0000000000e+002 (gap is infinite)
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (9.55 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:14:36 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Bound infeasibility column 'x173,133'.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 2.0000000000e+002 (gap is infinite)
+Solution time =    0.01 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (0.64 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:02 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:02 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:02 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:34 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:34 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:15:34 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:32 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:32 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:32 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:53 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:53 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:16:53 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:17:13 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player172.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.00 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (29.39 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:17:13 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player173.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.00 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (29.39 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:17:13 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:18:39 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player172.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.00 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (29.39 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:18:39 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player173.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.00 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (29.39 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:18:39 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.73 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,133                      1.000000
+x172,134                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:19:03 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player172.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.01 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.01 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.01 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (1.96 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:19:03 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player173.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 1 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 2 rows, 2 columns, and 4 nonzeros.
+Reduced MIP has 0 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.00 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       98.0000        0     --- 
+*     0     0      integral     0       49.0000       49.0000        0    0.00%
+Elapsed time = 0.02 sec. (0.03 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.03 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.03 ticks  (1.84 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 4.9000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:19:03 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg39.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 2 columns.
+MIP Presolve modified 4 coefficients.
+Aggregator did 2 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.0000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (12.21 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x172,134                      1.000000
+x173,133                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:20:00 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player170.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 2 columns.
+MIP Presolve added 1 rows and 1 columns.
+Aggregator did 5 substitutions.
+Reduced MIP has 3 rows, 5 columns, and 12 nonzeros.
+Reduced MIP has 2 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.02 ticks)
+Probing fixed 0 vars, tightened 2 bounds.
+Probing time = 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 3 rows, 5 columns, and 12 nonzeros.
+Reduced MIP has 2 binaries, 3 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Probing time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.01 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       60.0000        0     --- 
+      0     0       50.0000     1        0.0000       50.0000        0     --- 
+*     0+    0                           50.0000       50.0000        0    0.00%
+      0     0        cutoff             50.0000       50.0000        0    0.00%
+Elapsed time = 0.03 sec. (0.06 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.03 sec. (0.06 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.03 sec. (0.06 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 5.0000000000e+001
+Solution time =    0.03 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.06 ticks  (2.05 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 5.0000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:20:00 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg_player171.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 0.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve added 2 rows and 2 columns.
+Aggregator did 5 substitutions.
+Reduced MIP has 4 rows, 8 columns, and 19 nonzeros.
+Reduced MIP has 5 binaries, 2 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.02 ticks)
+Probing fixed 0 vars, tightened 3 bounds.
+Probing time = 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 4 rows, 8 columns, and 19 nonzeros.
+Reduced MIP has 5 binaries, 3 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.01 ticks)
+Probing time = 0.00 sec. (0.00 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.01 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            0.0000       50.0000        0     --- 
+*     0     0      integral     0       50.0000       50.0000        0    0.00%
+Elapsed time = 0.00 sec. (0.06 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.06 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 5.0000000000e+001
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.06 ticks  (3.98 ticks/sec)
+
+MIP - Integer optimal solution:  Objective = 5.0000000000e+001
+
+Log started (V12.5.1.0) Sun Dec 08 21:20:00 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg38.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 5 columns.
+MIP Presolve modified 6 coefficients.
+Aggregator did 5 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.02 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1500000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (22.71 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x170,129                      1.000000
+x170,131                      1.000000
+x170,132                      1.000000
+x171,128                      1.000000
+x171,130                      1.000000
+All other variables in the range 1-10 are 0.
+
+Log started (V12.5.1.0) Sun Dec 08 21:21:20 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ef40.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Row 'c4' infeasible, all entries at implied bounds.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.01 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound = 2.0000000000e+002 (gap is infinite)
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (0.67 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:21:20 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:21:20 2013
+
+CPLEX Error  1615: Line 4: Expected number, found 'y'.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.5.1.0) Sun Dec 08 21:21:20 2013
+
+
+Problem 'C:/Sites/spliddit/tmp/ccg40.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Found incumbent of value 100.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 4 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 2 solutions saved.
+
+MIP - Integer optimal solution:  Objective = 1.0100000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (7.79 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x174,135                      1.000000
+x175,136                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Mar 23 20:15:26 2014
+
+
+Problem 'C:/Sites/spliddit/tmp/ef44.lp' read.
+Read time = 0.14 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 3 columns.
+MIP Presolve modified 7 coefficients.
+Aggregator did 3 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.02 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.05 sec. (0.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.05 sec. (0.02 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1000000000e+002
+Solution time =    0.06 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (0.28 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x184,147                      1.000000
+x185,145                      1.000000
+x185,146                      1.000000
+All other variables in the range 1-6 are 0.
+
+Log started (V12.5.1.0) Mon Mar 24 01:54:13 2014
+
+
+Problem 'C:/Sites/spliddit/tmp/ef47.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 2 columns.
+MIP Presolve modified 2 coefficients.
+Aggregator did 2 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective = 1.1000000000e+002
+Solution time =    0.00 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (12.09 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+x197,151                      1.000000
+x198,152                      1.000000
+All other variables in the range 1-4 are 0.
+
+Log started (V12.5.1.0) Sun Oct 05 22:43:43 2014
+

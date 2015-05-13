@@ -1,0 +1,5 @@
+<p>
+  <span class="emph"><%= mechanism.name %></span>: <%= mechanism.description %> 
+  <% if !mechanism.link.blank? %><%= link_to "Learn more...", mechanism.link, target: :blank %> <% end %>
+</p>
+<br />

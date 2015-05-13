@@ -1,0 +1,40 @@
+<% provide(:title, 'New Share Rent Instance') %>
+<% provide(:description, "Enter a list of roommates, a list of bedrooms, and the monthly rent to get started. We'll then send everyone a link where they specify how much they would pay to live in each bedroom.") %>
+<%= include_javascript 'forms/base.js' %>
+<%= include_javascript 'forms/rent.js' %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag splitting_rent_instances_path + '/create', honeypot: true, autocomplete: "off" do %>
+      <div class="form-row">
+        <div class="form-row">
+          <h2 style="margin-bottom:0">Apartment/House Name</h2>
+          <%= text_field_tag :instance_name, nil, maxlength: 50, class: "ipt-small" %>
+        </div>
+        <div class="form-row">
+          <h2 style="margin-bottom:0">Monthly Rent</h2>
+          <span class="addon">
+            <%= select_tag "currency".to_sym, 
+              options_for_select([["$","usd"],
+                                  ["€","euro"],
+                                  ["£","gbp"],
+                                  ["¥","jpy"],
+                                  ["₪","ils"]], params[:currency]) %>
+          </span>
+          <%= text_field_tag :rent, nil, style: "width:100px; text-align:right", maxlength: 7 %>
+          <span class="addon">.00</span>
+        </div>
+      </div>
+      <%= render 'instances/participants_form', locals: { title: "Roommates" } %>
+      <br />
+      <%= render 'instances/resources_form' %>
+      <br />
+      <%= render 'instances/admin_email_form' %>
+      <%= render 'instances/submit' %>
+  <% end %>
+  </div>
+</div>
+
+

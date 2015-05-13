@@ -1,0 +1,28 @@
+<h1>Feedback</h1>
+<% if !@agent.submitted_survey? %>
+  <%= form_tag "#{@instance.id}/survey/" + params[:p] do %>
+    <div class="form-row">
+      <p>How satisfied are you with the outcome?</p>
+      <p>
+        <%= radio_button_tag 'satisfaction', 'vs' %> 
+        <%= label_tag 'satisfaction_vs', 'Very Satisfied', style: 'display:inline; margin-right: 10px' %>
+      
+        <%= radio_button_tag 'satisfaction', 's' %> 
+        <%= label_tag 'satisfaction_s', 'Satisfied', style: 'display:inline; margin-right: 10px' %>
+      
+        <%= radio_button_tag 'satisfaction', 'u' %> 
+        <%= label_tag 'satisfaction_u', 'Unsatisfied', style: 'display:inline; margin-right: 10px' %>
+      
+        <%= radio_button_tag 'satisfaction', 'vu' %> 
+        <%= label_tag 'satisfaction_vu', 'Very Unsatisfied', style: 'display:inline; margin-right: 10px' %>
+      </p>
+    </div>
+    
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+    
+    <br>
+    <p>If you have additional comments, please visit the <%= link_to 'feedback page', root_url + 'feedback', target: "_blank" %>.</p>
+  <% end %>
+<% else %>
+  <p>Thank you for providing your feedback! If you have additional comments, please visit the <%= link_to 'feedback page', root_url + 'feedback', target: "_blank" %>.</p>
+<% end %>

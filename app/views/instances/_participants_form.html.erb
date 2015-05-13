@@ -1,0 +1,41 @@
+<div class="form-row">
+  <h2 style="margin-bottom:0"><%= locals[:title] %></h2>
+  <p class="description">
+    If you're able to provide email addresses for each participant, we'll send a private link to each for submitting evaluations. Otherwise, we'll generate a single link that you can share with everyone however you'd like.
+  </p>
+  <%= select_tag "contact_method".to_sym, 
+        options_for_select([["I'll fill in the email addresses.","email"],
+                           ["I choose not to supply email addresses.","noemail"]], params[:contact_method]) %>
+  <div>
+    <p id="participants-error" class="error-msg"></p>
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <% if !@fixed_agents %><th></th><% end %>
+          </tr>
+      </thead>
+      <tbody id="agents">
+        <% @participants.times do |i| %>
+          <tr id="agent-<%= i %>">
+              <td data-title="Name">
+                <%= text_field_tag "names[#{i}]".to_sym %>
+              </td>
+              <td data-title="Email">
+                <%= text_field_tag "emails[#{i}]".to_sym, nil, class: 'email-field' %>
+              </td>
+              <% if !@fixed_agents %>
+              <td id = "agent-delete-<%= i %>">
+                <a class="btn-remove" href="#" title="Remove" onclick = "remove_agent(<%= i %>); return false">Remove</a>
+              </td>
+              <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>        
+  <%= hidden_field_tag(:agents_ct, nil, value: @participants, id: "agents_ct") %>
+  <% if !@fixed_agents %><a href = "#" onclick = "add_agent(); return false;">Add Person...</a><% end %>
+  <br />
+</div>

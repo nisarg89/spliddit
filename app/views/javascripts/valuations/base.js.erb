@@ -1,0 +1,132 @@
+var sum;
+
+function initSliders() {
+  sum = 0;
+  target = <%= @instance.valuations_sum %>;
+
+  $(".valuation_ipt").blur(function() {
+    var val = parseInt($(this).val());
+    if (isNaN(val) || val<=0) val = 0;
+    if (val>target) val=target;
+    $(this).val(val);
+    $(this).parent().parent().find(".nstSlider").nstSlider("set_position", val);
+    updateSum();
+  });
+  $(".nstSlider").nstSlider({
+    left_grip_selector:".leftGrip",
+    value_changed_callback: function(cause, v) {
+      $(this).parent().find(".leftLabel").val(v);
+      updateSum();
+    }
+  });
+  resetSliders();
+}
+
+function updateSum() {
+  sum = 0;
+  var temp;
+  $(".valuation_ipt").each(function() {
+    if(<%= @instance.application.abbr != 'credit' %> ||
+       $(this).parent().parent().attr('id') != 'slider_'+cur_agent) {
+      temp = parseInt($(this).val(),10);
+      if (!isNaN(temp)) {
+        sum += temp;
+      }
+    }
+  });
+  $('#sum').html(sum);
+}
+
+function resetSliders() {
+  $(".nstSlider").nstSlider("set_position",0);
+  $(".valuation_ipt").val(<%= @slider_min %>);
+  updateSum();
+  return false;
+}
+
+function updateSliders() {
+  if (sum == 0) return;
+  var multiplier = 1.0 * target / sum;
+  
+  var scaled_sum = 0;
+  $(".valuation_ipt").each(function() {
+    if(<%= @instance.application.abbr != 'credit' %> ||
+       $(this).parent().parent().attr('id') != 'slider_'+cur_agent) {
+      scaled_sum += Math.round(multiplier * parseInt($(this).val(),10));
+    }
+  });
+
+  var remainder = target - scaled_sum;
+  $(".valuation_ipt").each(function() {
+    if(<%= @instance.application.abbr != 'credit' %> ||
+       $(this).parent().parent().attr('id') != 'slider_'+cur_agent) {
+      scaled_val = Math.round(multiplier * parseInt($(this).val(),10));
+      if (remainder < 0 && scaled_val > 0) {
+        remainder++;
+        $(this).val(scaled_val - 1);
+      } else if (remainder > 0 && scaled_val < target) {
+        remainder--;
+        $(this).val(scaled_val + 1);
+      } else {
+        $(this).val(scaled_val);
+      }
+      $(this).parent().parent().find(".nstSlider").nstSlider("set_position", parseInt($(this).val()));
+    }
+  });  
+
+}
+
+function checkValid() {
+  var email_results = $('#send_results').attr('checked');
+  var mailing_list = $('#mailing_list').attr('checked');
+  var email_valid = validateEmail($('#email').val());
+  var email_present = $('#email').val() != "";
+  var name_present = <%= @instance.separate_passwords %> || $('#name').val() != "";
+
+  if (!name_present) {
+    displayError("Please select your name from the dropdown list.");
+    return false;
+  }
+
+  if ((email_results || mailing_list) && email_present && !email_valid) {
+    displayError("The email address you've entered is invalid.");
+    return false;
+  }
+
+  if ((email_results || mailing_list) && !email_present) {
+    displayError("Please either enter an email address or uncheck the options below the email field.");
+    return false;
+  }
+
+  if (sum != target) {
+    displayError("Please ensure that your values sum to <%= @prefix %><%= @instance.valuations_sum %><%= @postfix %>. This can be done by pressing the 'rescale' button.");
+    return false;
+  }
+
+  $('#valuations-error').fadeOut();
+  return true;
+}
+
+function displayError(msg) {
+  var in_focus = true;
+  if (msg != "") {
+    in_focus = scrollToView($('#valuations-error'));
+  }
+  if ($('#valuations-error').text() == "" || !in_focus) {
+    $('#valuations-error').text(msg).fadeIn();
+  } else {
+    $('#valuations-error').fadeOut(400, function() {
+      $(this).text(msg).fadeIn();
+    });    
+  }
+}
+
+function validateEmail($email) {
+  if ($email=="") return false;
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}

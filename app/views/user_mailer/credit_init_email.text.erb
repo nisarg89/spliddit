@@ -1,0 +1,7 @@
+Hello <%= @agent.name %>,
+
+You've been invited to use Spliddit's Assigning Credit App for the <%= @agent.instance.name %> project. The below link will ask you to evaluate the contributions of your peers. No registration is required.
+
+<%= link_to sharing_credit_instance_url(@agent.instance, p: @agent.passcode), sharing_credit_instance_url(@agent.instance, p: @agent.passcode), only_path: false %>
+
+<%= render 'spliddit_info', :locals => {:application => "credit"} %>

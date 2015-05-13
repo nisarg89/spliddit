@@ -1,0 +1,18 @@
+---
+
+Spliddit.org offers quick, free solutions to everyday fair division problems, using methods that provide indisputable fairness guarantees and build on decades of research in economics, mathematics, and computer science. Its mission is twofold: to provide easy access to carefully designed fair division methods, thereby making the world a bit fairer, and to communicate to the public the beauty and value of theoretical research in computer science, mathematics, and economics, from an unusual perspective.
+
+<% if locals[:application] == 'rent' %>
+Spliddit's Sharing Rent App helps roommates to fairly share rent when moving into a new house or apartment. This is especially useful when bedrooms differ in size, closet space, bathrooms, and more. The above link asks you to evaluate the different rooms. Our algorithm uses everyone's evaluations to fairly decide who should live in which room, and how much each housemate should contribute to the monthly rent.
+<% elsif locals[:application] == 'goods' %>
+Spliddit's Dividing Goods App fairly divides jewelry, artworks, electronics, toys, furniture, financial assets, or even an entire estate between two or more people. The above link asks you to specify how much you believe each item is worth. Our algorithm uses everyone's evaluations to propose a fair division of the items.
+<% elsif locals[:application] == 'credit' %>
+Spliddit's Assigning Credit App fairly determines the contribution of each individual to a group project. Use cases include a teacher looking to monitor group assignments, a scientist looking to find a fair author ordering for a research paper, and a company looking to split bonuses among employees. The above link asks you to evaluate the contribution of your peers. Our algorithm uses everyone's evaluations to settle on a fair assignment of credit.
+<% elsif locals[:application] == 'fare' %>
+Spliddit's Splitting Fare App helps to fairly split taxi fares between multiple passengers. The fare calculator can also be used to divide the fares for ride-sharing services including Uber and Lyft.
+<% elsif locals[:application] == 'tasks' %>
+Spliddit's Distributing Tasks App fairly divides household chores, work shifts at a hospital, or any other set of tasks. The above link asks you to specify how much you prefer each task relative to the others. Our algorithm uses everyone's evaluations to propose a fair division of the tasks among the participants.
+<% end %>
+
+Thanks,
+Spliddit Staff

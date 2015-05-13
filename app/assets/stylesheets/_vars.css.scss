@@ -1,0 +1,57 @@
+/*-------------------------------------
+	
+	Breakpoint
+
+-------------------------------------*/
+
+$breakpoint-to-ems: true; 
+$breakpoint-no-query-fallbacks: true;
+
+$bp-tiny-tables: 0px 400px;
+$bp-xsmall:	 320px;
+$bp-small:   480px;
+$bp-medium:	 768px, 'no-query' '.lt-ie9';
+$bp-large: 	 960px, 'no-query' '.lt-ie9';
+$bp-xlarge:	 1200px, 'no-query' '.lt-ie9';
+$bp-mega:	 1700px;
+
+
+/*-------------------------------------
+	
+	Compass Support
+
+-------------------------------------*/
+
+//$legacy-support-for-ie7: true;
+//$legacy-support-for-ie8: true;
+
+$legacy-support-for-ie: true;
+
+/*-------------------------------------
+	
+	Colors
+
+-------------------------------------*/
+
+$font-primary-color: #777;
+$color-primary: #59DF72; 
+$color-secondary: #456087;
+
+
+
+/*-------------------------------------
+	
+	Fonts
+
+-------------------------------------*/
+
+$base-font-size: 16px;
+$font-primary: 'Roboto', sans-serif;
+
+
+
+/*-------------------------------------
+	
+	Misc
+
+-------------------------------------*/

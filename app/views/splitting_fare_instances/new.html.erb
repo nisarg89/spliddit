@@ -1,0 +1,72 @@
+<% provide(:title, 'New Split Fare Instance') %>
+<% provide(:description, "Enter the pickup and dropoff addresses below, and Spliddit's fare calculator will split the cost of your ride in seconds.") %>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+<%= include_javascript 'forms/fare.js' %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <div class="accordion curved" id="addresses">Enter Addresses<span class="symbol"></span></div>
+        <div class="accordion-container">
+            <div class="accordion-content">
+                <form onkeypress="return event.keyCode != 13;" onsubmit="return false;" autocomplete="off">
+                    <div class="form-row">
+                        <div class="form-row">
+                            <p id="addresses-error" class="error-msg error-text"></p>
+                        </div>
+                        <div class="form-row">
+                            <h2 style="margin-bottom:0">Pickup Location</h2>
+                            <p class="description">Enter the address from which everyone will be picked up.</p>
+                            <%= text_field_tag :pickup, nil, class: "loc", autocomplete: "off" %>
+                        </div>
+                        <h2 style="margin-bottom:0">Dropoff Locations</h2>
+                        <p class="description">Enter the address of each passenger (between 2 and 6). If multiple people are being dropped off at the same location, list the address multiple times. The order doesn't matter; we will compute the cheapest route for you.</p>
+                        <table>
+                            <tbody>
+                                <tr><td>1</td><td><%= text_field_tag :dropoff_1, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <tr><td>2</td><td><%= text_field_tag :dropoff_2, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <tr><td>3</td><td><%= text_field_tag :dropoff_3, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <tr><td>4</td><td><%= text_field_tag :dropoff_4, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <tr><td>5</td><td><%= text_field_tag :dropoff_5, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <tr><td>6</td><td><%= text_field_tag :dropoff_6, nil, class: "loc", autocomplete: "off" %></td></tr>
+                                <!-- Dummy used to stop Chrome Autofill -->
+                                <tr style="display:none"><td></td><td><%= text_field_tag :dummy, nil, class: "loc" %></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="form-row">
+                            <h2 style="margin-bottom:0">Total Fare (Optional)</h2>
+                            <p class="description">If you know the total cost of the ride (including tip), enter it below. Otherwise, we will estimate the fare for you using <a href = "http://taxifarefinder.com" target = "_blank">TaxiFareFinder</a>.</p>
+                            <span class="addon">
+                                <%= select_tag "currency".to_sym, 
+                                    options_for_select([["$","usd"],
+                                                        ["€","euro"],
+                                                        ["£","gbp"],
+                                                        ["¥","jpy"],
+                                                        ["₪","ils"]], params[:currency]) %>
+                            </span>
+                            <%= text_field_tag :total_fare, nil, maxlength: 7, style: "width:100px; text-align:right" %>
+                        </div>
+                        <div class="form-row">
+                            <h2 style="margin-bottom:0">Email Address (Optional)</h2>
+                            <p class="description">Enter an email address if you'd like us to send you the results in addition to displaying them below.</p>
+                            <%= text_field_tag :admin_email, nil, maxlength: 50, class: "ipt-small" %>
+                        </div>
+                        <%= submit_tag "   Next   ", class: "btn", onclick: "validateAddressesForm(true); return false" %>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="accordion" id="results">Compute Fares<span class="symbol"></span></div>
+        <div class="accordion-container">
+            <div class="accordion-content">
+                <div id="update-results">
+                    <p id="update-results-msg">Click the button to split the fare!</p>
+                    <button id="submit-demo" type="button" class="btn update" onclick="submit(); return false">Get Results</button>
+                </div>
+                <br><br>
+                <div id="results-table"></div>
+            </div>
+        </div>
+    </div>
+</div>

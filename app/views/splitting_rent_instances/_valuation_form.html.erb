@@ -1,0 +1,27 @@
+<%= include_javascript "valuations/base.js.erb" %>
+<%= include_javascript "valuations/rent.js.erb" %>
+
+<%= render 'layouts/text_banner', locals: { title: "Share Rent - #{@instance.name}" } %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag "#{@instance.id}/valuations/" + params[:p], honeypot: true do %>
+      <%= render 'instances/valuation_form_header' %>
+      <h2 style="margin-bottom:0">Room Evaluations</h2>
+      <p>
+        Use the sliders or textboxes to place values on each room. Think of these values as bids: you will never pay more than what you bid for a room, and in most cases you will pay less. However, your values must sum to the total rent: <strong><%= @currency %><%= @instance.rent %>.00</strong> per month. 
+        <% if @doubles %>
+          For double occupancy rooms, you should multiply your bid by 2. For example, if you would pay <%= @currency %>400 to live in a double, you should bid <%= @currency %>800.
+        <% end %>
+        <% if @triples %>
+          For triple occupancy rooms, you should multiply your bid by 3. For example, if you would pay <%= @currency %>300 to live in a triple, you should bid <%= @currency %>900.
+        <% end %>
+        <% if @quads %>
+          For quads, you should multiply your bid by 4. For example, if you would pay <%= @currency %>200 to live in a quad, you should bid <%= @currency %>800.
+        <% end %>
+        You can use the <em>rescale</em> button to automatically adjust your values to add up to the rent. <a href = "<%= root_url + 'apps/rent' %>" target="_blank">Click here</a> to learn how we use your evaluations to arrive at a fair division.</a>
+      </p>
+      <%= render 'instances/sliders' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,198 @@
+var polling_attempts = -1;
+var max_attempts = 15;
+var pickup, address_1, address_2, address_3, address_4, address_5, address_6;
+var pickup_place, address_1_place, address_2_place, address_3_place, address_4_place, address_5_place, address_6_place;
+
+$(document).ready(function() {
+  //dummy used to prevent Chrome autofill
+  _ = new google.maps.places.Autocomplete((document.getElementById('dummy')), { types: ['geocode'] });
+
+  pickup = new google.maps.places.Autocomplete((document.getElementById('pickup')), { types: ['geocode'] });
+  address_1 = new google.maps.places.Autocomplete((document.getElementById('dropoff_1')), { types: ['geocode'] });
+  address_2 = new google.maps.places.Autocomplete((document.getElementById('dropoff_2')), { types: ['geocode'] });
+  address_3 = new google.maps.places.Autocomplete((document.getElementById('dropoff_3')), { types: ['geocode'] });
+  address_4 = new google.maps.places.Autocomplete((document.getElementById('dropoff_4')), { types: ['geocode'] });
+  address_5 = new google.maps.places.Autocomplete((document.getElementById('dropoff_5')), { types: ['geocode'] });
+  address_6 = new google.maps.places.Autocomplete((document.getElementById('dropoff_6')), { types: ['geocode'] });
+
+
+  geolocate();
+
+  $(".loc").click(function () {
+     $(this).select();
+  });
+
+
+
+  $('.loc').blur(function() {
+    var id = "#" + $(this).attr('id');
+    if ($(id).val() == "") {
+      setTimeout(function(){
+        $(id).val("");
+      }, 10);
+    }
+  });
+
+  $('.accordion').accordion({defaultOpen: 'addresses'});
+});
+
+function validateAddressesForm(advance) {
+  clearBlankAddresses();
+
+  //check that pickup, address 1, and address 2 are nonempty
+  if (!pickup.getPlace() || $('#pickup').val() == "") {
+    displayError("Please enter a pickup location.", "addresses-error");
+    return false;
+  }
+
+  address_ct = 0;
+  if (address_1.getPlace() && $('#dropoff_1').val() != "") address_ct ++;
+  if (address_2.getPlace() && $('#dropoff_2').val() != "") address_ct ++;
+  if (address_3.getPlace() && $('#dropoff_3').val() != "") address_ct ++;
+  if (address_4.getPlace() && $('#dropoff_4').val() != "") address_ct ++;
+  if (address_5.getPlace() && $('#dropoff_5').val() != "") address_ct ++;
+  if (address_6.getPlace() && $('#dropoff_6').val() != "") address_ct ++;
+
+  if (address_ct < 2) {
+    displayError("You must enter at least two dropoff addresses.", "addresses-error");
+    return false;
+  }
+
+  // email should be empty or a valid email
+  if ($("#admin_email").val() && !validateEmail($("#admin_email").val())) {
+    displayError("Invalid email address.", "addresses-error");
+    return false;
+  }
+
+  // total fare should be empty or a (reasonable) number
+  if ($("#total_fare").val()) {
+    var x = parseFloat($("#total_fare").val());
+    if (!x || (x < 1 || x > 100000)) {
+      displayError("Invalid total fare.", "addresses-error");
+      return false;
+    }
+  } 
+
+  if (advance) {
+    advanceAccordion($('#addresses'));
+  }
+  $("#addresses-error").text("");
+  return true;
+}
+
+function clearBlankAddresses() {
+  // if address isn't set, clear the field
+  if (!pickup.getPlace()) $('#pickup').val("");
+  if (!address_1.getPlace()) $('#dropoff_1').val("");
+  if (!address_2.getPlace()) $('#dropoff_2').val("");
+  if (!address_3.getPlace()) $('#dropoff_3').val("");
+  if (!address_4.getPlace()) $('#dropoff_4').val("");
+  if (!address_5.getPlace()) $('#dropoff_5').val("");
+  if (!address_6.getPlace()) $('#dropoff_6').val("");
+}
+
+function advanceAccordion(cur_tab) {
+  next_tab = cur_tab.next().next();
+  if (!next_tab.hasClass('accordion')) return;
+  
+  cur_tab.next().slideUp('slow', function() {
+    next_tab.next().slideDown('slow', function() {
+      scrollToView(next_tab);
+    });
+  });
+  cur_tab.removeClass('accordion-open');
+  cur_tab.addClass('accordion-close');
+
+  
+  next_tab.removeClass('accordion-close');
+  next_tab.addClass('accordion-open');
+  
+}
+
+function displayError(msg, id) {
+  var element = $("#"+id);
+  var in_focus = scrollToView(element);
+  if (element.text() == "" || !in_focus) {
+    element.text(msg).fadeIn();
+  } else {
+    element.fadeOut(400, function() {
+      element.text(msg).fadeIn();
+    });    
+  }
+}
+
+// Basic email regex
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function submit() {
+  if (!validateAddressesForm(false)) {
+    displayError("There were some errors in the form. Please go back and ensure all the information you entered is correct.", "update-results-msg");
+    return false;
+  }
+
+  $('#update-results-msg').text("Your request is being processed. This may take up to 30 seconds.");
+  $('#results-table').html('');
+  $('#submit-demo').hide();
+  $.ajax({
+    type: "POST",
+    url: "../../../demo/create",
+    data: { app: "fare", input: buildJSON() }
+  }).fail(function() {
+    $('#update-results-msg').text("We encountered an internal server error. Sorry for the inconvenience.");
+    $('#submit-demo').show();
+  });
+}
+
+function buildJSON() {
+  var json = {}
+  
+  json['pickup'] = formatAddress(pickup.getPlace(), $('#pickup').val());
+  json['address_1'] = formatAddress(address_1.getPlace(), $('#dropoff_1').val());
+  json['address_2'] = formatAddress(address_2.getPlace(), $('#dropoff_2').val());
+  json['address_3'] = formatAddress(address_3.getPlace(), $('#dropoff_3').val());
+  json['address_4'] = formatAddress(address_4.getPlace(), $('#dropoff_4').val());
+  json['address_5'] = formatAddress(address_5.getPlace(), $('#dropoff_5').val());
+  json['address_6'] = formatAddress(address_6.getPlace(), $('#dropoff_6').val());
+  json['currency'] = $('#currency').val();
+  json['total_fare'] = $('#total_fare').val();
+  json['admin_email'] = $('#admin_email').val();
+  return json;
+}
+
+function pollResults() {
+  $.getScript('../../../demo/poll?id='+id+'&p='+pwd);
+}
+
+function formatAddress(place, name) {
+  if (!place || !name) return "";
+  return name.split(",")[0] + "::" + place.geometry.location.lat() + "::" + place.geometry.location.lng();
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      pickup.setBounds(circle.getBounds());
+      address_1.setBounds(circle.getBounds());
+      address_2.setBounds(circle.getBounds());
+      address_3.setBounds(circle.getBounds());
+      address_4.setBounds(circle.getBounds());
+      address_5.setBounds(circle.getBounds());
+      address_6.setBounds(circle.getBounds());
+    });
+  }
+}

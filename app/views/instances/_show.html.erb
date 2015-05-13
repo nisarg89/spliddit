@@ -1,0 +1,71 @@
+<% if @instance.complete? && (@agent || @global_passcode) %>
+  <%= render 'layouts/text_banner', locals: { title: "Results - #{@instance.name}" } %>
+  <div class="page-content">
+    <div class="wrap">
+      <% if @agent %>
+        <h1>Hello <%= @agent.name %>,</h1>
+      <% end %>
+      <%= render "#{controller_folder}/results" %>
+      <%= render 'instances/descriptions' %>
+      <% if @agent %>
+        <% if @agent.fairness_str && @agent.fairness_str.length > 0 %>
+          <h1>Fairness Properties</h1>
+          <p><%= @agent.fairness_str.html_safe %></p>
+          <br>
+          <p><%= link_to "Click here", root_url + "apps/#{@instance.application.abbr}" %> for more details about fairness properties.</p>
+          <br>
+        <% end %>
+        <%= render "instances/survey" %>
+      <% end %>
+    </div>
+  </div>
+<% elsif @instance.failed? %>
+  <div class="innerpage-banner">
+      <div class="wrap">
+          <div class="page-title-thin">
+              <h1>Results - <%= @instance.name %></h1>
+          </div>
+      </div><!--.wrap-->
+  </div><!--.innerpage-banner-->
+  <div class="page-content">
+    <div class="wrap">
+      <p class="lead-paragraph">
+        Unfortunately, our algorithm was unable to come up with a fair outcome. We apologize for the inconvenience.
+      </p>
+    </div>
+  </div> 
+<% elsif !@instance.complete? && (@global_passcode || (@agent && !@agent.submitted?)) %>
+  <%= render "#{controller_folder}/valuation_form" %>
+<% else %>
+  <%= render 'layouts/text_banner', locals: { title: "Thank You" } %>
+
+  <div class="page-content">
+    <div class="wrap">
+      <p class="lead-paragraph">Thank you for submitting your evaluations! Once everyone else is done, you will be able to access the results on this page.
+
+      <% if @agent.send_results %>
+        We'll also email you a link at that time.
+      <% else %>
+        <strong>Since you opted out of email, we recommend bookmarking this page, and checking back periodically for the results.</strong>
+      <% end %>
+      <a href = "<%= root_url + 'apps/' + @instance.application.abbr %>">Click here</a> to learn more about how our algorithms work.
+      <% if !@instance.separate_passwords %>
+        <%= link_to "Click here", "#{root_url}apps/#{@instance.application.abbr}/#{@instance.id}?p=#{@instance.passcode}" %> to return to the evaluations screen.
+      <% end %>
+    </p>
+
+      <h1>Participants</h1>
+      <ul>
+        <% @instance.agents.each do |a| %>
+          <li>
+            <strong><%= a.name %></strong>
+            <% if a.submitted? %>
+              <span class="check">&#10003;</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <p><em>Checkmarks indicate who has submitted their evaluations.</em></p>
+    </div>
+  </div><!--.page-content-->
+<% end %>

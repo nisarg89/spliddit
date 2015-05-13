@@ -1,0 +1,20 @@
+<% provide(:title, 'Divide Goods') %>
+<% provide(:description, "Spliddit's goods calculator fairly divides jewelry, artworks, electronics, toys, furniture, financial assets, or even an entire estate between two or more people.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <h1>Number of Recipients</h1>
+        <p>The fairness properties guaranteed by Spliddit's algorithms depend on the number of people sharing the goods. Please select one of the following options.</p>
+
+        
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= dividing_goods_instances_path + '/two-people' %>" style="display:inline;margin:.5em">2 People</a>
+                <a class="btn" href="<%= dividing_goods_instances_path + '/three-or-more-people' %>" style="display:inline;margin:.5em">3 or More</a>
+            </p>
+        </div><!--.start-bar-->    
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

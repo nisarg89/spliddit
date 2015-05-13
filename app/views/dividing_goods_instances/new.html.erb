@@ -1,0 +1,25 @@
+<% provide(:title, 'New Divide Goods Instance') %>
+<% provide(:description, "Enter a list of participants and a list of items (jewelry, assets, electronics, or anything else) to get started. We'll then send everyone a link where they specify how much they value each good.") %>
+<%= include_javascript 'forms/base.js' %>
+<%= include_javascript 'forms/goods.js' %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+  <div class="wrap">
+    <%= form_tag dividing_goods_instances_path + '/create', honeypot: true, autocomplete: "off" do %>
+      <div class="form-row">
+        <h2 style="margin-bottom:0">Collection Name</h2>
+        <p class="description">A short description of the collection/lot of goods being divided.
+        </p>
+        <%= text_field_tag :instance_name, nil, maxlength: 50, class: "ipt-small" %>
+      </div>
+      <%= render 'instances/participants_form', locals: { title: "Participants" } %>
+      <br />
+      <%= render 'instances/resources_form' %>
+      <br />
+      <%= render 'instances/admin_email_form' %>
+      <%= render 'instances/submit' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+Hello <%= @agent.name %>,
+
+Here are your results from Spliddit's Assigning Credit App.
+
+<%= link_to sharing_credit_instance_url(@agent.instance, p: @agent.passcode), sharing_credit_instance_url(@agent.instance, p: @agent.passcode), only_path: false %>
+
+<%= render 'spliddit_info', :locals => {:application => "none"} %>

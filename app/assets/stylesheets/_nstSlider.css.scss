@@ -1,0 +1,41 @@
+.is_clickable {
+	cursor: hand;
+	cursor: pointer;
+}
+.nstSlider {
+	cursor: hand;
+	cursor: pointer;
+	@include border-radius(15px);
+	position: relative;
+	//width: 300px;
+	width: 100%;
+	height: 30px;
+	background: $color-secondary;
+	.bar {
+		@include border-radius(15px);
+		position: absolute;
+		background: #ffffff;
+		height: 8px;
+		top: 6px;
+	}
+	.highlightPanel {
+		@include transition-property(all);
+	  	@include transition-duration(500ms);
+	  	@include transition-timing-function(ease-in-out);
+		@include border-radius(10px);
+		position: absolute;
+		background: $color-primary;
+		height: 30px;
+		top: 0;
+	}
+	.leftGrip, .rightGrip {
+		position: absolute;
+		@include border-radius(15px);
+		width: 30px;
+		height: 30px;
+		background: lighten($color-secondary, 25%);
+		&.gripHighlighted {
+			background: #113344;
+		}
+	}
+}

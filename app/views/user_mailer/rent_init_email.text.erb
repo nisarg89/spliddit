@@ -1,0 +1,7 @@
+Hello <%= @agent.name %>,
+
+You've been invited to use Spliddit's Sharing Rent App for <%= @agent.instance.name %>. The below link will ask you to evaluate each room in the apartment/house. No registration is required.
+
+<%= link_to splitting_rent_instance_url(@agent.instance, p: @agent.passcode), splitting_rent_instance_url(@agent.instance, p: @agent.passcode), only_path: false %>
+
+<%= render 'spliddit_info', :locals => {:application => "rent"} %>

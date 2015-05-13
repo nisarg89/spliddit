@@ -1,0 +1,103 @@
+<% provide(:title, 'Assign Credit') %>
+<% provide(:description, "Spliddit's credit calculator fairly determines the contribution of each individual to a group project. Use cases include a teacher looking to monitor group assignments, a scientist looking to find a fair author ordering for a research paper, and a company looking to split bonuses among employees.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+
+        <p>Spliddit's credit calculator fairly determines the contribution of each individual to a group project. Use cases include a teacher looking to monitor group assignments, a scientist looking to find a fair author ordering for a research paper, and a company looking to split bonuses among employees. You begin by providing a list of people who contributed to the project. We then send links to the contributors where they evaluate their peers. Our calculator uses these evaluations to settle on a fair assignment of credit.</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/credit/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_sharing_credit_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->   
+
+
+        <h1>Fairness Properties</h1>
+
+        <div class="content-block" id="impart">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Impartiality</h2>
+
+                <div class="pplshift-circle">
+                    <%= image_tag "pplshift/podium.png", width: 125, height: 41, class: "podium" %>
+                    <%= image_tag "pplshift/baby-front.png", width: 81, height: 88, class: "baby-front" %>
+                    <%= image_tag "pplshift/man-back8.png", width: 123, height: 111, class: "man-back-8" %>
+                    <%= image_tag "pplshift/lady-back10.png", width: 121, height: 110, class: "lady-back-10" %>
+                    <%= image_tag "pplshift/man-front.png", width: 80, height: 111, class: "man-front" %>
+                    <%= image_tag "pplshift/baby-back8.png", width: 117, height: 90, class: "baby-back-8" %>
+                    <%= image_tag "pplshift/lady-back10.png", width: 121, height: 110, class: "lady-back-10b" %>
+                    <%= image_tag "pplshift/lady-front.png", width: 79, height: 109, class: "lady-front" %>
+                    <%= image_tag "pplshift/baby-back10.png", width: 117, height: 90, class: "baby-back-10" %>
+                    <%= image_tag "pplshift/man-back9.png", width: 124, height: 111, class: "man-back-9" %>
+                </div><!--.pplshift-circle-->
+                <p class="refresh ppl"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-right-->
+            
+            <div class="property-info left">
+            
+                <h2 class="desktop">Impartiality</h2>
+                <p>Each participant's share of the credit depends only on other participants' reports. In other words, a participant cannot affect her own share of the credit.</p>
+                <p>This property is guaranteed.</p>
+
+            </div><!--.property-info-->
+
+        </div><!--.content-block-->
+
+        <div class="content-block last" id="consens">
+
+            <div class="align-left">
+
+                <h2 class="mobile">Consensuality</h2>
+
+                <div class="pplshift-circle2">
+                    <%= image_tag "pplshift/podium.png", width: 125, height: 41, class: "podium" %>
+                    <%= image_tag "pplshift2/lady.png", width: 79, height: 110, class: "lady-front2" %>
+                    <%= image_tag "pplshift2/man.png", width: 124, height: 111, class: "man-back2" %>
+                    <%= image_tag "pplshift2/baby.png", width: 117, height: 84, class: "baby-back2" %>
+                    <%= image_tag "pplshift2/score.png", width: 49, height: 45, class: "score" %>
+                </div><!--.pplshift-circle2-->
+                <p class="refresh ppl2"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+
+            <div class="property-info right">
+
+                <h2 class="desktop">Consensuality</h2>
+                <p>If all participants agree on each other's relative contributions, then credit is shared according to a consensual division that is consistent with everyone's inputs.</p>
+                <p>This property is guaranteed.</p>
+            
+            </div><!--property-info-->
+            
+        </div><!--.content-block-->
+
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/credit/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_sharing_credit_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+
+
+        <h1>Algorithm Overview</h1>
+        <p>It's quite simple, actually: We just use a (carefully designed) formula. The outcome is guaranteed to satisfy <a href="#impart">impartiality</a> and <a href="#consens">consensuality</a>, together with several other desirable properties.</p> 
+        <p><strong>Reference:</strong> <a target="_blank" href="http://www.econ.brown.edu/fac/Geoffroy_declippel/impartial.pdf">"Impartial Division of a Dollar"</a>, by Geoffroy de Clippel, Herve Moulin, and Nicolaus Tideman.</p>
+        
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/credit/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_sharing_credit_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

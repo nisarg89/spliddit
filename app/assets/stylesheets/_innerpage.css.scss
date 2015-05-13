@@ -1,0 +1,106 @@
+.innerpage-banner {
+	@include pie-clearfix;
+	background: url(shared/bg-green.gif) repeat;
+	padding: 2em 0;
+	@include breakpoint($bp-medium) {
+		padding: 0;
+	}
+	.wrap {
+		@include breakpoint($bp-medium) {
+			max-width: 740px;
+		}
+		@include breakpoint($bp-large) {
+			max-width: 960px;
+		}
+		@include breakpoint($bp-xlarge) {
+			max-width: 1062px;
+		}
+	}
+}
+
+.page-title {
+	@include grid(240,320);
+}
+
+.banner-image {
+	@include grid(70,320);
+}
+
+.banner-image {
+	float: left;
+	@include breakpoint($bp-medium) {
+		//float: none;
+		height: 350px;
+		@include grid(460,1062);
+	}
+}
+
+.page-title {
+	float: left;
+	@include breakpoint($bp-medium) {
+		//float: none;
+		height: 350px;
+		@include grid(600,1062);
+	}
+}
+
+.page-title h1 {
+	margin-top: 1em;
+	@include breakpoint($bp-medium) {
+		margin-top: 0;
+	}
+}
+
+.page-title-thin h1 { 
+	text-align: center;
+	padding: 0.02em 0;
+	@include breakpoint($bp-medium) {
+		padding: 1em 0;
+	}
+}
+
+
+.page-title h1,
+.banner-image img {
+	@include breakpoint($bp-medium) {
+		@include vertical-align;
+	}
+}
+
+.lt-ie9 .page-title h1 {
+	top: 30%;
+}
+
+.lt-ie9 .banner-image img {
+	top: 15%;
+}
+
+.banner-image img {
+	display: block;
+	max-width: 70px;
+	height: auto;
+	//margin: 0 auto;
+	float: right;
+	@include breakpoint($bp-medium) {
+		//float: right;
+		max-width: 246px;
+	}
+}
+
+.page-content {
+	padding: 2em 0;
+	@include breakpoint($bp-medium) {
+		padding: 3em 0;
+	}
+}
+
+.sponsors img {
+	margin-right: 1em;
+}
+
+.check {
+	display: inline-block !important;
+	margin-left: 0.5em;
+	@include image-replace(20px,20px);
+	background: url(shared/checkmark.png) no-repeat;
+}

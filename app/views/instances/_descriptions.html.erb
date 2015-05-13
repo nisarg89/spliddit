@@ -1,0 +1,8 @@
+<div>
+  <p>
+    <% @instance.resources.select {|r| r.description && r.description.length>0}.each do |r| %>
+      <strong><%= r.name %>:</strong> <%= r.description %><br>
+    <% end %>
+  </p>
+</div>
+<br>

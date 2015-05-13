@@ -1,0 +1,213 @@
+var participants = 0;
+var resources = 0;
+
+$(document).ready(function() {
+  participants = <%= @participants %>;
+  resources = <%= @resources %>;
+
+  $('#contact_method').change(function() {
+    check_email_state();
+  });
+  $('input').blur(function() {
+    $(this).removeClass("error");
+  });
+});
+
+// enables or disables instance fields based on whether the user wants seperate passwords
+function check_email_state() {
+  if ($('#contact_method').val() == 'noemail') {
+    $('.email-field').prop('disabled', true);
+  } else if ($('#contact_method').val() == 'email') {
+    $('.email-field').prop('disabled', false);
+  }
+}
+
+<% if !@fixed_agents %>
+function add_agent() {
+  participants += 1;
+  $('#agents_ct').val(participants);
+  $('#agents').append(
+    '<tr id="agent-'+(participants-1)+'">' +
+      '<td data-title="Name">' +
+        '<input id="names_'+(participants-1)+'" name="names['+(participants-1)+']" type="text">' +
+      '</td>' +
+      '<td data-title="Email">' +
+        '<input class="email-field" id="emails_'+(participants-1)+'" name="emails['+(participants-1)+']" type="text">' +
+      '</td>' +
+      '<td id="agent-delete-'+(participants-1)+'">' +
+        '<a class="btn-remove" href="#" title="Remove" onclick="remove_agent('+(participants-1)+'); return false">Remove</a>' +
+      '</td>' +
+    '</tr>');
+  check_email_state();
+}
+
+function remove_agent(id) {
+  $("#agent-"+id).remove();
+  for (var i=id+1; i<participants; i++) {
+    $("#agent-"+i).attr('id','agent-'+(i-1));
+    $("#names_"+i).attr('id','names_'+(i-1)).attr('name','names['+(i-1)+']');
+    $("#emails_"+i).attr('id','emails_'+(i-1)).attr('name','emails['+(i-1)+']');
+    $("#agent-delete-"+i).html("<a class='btn-remove' href='#' title='Remove' onclick='remove_agent("+(i-1)+");return false'>Remove</a>").attr('id','agent-delete-'+(i-1));
+  }
+  participants--;
+  $('#agents_ct').val(participants);
+}
+<% end %>
+
+function add_resource() {
+  resources += 1;
+  options = '';
+  <% @resource_types.each do |r| %>
+    options += '<option value = "<%= r.second %>"><%= r.first %></option>';
+  <% end %>
+  $('#resources_ct').val(resources);
+  $('#resources').append(
+    '<tr id="resource-'+(resources-1)+'">' +
+      '<td data-title="Name">' +
+        '<input maxlength="50" id="rnames_' + (resources-1) + '" name="rnames[' + (resources-1) + ']" type="text">' +
+      '</td>' +
+      <% if @show_types %>
+      '<td>' +
+        '<select id="types_' + (resources-1) + '" name="types[' + (resources-1) + ']">' +
+          options +
+        '</select>' +
+      '</td>' +
+      <% end %>
+      <% if @show_quantities %>
+      '<td data-title="Quantity" style="max-width: 50px">' +
+        '<input type="text" maxlength="6" id="quantities_'+(resources-1)+'" name="quantities['+(resources-1)+']">' +
+      '</td>' +
+      <% end %>
+      <% if @show_descriptions %>
+      '<td data-title="Description" class="description-field">' +
+        '<textarea maxlength="200" id="descriptions_'+(resources-1)+'" name="descriptions['+(resources-1)+']"></textarea>' +
+      '</td>' +
+      <% end%>
+      '<td id="resource-delete-'+(resources-1)+'">' +
+        '<a class="btn-remove" href="#" title="Remove" onclick="remove_resource('+(resources-1)+'); return false">Remove</a>' +
+      '</td>' +
+    '</tr>');
+}
+
+function remove_resource(id) {
+  $("#resource-"+id).remove();
+  for (var i=id+1; i<resources; i++) {
+    $("#resource-"+i).attr('id','resource-'+(i-1));
+    $("#descriptions_"+i).attr('id','descriptions_'+(i-1)).attr('name','descriptions['+(i-1)+']');
+    $("#quantities_"+i).attr('id','quantities_'+(i-1)).attr('name','types['+(i-1)+']');
+    $("#types_"+i).attr('id','types_'+(i-1)).attr('name','types['+(i-1)+']');
+    $("#rnames_"+i).attr('id','rnames_'+(i-1)).attr('name','rnames['+(i-1)+']');
+    $("#resource-delete-"+i).html("<a class='btn-remove' href='#' onclick='remove_resource("+(i-1)+");return false'>Remove</a>").attr('id','resource-delete-'+(i-1));
+  }
+  resources--;
+  $('#resources_ct').val(resources);
+}
+
+// Basic email regex
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// returns true if array contains duplicate values
+function containsDuplicates(array) {
+  var valuesSoFar = {};
+  for (var i = 0; i < array.length; ++i) {
+      if (!(array[i] === "")) {
+        var value = array[i];
+        if (Object.prototype.hasOwnProperty.call(valuesSoFar, value)) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+      }
+  }
+  return false;
+}
+
+// returns true if the user decided to provide emails
+function checkEmails() {
+  if ($("#contact_method").val() == "email") {
+    $('#contact_method').removeClass('error');
+    return true;
+  } else if ($("#contact_method").val() == "noemail") {
+    $('#contact_method').removeClass('error');
+  } else {
+    $('#contact_method').addClass('error');
+  }
+  return false;
+}
+
+// basic participant checks (name length, email length, no duplicates)
+function validateParticipants() {
+  var check_emails = checkEmails();
+  var valid = true;
+  //check that the names/emails are reasonable
+  var names = new Array();
+  var emails = new Array();
+  for (var i=0; i<participants; i++) {
+    names[i] = $("#names_"+i).val();
+    emails[i] = $("#emails_"+i).val();
+
+    if (names[i].length < 1 || names[i].length > 100) {
+      $('#names_'+i).addClass('error');
+      valid = false;
+    } else {
+      $('#names_'+i).removeClass('error');
+    }
+    if (check_emails && (emails[i].length < 1 || emails[i].length > 100 || !validateEmail(emails[i]))) {
+      $('#emails_'+i).addClass('error');
+      valid = false;
+    } else {
+      $('#emails_'+i).removeClass('error');
+    }
+  }
+
+  if (containsDuplicates(names)) {
+    $("#participants-error").append("<div class='alert alert-error'>Please make sure all names are unique, using last names if necessary.</div>");
+    valid = false;
+  }
+  if (check_emails && containsDuplicates(emails)) {
+    $("#participants-error").append("<div class='alert alert-error'>All emails must be unique.</div>");
+    valid = false;
+  }
+  return valid;
+}
+
+function validateAdminEmail() {
+  var admin_email = $("#admin_email").val();
+  if (admin_email.length > 100 || (admin_email.length >= 1 && !validateEmail(admin_email))) {
+    $("#admin_email").addClass('error');
+    return false;
+  } else {
+    $("#admin_email").removeClass('error');
+    return true;
+  }
+}
+
+// called when submit button is pressed
+function validateForm() {
+  $(".error-msg").html("");
+  var submit = true;
+  if (!validateHelper()) submit = false;
+  if (!validateInstanceName()) submit = false;
+  if (!validateParticipants()) submit = false;
+  if (!validateAdminEmail()) submit = false;
+  if (!submit) {
+    $("#overall-error").html("There were some errors in your submission. Please correct them and resubmit.");
+  }
+  return submit;
+}
+
+function validateInstanceName() {
+  if ($("#instance_name").val().length > 50 || $("#instance_name").val().length < 1) {
+    $('#instance_name').addClass('error');
+    return false;
+  } else {
+    $('#instance_name').removeClass('error');
+    return true;
+  }
+}

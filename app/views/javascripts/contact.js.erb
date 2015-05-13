@@ -1,0 +1,30 @@
+$(document).ready(function() {
+  $(".form-field").blur(function() {
+    checkSubmitButton();
+  });
+  $(".form-field").keypress(function() {
+    checkSubmitButton();
+  });
+  checkSubmitButton();
+});
+
+function checkSubmitButton() {
+  var name_valid = $("#name").val().length > 0 && $("#name").val().length <= 50;
+  var email_valid = $("#email").val().length==0 || ($("#email").val().length <= 50 && validateEmail($("#email").val()));
+  var message_valid = $("#message").val().length >= 10 && $("#message").val().length <= 1000;
+  if (name_valid && email_valid && message_valid) {
+    $('#submit').removeAttr("disabled");
+  } else {
+    $('#submit').attr("disabled","disabled");
+  }
+}
+
+function validateEmail($email) {
+  if ($email=="") return false;
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}

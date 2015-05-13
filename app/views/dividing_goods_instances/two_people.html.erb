@@ -1,0 +1,132 @@
+<% provide(:title, 'Divide Goods') %>
+<% provide(:description, "Spliddit's goods calculator fairly divides jewelry, artworks, electronics, toys, furniture, financial assets, or even an entire estate between two or more people.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <h1>Two People</h1>
+        <p>Spliddit's goods calculator fairly divides jewelry, artworks, electronics, toys, furniture, financial assets, or even an entire estate between two people. You begin by providing a list of items that you wish to divide. We then send the two recipients links where they specify how much they believe each item is worth. Our algorithm uses these evaluations to propose a fair division of the items. Note that <strong>at most</strong> one item may need to be shared between both parties.</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/goods/demo?people=2' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_dividing_goods_instance_path(people: 2) %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->    
+    
+        <h1>Fairness Properties</h1>
+                
+        <div class="content-block" id="max-share">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Equitability</h2>
+
+                <div class="equit">
+
+                    <%= image_tag "equit/people.png", width: 221, height: 154, class: "people" %>
+                    <%= image_tag "equit/large-box.png", width: 74, height: 60, class: "large-box" %>
+                    <%= image_tag "equit/med-box.png", width: 56, height: 48, class: "med-box" %>
+                    <%= image_tag "equit/small-box.png", width: 51, height: 39, class: "small-box" %>
+                    <%= image_tag "equit/arm-guy.png", width: 70, height: 120, class: "arm-guy" %>
+                    <%= image_tag "equit/arm-girl.png", width: 70, height: 120, class: "arm-girl" %>
+                
+                </div><!--.equit-->
+                <p class="refresh equitr"><a href="#" title="Replay">refresh</a></p>
+            </div><!--.align-right-->
+
+            <div class="property-info left">
+
+                <h2 class="desktop">Equitability</h2>
+                <p>A division of goods is equitable if both participants believe that their bundles have the same value.</p>
+                <p>This property is guaranteed, assuming any single good can be shared.</p>
+            
+            </div>
+
+        </div><!--.content-block-->
+
+        <div class="content-block" id="envy-free">
+        
+            <div class="align-left">
+
+                <h2 class="mobile">Envy-freeness</h2>
+                
+                <div class="family-circle run-animation" id="test">
+                    <div class="family">
+                        <%= image_tag "itemshift/family.png", width: 241, height: 253, class: "bodies" %>
+                        <%= image_tag "itemshift/smiles.png", width: 181, height: 155, class: "smiles" %>
+                        <%= image_tag "itemshift/frowns.png", width: 181, height: 149, class: "frowns" %>
+                        <%= image_tag "itemshift/football.png", width: 67, height: 36, class: "football" %>
+                        <%= image_tag "itemshift/bottle.png", width: 31, height: 57, class: "bottle" %>
+                        <%= image_tag "itemshift/purse.png", width: 59, height: 59, class: "purse" %>
+                    </div><!--.family-->
+                </div><!--.circle-->
+                <p class="refresh items"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+
+            <div class="property-info right">
+
+                <h2 class="desktop">Envy-freeness</h2>
+
+                <p>A division of goods is envy-free if each participant believes that her bundle of goods is at least as valuable as the other's. In other words, neither participant would want to swap bundles.</p>
+                <p>This property is guaranteed, assuming any single good can be shared.</p>
+                
+            </div>
+
+        </div><!--.content-block-->
+
+        <div class="content-block last" id="efficient">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Efficiency</h2>
+
+                <div class="family-circle-2">
+                    <div class="family-2">
+                        <%= image_tag "itemshift/family-2.png", width: 241, height: 253, class: "bodies" %>
+                        <%= image_tag "itemshift/baby-eyes1.png", width: 181, height: 155, class: "baby-eyes1" %>
+                        <%= image_tag "itemshift/baby-eyes2.png", width: 181, height: 149, class: "baby-eyes2" %>
+                        <%= image_tag "itemshift/lady-smile.png", width: 67, height: 36, class: "lady-smile" %>
+                        <%= image_tag "itemshift/lady-frown.png", width: 31, height: 57, class: "lady-frown" %>
+                        <%= image_tag "itemshift/football.png", width: 67, height: 36, class: "football-2" %>
+                        <%= image_tag "itemshift/bottle.png", width: 31, height: 57, class: "bottle-2" %>
+                        <%= image_tag "itemshift/purse.png", width: 59, height: 59, class: "purse-2" %>
+                    </div><!--.family-->
+                </div><!--.circle-->
+                <p class="refresh effic"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+            
+            <div class="property-info left">
+
+                <h2 class="desktop">Efficiency</h2>
+                <p>Our algorithm divides the goods in such a way that it would be impossible to find another assignment that benefits one participant without making the other worse off.</p>
+                <p>This property is guaranteed, assuming any single good can be shared.</p>
+            
+            </div><!--.property-info.right-->
+            
+        </div><!--.content-block-->
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/goods/demo?people=2' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_dividing_goods_instance_path(people: 2) %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+
+
+        <h1>Algorithm Overview</h1>
+        <p>Spliddit uses the Adjusted Winner algorithm of Brams and Taylor. The algorithm begins by assigning each good to the participant who values it the most. At this point, equitability may be violated: one participant would typically value her bundle of goods more than the other. The algorithm then orders the goods by increasing ratio of the value of the former participant to the value of the latter participant, and incrementally transfers the goods until equitability is achieved. Efficiency is maintained throughout the process, and the outcome can be shown to be envy free. If the process ends while a good is being transferred (which is typically the case) then that good must be split. (In contrast, applying the more general Egalitarian Equivalent solution of Pazner and Schmeidler when there are more than 2 participants would typically result in multiple goods being split, which is why we use a fundamentally different algorithm for that case.)</p>
+        <p><strong>Reference:</strong> <a target="_blank" href="http://www.nyu.edu/projects/adjustedwinner/">Adjusted Winner website</a></p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/goods/demo?people=2' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_dividing_goods_instance_path(people: 2) %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->   
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

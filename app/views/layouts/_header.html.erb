@@ -1,0 +1,43 @@
+<div class="mobile-header">
+    <a id="menu-mobile" href="#sidr">Menu</a>
+    <a id="logo-mobile" href="/"><%= image_tag "shared/logo-mobile.png", height: 24, width: 70 %></a>
+</div>
+
+<div id="sidr">
+    <ul class="mobile-nav">
+        <li><%= link_to "Home", root_url %></li></li>
+        <li><%= link_to "Share Rent", root_url + 'apps/rent' %></li>
+        <li><%= link_to "Split Fare", root_url + 'apps/fare' %></li>
+        <li><%= link_to "Assign Credit", root_url + 'apps/credit' %></li>
+        <li><%= link_to "Divide Goods", root_url + 'apps/goods' %></li>        
+        <li><%= link_to "Distribute Tasks", root_url + 'apps/tasks' %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Feedback", feedback_path %></li>
+    </ul>
+</div><!--#sidr-->
+
+<div class="site">
+
+<header class="site-header">
+    <div class="wrap">
+        <div class="logo">
+            <a href="<%= root_url %>">
+                <%= image_tag "shared/spliddit_logo.png", width: 240, height: 83, alt: "Spliddit"  %>
+            </a>
+        </div><!--.logo-->
+        <nav class="header-nav">
+            <ul class="nav-set-2">
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Feedback", feedback_path %></li>
+            </ul>
+            <ul class="nav-set-1">
+              <li class="divide">Divide: </li>
+              <li><%= link_to "Rent", root_url + 'apps/rent' %></li>
+              <li><%= link_to "Fare", root_url + 'apps/fare' %></li>
+              <li><%= link_to "Credit", root_url + 'apps/credit' %></li>
+              <li><%= link_to "Goods", root_url + 'apps/goods' %></li>
+              <li><%= link_to "Tasks", root_url + 'apps/tasks' %></li>
+            </ul>
+        </nav>
+    </div><!--.wrap-->
+</header><!--.site-header-->

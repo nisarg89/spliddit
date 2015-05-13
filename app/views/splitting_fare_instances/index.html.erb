@@ -1,0 +1,101 @@
+<% provide(:title, 'Split Taxi, Uber, or Lyft Fare') %>
+<% provide(:description, "Spliddit's fare calculator helps to split taxi fares between multiple passengers. The fare calculator can also be used to divide the fares for ride-sharing services including Uber and Lyft.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <p>Spliddit's fare calculator helps to fairly split taxi fares between multiple passengers. The fare calculator can also be used to divide the fares for ride-sharing services including Uber and Lyft. Simply enter the address you'd like to be picked up from, as well as the addresses of all the passengers, and we'll compute the results in seconds.  You can use the fare calculator before riding, and Spliddit will use <a href = "http://taxifarefinder.com" target = "_blank">TaxiFareFinder</a> to estimate fares. For the most accurate split, use the calculator at the end of your ride and enter the actual total fare.</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= new_splitting_fare_instance_path %>">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->     
+
+        <h1>Fairness Properties</h1>
+
+        <div class="content-block" id="envy-free">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Individual Rationality</h2>
+
+                <div class="taxi1">
+                    <%= image_tag "taxi/dollar.png", height: 53, width: 38, class: "dollar dollar1" %>
+                    <%= image_tag "taxi/dollar.png", height: 53, width: 38, class: "dollar dollar2" %>
+                    <%= image_tag "taxi/dollar.png", height: 53, width: 38, class: "dollar dollar3" %>
+                    <%= image_tag "taxi/taxi.png", height: 201, width: 315, class: "taxi" %>
+                    <%= image_tag "taxi/guy.png", height: 61, width: 38, class: "guy" %>
+                    <%= image_tag "taxi/frown.png", height: 3, width: 13, class: "frown" %>
+                    <%= image_tag "taxi/smile.png", height: 7, width: 14, class: "smile" %>
+                    <%= image_tag "taxi/girl.png", height: 7, width: 14, class: "girl" %>
+                    <%= image_tag "taxi/guy2.png", height: 60, width: 36, class: "guy2" %>
+                </div>
+                <p class="refresh taxi1r"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-right-->
+
+            <div class="property-info left">
+
+                <h2 class="desktop">Individual Rationality</h2>
+                <p>The fare is split in a way that no passenger pays more than what she would pay if she took a taxi alone.</p>
+                <p>This property is guaranteed, assuming fare estimates are accurate. </p>
+
+            </div><!--.property-info.left-->
+
+        </div><!--.content-block-->
+
+        <div class="content-block last" id="efficient">
+
+            <div class="align-left">
+
+                <h2 class="mobile">Marginalism</h2>
+
+                <div class="taxi2">
+                    <%= image_tag "taxi/taxi.png", height: 201, width: 315, class: "staxi" %>
+                    <%= image_tag "taxi/girl.png", height: 61, width: 38, class: "sgirl" %>
+                    <%= image_tag "taxi/guy2.png", height: 60, width: 36, class: "sguy2" %>
+                    <%= image_tag "taxi/guy-smile.png", height: 61, width: 38, class: "sguyb" %>
+                    <%= image_tag "taxi/guy-smile.png", height: 61, width: 38, class: "sguyc" %>
+                    <%= image_tag "taxi/guy-smile.png", height: 61, width: 38, class: "sguylast" %>
+                    <%= image_tag "taxi/girl.png", height: 61, width: 38, class: "sgirllast" %>
+                    <%= image_tag "taxi/guy2.png", height: 60, width: 36, class: "sguy2last" %>
+                </div><!--.circle-->
+                <p class="refresh taxi2r"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+            
+            <div class="property-info right">
+
+                <h2 class="desktop">Marginalism</h2>
+                <p>Each passenger's share of the fare depends only on her marginal contribution to the (estimated) fare when joining each possible ride to some of the destinations.</p>
+                <p>This property is guaranteed.</p>
+            
+            </div><!--.property-info.right-->
+            
+        </div><!--.content-block-->
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= new_splitting_fare_instance_path %>">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->    
+
+
+
+        <h1>Algorithm Overview</h1>
+        <p>We first compute the fares between each pair of addresses using <a href = "http://taxifarefinder.com" target="_blank">TaxiFareFinder</a>. We use these estimates to calculate the fare of a hypothetical ride to every subset of destinations, thereby obtaining the cost of every subset of passengers. The payment of an individual passenger is her Shapley value: her average (roughly speaking) marginal contribution to the cost of any subset of other passengers. Assuming the entire fare must be split, the Shapley Value is provably the <b>unique</b> method that satisfies marginalism together with another basic property called anonymity. When the estimated fare is different from the actual fare, we simply scale the individual payments to match the actual fare; this provably preserves all the guarantees. </p> 
+        <p><strong>Reference:</strong> <a target="_blank" href="http://en.wikipedia.org/wiki/Shapley_value">Shapley Value (Wikipedia)</a></p>
+        <!-- <p><a class="no-underline" target="_blank" href = "http://taxifarefinder.com"><%= image_tag "taxifarefinder.png" %></a></p> -->
+        
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= new_splitting_fare_instance_path %>">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->     
+
+
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

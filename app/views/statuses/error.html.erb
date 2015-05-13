@@ -1,0 +1,11 @@
+<%= render 'layouts/text_banner', locals: { title: "Error" } %>
+
+<div class="page-content">
+    <div class="wrap">
+      <% flash.each do |key, value| %>
+            <% if key == :error %>
+                <p class="lead-paragraph"><%= value %></p>
+            <% end %>
+      <% end %>   
+    </div><!--.wrap-->
+</div><!--.page-content-->

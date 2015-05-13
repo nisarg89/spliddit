@@ -1,0 +1,24 @@
+<p class="lead-paragraph">Here are the results from the <%= link_to "Distributing Tasks App", root_url + 'apps/tasks' %>. Thank you for using Spliddit!</p>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Tasks</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @instance.agents.each do |agent| %>
+      <tr>
+        <td><%= agent.name %></td>
+        <td>
+          <p style="margin-top:15px;margin-bottom:15px">
+            <% agent.assignments.select {|a| a.ownership > 0}.each do |a| %>
+              <%= a.resource.name %>: <%= a.ownership.to_i %><br>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

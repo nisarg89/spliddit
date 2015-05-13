@@ -1,0 +1,99 @@
+.family-circle {
+	position: relative;
+	width: 281px; height: 281px;
+	img {
+		//transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+    	-moz-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	}
+	// background-image: url(circle-ret.gif);
+ 	// background-size: 281px 281px;
+ 	// background-repeat: no-repeat;
+	background: url(circle.gif) no-repeat;
+	@include transition(all, 2s);
+	@include opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		@include opacity(1);
+	}
+	&.fadeOut {
+		@include opacity(0);
+	}
+}
+
+.family {
+	width: 241px; height: 253px;
+	position: absolute;
+	top: -6px; left: 20px;
+}
+
+.smiles {
+	width: 181px; height: 155px;
+	position: absolute;
+	top: 60px; left: 30px;
+	@include transition(all, 0.5s);
+	@include opacity(0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		@include opacity(1);
+	}
+}
+
+.frowns {
+	width: 181px; height: 149px;
+	position: absolute;
+	top: 64px; left: 31px;
+	@include transition(all, 0.5s);
+	@include opacity(1);
+	&.fadeOut {
+		@include opacity(0);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	}
+}
+
+.football {
+	width: 67px; height: 36px;
+	position: absolute;
+	top: 77px; left: 130px;	
+	@include transition(all, 1s);
+	&.move {
+		top: 230px; left: 47px;
+	}
+	&.move-back {
+		top: 77px; left: 130px;
+	}
+}
+
+.bottle {
+	width: 31px; height: 57px;
+	position: absolute;
+	top: 204px; left: 219px;
+	@include transition(all, 1s);
+	&.move {
+		top: 65px; left: 143px;
+	}
+	&.move-back {
+		top: 204px; left: 219px;
+	}
+}
+
+.purse {
+	width: 59px; height: 59px;
+	position: absolute;
+	top: 198px; left: 66px;
+	@include transition(all, 1s);
+	&.move {
+		top: 198px; left: 216px;
+	}
+	&.move-back {
+		top: 198px; left: 66px;
+	}
+}
+
+.lt-ie9 .family-circle img {
+	background: transparent;
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */
+	zoom: 1;
+}

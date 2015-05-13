@@ -1,0 +1,104 @@
+<% provide(:title, 'Assign Rooms and Share Rent') %>
+<% provide(:description, "Spliddit's rent calculator helps roommates to assign rooms and share rent when moving into a new house or apartment. This is especially useful when bedrooms differ in size, closet space, bathrooms, and more.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <p>Spliddit's rent calculator helps roommates to fairly share rent when moving into a new house or apartment. This is especially useful when bedrooms differ in size, closet space, bathrooms, and more. You begin by providing a list of roommates, a list of bedrooms, and the monthly rent. We then send everyone a link where they specify how much they would pay to live in each bedroom. Our algorithm uses these evaluations to determine who should live in which room, and how much each housemate should contribute to the monthly rent.</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/rent/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_splitting_rent_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->     
+
+        <h1>Fairness Properties</h1>
+
+        <div class="content-block" id="envy-free">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Envy-freeness</h2>
+
+                <div class="family-circle run-animation" id="test">
+                    <div class="family">
+                        <%= image_tag "itemshift/family.png", width: 241, height: 253, class: "bodies" %>
+                        <%= image_tag "itemshift/smiles.png", width: 181, height: 155, class: "smiles" %>
+                        <%= image_tag "itemshift/frowns.png", width: 181, height: 149, class: "frowns" %>
+                        <%= image_tag "itemshift/football.png", width: 67, height: 36, class: "football" %>
+                        <%= image_tag "itemshift/bottle.png", width: 31, height: 57, class: "bottle" %>
+                        <%= image_tag "itemshift/purse.png", width: 59, height: 59, class: "purse" %>
+                    </div><!--.family-->
+                </div><!--.circle-->
+                <p class="refresh items"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-right-->
+
+            <div class="property-info left">
+
+                <h2 class="desktop">Envy-freeness</h2>
+                <p>Our algorithm assigns rooms in such a way that each roommate feels that they got the best deal. In other words, no roommate would want to swap places with another. </p>
+                <p>This property is guaranteed, assuming that each roommate wishes to maximize the difference between what she thinks her room is worth and how much rent she has to pay.</p>
+
+            </div><!--.property-info.left-->
+
+        </div><!--.content-block-->
+
+        <div class="content-block last" id="efficient">
+
+            <div class="align-left">
+
+                <h2 class="mobile">Efficiency</h2>
+
+                <div class="family-circle-2">
+                    <div class="family-2">
+                        <%= image_tag "itemshift/family-2.png", width: 241, height: 253, class: "bodies" %>
+                        <%= image_tag "itemshift/baby-eyes1.png", width: 181, height: 155, class: "baby-eyes1" %>
+                        <%= image_tag "itemshift/baby-eyes2.png", width: 181, height: 149, class: "baby-eyes2" %>
+                        <%= image_tag "itemshift/lady-smile.png", width: 67, height: 36, class: "lady-smile" %>
+                        <%= image_tag "itemshift/lady-frown.png", width: 31, height: 57, class: "lady-frown" %>
+                        <%= image_tag "itemshift/football.png", width: 67, height: 36, class: "football-2" %>
+                        <%= image_tag "itemshift/bottle.png", width: 31, height: 57, class: "bottle-2" %>
+                        <%= image_tag "itemshift/purse.png", width: 59, height: 59, class: "purse-2" %>
+                    </div><!--.family-->
+                </div><!--.circle-->
+                <p class="refresh effic"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+            
+            <div class="property-info right">
+
+                <h2 class="desktop">Efficiency</h2>
+                <p>Our algorithm divides the rent and assigns rooms in such a way that it would be impossible to find another assignment that benefits a roommate without making another roommate worse off.</p>
+                <p>This property is guaranteed, assuming that each roommate wishes to maximize the difference between what she thinks her room is worth and how much rent she has to pay.</p>
+            
+            </div><!--.property-info.right-->
+            
+        </div><!--.content-block-->
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/rent/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_splitting_rent_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->    
+
+
+
+        <h1>Algorithm Overview</h1>
+        <p>We assume that the benefit a participant derives from getting a room she values at x for rent y is x minus y. We first match the participants to rooms in a way that maximizes the sum of values participants derive from their assigned rooms. We then compute prices for the rooms that minimize the maximum difference between the benefit derived by any two players (this is the objective function), subject to <a href="#envy-free">envy-freeness</a>, by solving a linear program via <a href = "http://en.wikipedia.org/wiki/CPLEX" target="_blank">CPLEX</a>. Envy-free prices are guaranteed to exist, and, moreover, the overall allocation of rooms and rent is guaranteed to be optimal in terms of the above objective function among all envy-free allocations. Envy-freeness also implies <a href="#efficient">efficiency</a> and individual rationality.</p>
+        <p><strong>References:</strong> Forthcoming paper by Ya'akov Gal, Moshe Mash, Ariel D. Procaccia, and Yair Zick; <a target="_blank" href="http://sites.google.com/site/flipklijn/files/p4.pdf">"An algorithm for envy-free allocations in an economy with indivisible objects and money"</a>, by Flip Klijn</p>
+        
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/rent/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_splitting_rent_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->     
+
+
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

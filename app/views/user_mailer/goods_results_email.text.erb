@@ -1,0 +1,7 @@
+Hello <%= @agent.name %>,
+
+Here are your results from Spliddit's Dividing Goods App.
+
+<%= link_to dividing_goods_instance_url(@agent.instance, p: @agent.passcode), dividing_goods_instance_url(@agent.instance, p: @agent.passcode), only_path: false %>
+
+<%= render 'spliddit_info', :locals => {:application => "none"} %>

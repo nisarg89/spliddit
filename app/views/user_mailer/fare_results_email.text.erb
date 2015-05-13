@@ -1,0 +1,9 @@
+Hello,
+
+Here are your results from Spliddit's Splitting Fare App. The total <% if !@instance.total_fare %>estimated <% end %>fare is <%= @instance.currency_sym %><%= sprintf '%.2f', @instance.fare %>. Addresses are sorted by recommended drop off order.
+
+<% @instance.agents.sort_by {|a| a.assignments.first.order}.each do |agent| %> 
+  <%= agent.name.split("::")[0] %> -- <%= @instance.currency_sym %><%= sprintf "%.2f", (agent.assignments.first.price) %>
+<% end %> 
+
+<%= render 'spliddit_info', :locals => {:application => "none"} %>

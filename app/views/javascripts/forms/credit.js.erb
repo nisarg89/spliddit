@@ -1,0 +1,12 @@
+// validations specific to sharing credit
+function validateHelper() {
+  var valid = true;
+
+  //need 4-25 participants
+  if (participants < 4 || participants > 25) {
+    $("#participants-error").append("<div class='alert alert-error'>There must be between 4 and 25 participants.</div>");
+    valid = false;
+  }
+
+  return valid;
+}

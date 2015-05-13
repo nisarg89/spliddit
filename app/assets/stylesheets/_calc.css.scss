@@ -1,0 +1,124 @@
+.range-calc {
+	@include pie-clearfix;
+	margin: 4em 0 1em;
+}
+
+.calculations {
+	@include pie-clearfix;
+	.calc-row {
+		@include pie-clearfix;
+		margin-bottom: 2em;
+		padding-bottom: 2em;
+		border-bottom: 1px solid $font-primary-color;
+		&:last-child {
+			border: 0;
+			padding: 0;
+		}
+		@include breakpoint($bp-medium) {
+			padding-bottom: 0;
+			border: 0;
+		}
+	}//.calc-row
+	.name,
+	.range,
+	.calc-value {
+		width: 100%;
+		margin-bottom: 1em;
+		p {
+			margin: 0;
+		}
+		@include breakpoint($bp-medium) {
+			margin-bottom: 0;
+			float: left;
+		}
+	}//.name,.range,.calc-value
+	.name {
+		text-align: center;
+		min-width: 100px;
+		@include breakpoint($bp-medium) {
+			text-align: left;
+			@include grid(100,1062);
+			@include mright(20,1062);
+		}
+		.description {
+			font-size: em(12px);
+		}
+	}
+	.range {
+		@include breakpoint($bp-medium) {
+			@include grid(650,1062);	
+			@include mright(20,1062);
+		}
+		@include breakpoint($bp-large) {
+			@include grid(730,1062);
+		}
+		@include breakpoint($bp-xlarge) {
+			@include grid(780,1062);
+			@include mright(10,1062);
+		}
+	}
+	.calc-value {
+		display: block;
+		color: $font-primary-color;
+		font-size: em(18px);
+		line-height: em(28px);
+		text-align: center;
+		min-width: 120px;
+		@include breakpoint($bp-medium) {
+			float: right;
+			text-align: right;
+			@include grid(170,1062);
+		}
+		@include breakpoint($bp-large) {
+			@include grid(150,1062);	
+		}
+		input {
+			@extend %font-medium;
+			font-family: $font-primary;
+			color: $font-primary-color;
+			font-size: em(16px);
+			text-align: right;
+			max-width: 65px;
+			margin: 0 0.25em 0 0.35em;
+		}
+	}
+}//.calculations
+
+.calc-control {
+	padding-top: 2em;
+	border-top: 1px solid $font-primary-color;
+	.btns,.totals {
+		@include breakpoint($bp-medium) {
+			float: left;
+		}
+	}//.btns,.totals
+	.btns {
+		@include breakpoint($bp-medium) {
+			@include grid(810,1062);
+		}
+		.btn {
+			float: left;
+			margin: 0 0.5em 1em 0;
+			font-size: em(15px);
+        	padding: 1em;
+			@include breakpoint($bp-large) {
+				font-size: em(18px);
+        		padding: 1em;
+				margin: 0 3em 0 0;
+			}
+		}
+	}//.btns
+	.totals {
+		float: left;
+		clear: both;
+		@include breakpoint($bp-medium) {
+			clear: none;
+			float: right;
+			text-align: right;
+			@include grid(250,1062);
+		}
+		p {
+			margin: 0;
+		}
+	}
+}//.calc-control

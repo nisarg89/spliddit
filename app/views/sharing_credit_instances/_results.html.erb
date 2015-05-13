@@ -1,0 +1,15 @@
+<p class="lead-paragraph">Here are the results from the <%= link_to "Assigning Credit App", root_url + 'apps/credit' %>. Thank you for using Spliddit!</p>
+<table class = "table">
+  <thead>
+    <td>Name</td>
+    <td>Credit</td>
+  </thead>
+  <tbody>
+    <% @instance.agents.each do |agent| %>
+      <tr>
+        <td><%= agent.name %></td>
+        <td><%= sprintf "%.2f%", (agent.assignments.first.ownership * 100) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

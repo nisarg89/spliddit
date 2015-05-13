@@ -1,0 +1,306 @@
+var participants = ["Alice", "Bob"];
+var tasks = ["Mow Lawn", "Water Plants", "Wash Dishes", "Laundry"];
+var max_task_id = 2;
+var quantities = [2, 7, 14, 2];
+var target = 100;
+var polling_attempts = -1;
+var max_attempts = 15;
+var id = -1;
+var pwd = "";
+
+$(document).ready(function() {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  createBiddingSections();
+  $(".comparison").change(function() {
+    if ($(this).val() == "equal") {
+      $(this).parent().parent().find(".valuation_ipt").attr("disabled", "disabled");
+      $(this).parent().parent().find(".valuation_ipt").val("");
+    } else {
+      $(this).parent().parent().find(".valuation_ipt").removeAttr("disabled");
+    }
+  });
+});
+
+function validateUpdateForm() {
+  var error;
+
+  var new_participants = $('#participants').val().split(",");
+  var new_tasks = $('#tasks').val().split(",");
+  var new_quantities = [];
+  var new_max_task_quantity = -1;
+  var new_max_task_id = -1;
+
+  var n = new_participants.length;
+  if (n < 2 || n > 5) {
+    displayError("The demo only allows between 2 and 5 participants.", "basics-error");
+    return false;
+  }
+  var m = new_tasks.length;
+  if (m < 2 || m > 15) {
+    displayError("The demo only allows between 2 and 15 tasks.", "basics-error");
+    return false;
+  }
+
+  var i;
+  for (i = 0; i < n; i++) {
+    new_participants[i] = $.trim(new_participants[i]).substring(0, 20);
+    if (new_participants[i].length == 0) {
+      displayError("We were unable to parse the participants list. Please check the field for stray commas.", "basics-error");
+      return false;
+    }
+  }
+  for (i = 0; i < m; i++) {
+    new_tasks[i] = $.trim(new_tasks[i]).substring(0, 20);
+    var open_paren = new_tasks[i].lastIndexOf("(");
+    var close_paren = new_tasks[i].lastIndexOf(")");
+    if (close_paren > open_paren && open_paren >= 0) {
+      new_quantities[i] = parseInt($.trim(new_tasks[i].substring(open_paren + 1, close_paren)));
+      new_tasks[i] = $.trim(new_tasks[i].substring(0, open_paren));
+    } else {
+      new_quantities[i] = 1;
+    }
+
+    if (new_tasks[i].length == 0 || isNaN(new_quantities[i])) {
+      displayError("We were unable to parse the tasks list. Please check the field for stray commas or parentheses.", "basics-error");
+      return false;
+    } else if (new_quantities[i] > 1000000 || new_quantities[i] <= 0) {
+      displayError("The quantity of each task should be between 1 and 1000000.", "basics-error");
+      return false;
+    }
+
+    if (new_quantities[i] > new_max_task_quantity) {
+      new_max_task_quantity = new_quantities[i];
+      new_max_task_id = i;
+    }
+
+  }
+  
+  if (containsDuplicates(new_participants)) {
+    displayError("Please ensure all participant names are unique.", "basics-error");
+    return false;
+  }
+  if (containsDuplicates(new_tasks)) {
+    displayError("Please ensure all task names are unique.", "basics-error");
+    return false;
+  }
+  participants = new_participants;
+  tasks = new_tasks;
+  quantities = new_quantities;
+  max_task_id = new_max_task_id;
+  createBiddingSections();
+  advanceAccordion($('#basics'));
+  $("#basics-error").text("");
+  return true;
+}
+
+function displayError(msg, id) {
+  var element = $("#"+id);
+  var in_focus = scrollToView(element);
+  if (element.text() == "" || !in_focus) {
+    element.text(msg).fadeIn();
+  } else {
+    element.fadeOut(400, function() {
+      element.text(msg).fadeIn();
+    });    
+  }
+}
+
+function createBiddingSections() {
+  var bidding_text = "For each row, choose which task you'd prefer. Then, enter a <strong>multiplier</strong> to indicate how many times you'd be willing to complete your preferred task instead of completing the other task <strong>once</strong>. For example, if you believe that working the night shift is equal to working one and a half day shifts, select <strong>day shift</strong> and enter a multiplier of <strong>1.5</strong>."
+  var participants_copy = participants;
+  var bidding_sections = new Array();
+  var html = "";
+  var i;
+  for (i=0; i < participants.length; i++) {
+    html += "<div class = 'accordion accordion-bidding' id = 'bidding_" + i + "'>";
+    html +=     participants[i] + "'s Evaluations <span class = 'symbol'></span>";
+    html += "</div>";
+    html += "<div class = 'accordion-container accordion-bidding'>";
+    html += "  <div class = 'accordion-content'>";
+    html += "    <p><strong>" + participants[i] + ", </strong>" + bidding_text + "</p>";
+    html += "    <p id='bidding-error-" + i + "' class='error-msg error-text'></p>";
+
+    html += "    <table class = 'table'>";
+    html += "      <thead>";
+    html += "        <tr>";
+    html += "          <td style='width:25%'>Select Preferred Task</td>";
+    html += "          <td style='width:25%'></td>";
+    html += "          <td style='width:25%'></td>";
+    html += "          <td style='width:25%'>Multiplier</td>";
+    html += "        </tr>";
+    html += "      </thead>";
+    html += "      <tbody>";
+    html += "      <input id='values_" + max_task_id + "' name='values[" + max_task_id + "]' type='hidden' />"
+    var j;
+    for (j=0; j < tasks.length; j++) {
+      if (j == max_task_id) {
+        continue;
+      }
+      html += "        <input id='values_" + i + "_" + j + "' name='values[" + i + "][" + j + "]' type='hidden' />"
+      html += "        <tr style='border-bottom:1px'>";
+      html += "          <td>";
+      html += "            <input checked='checked' class='comparison' id='comparisons_" + i + "_" + j + "_first' name='comparisons[" + i + "][" + j + "]' type='radio' value='first' />";
+      html += "            <label for='comparisons_" + i + "_" + j + "_first' style='display:inline'>" + tasks[max_task_id] + "</label>";
+      html += "          </td>";
+      html += "          <td>";
+      html += "            <input class='comparison' id='comparisons_" + i + "_" + j + "_second' name='comparisons[" + i + "][" + j + "]' type='radio' value='second' />";
+      html += "            <label for='comparisons_" + i + "_" + j + "_second' style='display:inline'>" + tasks[j] + "</label>";
+      html += "          </td>";
+      html += "          <td>";
+      html += "            <input class='comparison' id='comparisons_" + i + "_" + j + "_equal' name='comparisons[" + i + "][" + j + "]' type='radio' value='equal' />";
+      html += "            <label for='comparisons_" + i + "_" + j + "_equal' style='display:inline'>No Preference</label>";
+      html += "          </td>";
+      html += "          <td>";
+      html += "            <input class='valuation_ipt ' id='multipliers_" + i + "_" + j + "' name='multipliers[" + i + "][" + j + "]' type='text' />";
+      html += "          </td>";
+      html += "        </tr>";
+    }
+    html += "      </tbody>";
+    html += "    </table>";
+    html += "    <input class='btn submit' name='commit' onclick='return checkForm(" + i + ", true);' type='submit' value='Continue'><br>"
+    html += "  </div>";
+    html += "</div>";
+  }
+  $('.accordion-bidding').remove();
+  $("#basics").next().after(html);
+
+  $(".comparison").change(function() {
+    if ($(this).val() == "equal") {
+      $(this).parent().parent().find(".valuation_ipt").attr("disabled", "disabled");
+      $(this).parent().parent().find(".valuation_ipt").val("");
+    } else {
+      $(this).parent().parent().find(".valuation_ipt").removeAttr("disabled");
+    }
+  });
+
+  $('.accordion').unbind();
+  $('.accordion').accordion({defaultOpen: 'basics'});
+}
+
+function containsDuplicates(array) {
+  var valuesSoFar = {};
+  for (var i = 0; i < array.length; ++i) {
+      if (!(array[i] === "")) {
+        var value = array[i];
+        if (Object.prototype.hasOwnProperty.call(valuesSoFar, value)) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+      }
+  }
+  return false;
+}
+
+function advanceAccordion(cur_tab) {
+  next_tab = cur_tab.next().next();
+  if (!next_tab.hasClass('accordion')) return;
+  
+  cur_tab.next().slideUp('slow', function() {
+    next_tab.next().slideDown('slow', function() {
+      scrollToView(next_tab);
+    });
+  });
+  cur_tab.removeClass('accordion-open');
+  cur_tab.addClass('accordion-close');
+
+  
+  next_tab.removeClass('accordion-close');
+  next_tab.addClass('accordion-open');
+  
+}
+
+function checkForm(i, advance) {
+  $("#bidding_"+i+" .white-check").remove();
+  var j;
+  for (j = 0; j < tasks.length; j++) {
+    var checked = $("input[name='comparisons[" + i + "][" + j + "]']:checked").val();
+    var multiplier = parseFloat($("#multipliers_" + i + "_" + j).val());
+    if (checked == "first" || checked == "second") {
+      if (isNaN(multiplier) || multiplier < 1 || multiplier > 1000) {
+        displayError("Please make sure your multipliers are between 1 and 1000.", "bidding-error-"+i);
+        return false;
+      }
+    }
+  }
+  if (advance) {
+    advanceAccordion($('#bidding_'+i));
+    $("#bidding-error-"+i).text("");
+    $("#bidding_"+i).append("<span class='white-check'>&#10003;</span>");
+  }
+  return true;
+}
+
+
+
+function checkBids() {
+  var success = true;
+  var i;
+  for (i = 0; i < participants.length; i++) {
+    $("#bidding_"+i+" .white-check").remove();
+    if (checkForm(i, false)) {
+      $("#bidding_"+i).append("<span class='white-check'>&#10003;</span>");
+    } else {
+      success = false;
+    }
+  }
+  if (success) {
+    $('#update-results-msg').text("Your request is being processed. This may take a moment.");
+    $('#results-table').html('');
+    $('#fairness-table').html('');
+    $('#submit-demo').hide();
+    $.ajax({
+      type: "POST",
+      url: "../../../demo/create",
+      data: { app: "tasks", input: buildJSON() }
+    }).fail(function() {
+      $('#update-results-msg').text("We encountered an internal server error. Sorry for the inconvenience.");
+      $('#submit-demo').show();
+    });
+  } else {
+    displayError("Some participants haven't entered their evaluations, or have errors (checkmarks indicate those who have successfully entered their evaluations). Once everyone is done, press the submit button again.", "update-results-msg");
+  }
+}
+
+function buildJSON() {
+  var json = {}
+  json['target'] = target;
+  json['participants'] = participants;
+  json['tasks'] = tasks;
+  json['quantities'] = quantities;
+  json['bids'] = {};
+  for (var i = 0; i < participants.length; i++) {
+    json['bids'][participants[i]] = {};
+    values_sum = 0.0;
+    for (var j = 0; j < tasks.length; j++) {
+      if (j == max_task_id) {
+        json['bids'][participants[i]][tasks[j]] = quantities[j] * 1.0;
+      } else {
+        var checked = $("input[name='comparisons[" + i + "][" + j + "]']:checked").val();
+        var multiplier = parseFloat($("#multipliers_" + i + "_" + j).val());
+        if (checked == "first") {
+          json['bids'][participants[i]][tasks[j]] = quantities[j] * multiplier;
+        } else if (checked == "second") {
+          json['bids'][participants[i]][tasks[j]] = quantities[j] * 1.0 / multiplier;
+        } else {
+          json['bids'][participants[i]][tasks[j]] = quantities[j] * 1.0;
+        }
+      }
+      values_sum += json['bids'][participants[i]][tasks[j]];
+    }
+    var new_sum = 0;
+    for (var j = 0; j < tasks.length; j++) {
+      json['bids'][participants[i]][tasks[j]] *= 100.0 / values_sum;
+      json['bids'][participants[i]][tasks[j]] = json['bids'][participants[i]][tasks[j]];
+      new_sum += json['bids'][participants[i]][tasks[j]];
+    }
+  }
+  return json;
+}
+
+function pollResults() {
+  $.getScript('../../../demo/poll?id='+id+'&p='+pwd);
+}

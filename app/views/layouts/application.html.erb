@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!--[if !IE]> -->
+    <%= javascript_include_tag "modern/modern.min.js" %>
+    <!-- <![endif]-->
+
+    <!--[if lte IE 9]>
+    <%= javascript_include_tag "legacy/legacy.min.js" %>
+    <![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="<%= full_description(yield(:description)) %>">
+    <meta name="viewport" content="width=device-width">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= yield :scripts %>
+    <%= render 'layouts/shim' %>    
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+  
+</html>

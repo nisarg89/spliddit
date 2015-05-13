@@ -1,0 +1,20 @@
+var cur_agent;
+
+$(document).ready(function() {
+  cur_agent = "<%= @agent.name.gsub(' ', '_') %>";
+  $('#name').val(cur_agent);
+  initSliders();
+  
+  $("#name").change(function() {
+    cur_agent = $(this).val().replace(" ", "_");
+    hideCurAgent();
+  });
+  hideCurAgent();
+});
+
+function hideCurAgent() {
+  $(".calc-row").css("display", "block");
+  $('#slider_'+cur_agent).css("display", "none");
+  $('#slider_'+cur_agent).find(".nstSlider").nstSlider("set_position",0);
+  $('#slider_'+cur_agent).find(".valuation_ipt").val(1);
+}

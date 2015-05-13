@@ -1,0 +1,9 @@
+$('#update-results-msg').html("<%= @message %>");
+<% if !@success %>
+  $('#submit-demo').show();
+<% else %>
+  polling_attempts = 0;
+  pwd = "<%= @passcode %>";
+  id = <%= @id %>;
+  setTimeout(pollResults, 1000);
+<% end %>

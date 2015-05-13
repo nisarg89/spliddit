@@ -1,0 +1,100 @@
+<% provide(:title, 'Distribute Tasks') %>
+<% provide(:description, "Spliddit's tasks calculator fairly divides household chores, work shifts at a hospital, or any other set of tasks.") %>
+
+<%= render 'banner' %>
+
+<div class="page-content">
+    <div class="wrap">
+        <p>Spliddit's tasks calculator fairly divides household chores, work shifts at a hospital, or any other set of tasks. You begin by providing a list of tasks that you wish to assign (for example, morning shift, afternoon shift, night shift) and a list of participants. We then send the participants links where they specify how much they prefer each task relative to the others. Our algorithm uses these evaluations to propose a fair division of the tasks among the participants.</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/tasks/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_assigning_tasks_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+    
+        <h1>Fairness Properties</h1>
+
+        <div class="content-block" id="max-share">
+
+            <div class="align-right">
+
+                <h2 class="mobile">Equitability</h2>
+
+                <div class="equit">
+
+                    <%= image_tag "equit/people.png", width: 221, height: 154, class: "people" %>
+                    <%= image_tag "equit/large-box.png", width: 74, height: 60, class: "large-box" %>
+                    <%= image_tag "equit/med-box.png", width: 56, height: 48, class: "med-box" %>
+                    <%= image_tag "equit/small-box.png", width: 51, height: 39, class: "small-box" %>
+                    <%= image_tag "equit/arm-guy.png", width: 70, height: 120, class: "arm-guy" %>
+                    <%= image_tag "equit/arm-girl.png", width: 70, height: 120, class: "arm-girl" %>
+                
+                </div><!--.equit-->
+                <p class="refresh equitr"><a href="#" title="Replay">refresh</a></p>
+            </div><!--.align-right-->
+
+            <div class="property-info left">
+
+                <h2 class="desktop">Equitability</h2>
+                <p>The assignment of tasks is equitable if all participants believe their workload is identical.</p>
+                <p>This property is guaranteed with respect to the <a href = "#overview">lottery</a> produced by our method.</p>
+            
+            </div>
+
+        </div><!--.content-block-->
+
+        <div class="content-block last" id="efficient">
+
+            <div class="align-left">
+
+                <h2 class="mobile">Efficiency</h2>
+
+                <div class="family-circle-2">
+                    <div class="family-2">
+                        <%= image_tag "itemshift/family-2.png", width: 241, height: 253, class: "bodies" %>
+                        <%= image_tag "itemshift/baby-eyes1.png", width: 181, height: 155, class: "baby-eyes1" %>
+                        <%= image_tag "itemshift/baby-eyes2.png", width: 181, height: 149, class: "baby-eyes2" %>
+                        <%= image_tag "itemshift/lady-smile.png", width: 67, height: 36, class: "lady-smile" %>
+                        <%= image_tag "itemshift/lady-frown.png", width: 31, height: 57, class: "lady-frown" %>
+                        <%= image_tag "itemshift/football.png", width: 67, height: 36, class: "football-2" %>
+                        <%= image_tag "itemshift/bottle.png", width: 31, height: 57, class: "bottle-2" %>
+                        <%= image_tag "itemshift/purse.png", width: 59, height: 59, class: "purse-2" %>
+                    </div><!--.family-->
+                </div><!--.circle-->
+                <p class="refresh effic"><a href="#" title="Replay">refresh</a></p>
+            
+            </div><!--.align-left-->
+            
+            <div class="property-info right">
+
+                <h2 class="desktop">Efficiency</h2>
+                <p>Our algorithm assigns the tasks in such a way that it would be impossible to find another assignment that benefits one participant without making another worse off.</p>
+                <p>This property is guaranteed with respect to the <a href = "#overview">lottery</a> produced by our method.</p>
+            
+            </div><!--.property-info.right-->
+            
+        </div><!--.content-block-->
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/tasks/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_assigning_tasks_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+
+        <a name="overview"></a>
+        <h1>Algorithm Overview</h1>
+        <p>Spliddit implements the Egalitarian Equivalent solution of Pazner and Schmeidler to arrive at an assignment that equalizes and minimizes the perceived (expected) workload of each participant, but could potentially split tasks between participants (i.e., it is a fractional assignment). We compute this solution by solving a linear program using <a target="_blank" href="http://en.wikipedia.org/wiki/CPLEX">CPLEX</a>. Via another linear program we can then draw a suggested allocation from a lottery that rounds the fractional assignment up or down without changing the expected number of tasks performed by each participant. A lottery is an especially compelling solution for distributing tasks when Spliddit is used for this purpose on a regular basis, say weekly or monthly.</p>
+        <p><strong>References:</strong> <a target="_blank" href="http://econdse.org/wp-content/uploads/2014/10/panzer-schmiedler-exchange.pdf">"Egalitarian Equivalent Allocations: A New Concept of Economic Equity"</a>, by Elisha A. Pazner and David Schmeidler; <a target="_blank" href = "http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">"Designing Random Allocation Mechanisms: Theory and Applications"</a>, by Eric Budish, Yeon-Koo Che, Fuhito Kojima, and Paul Milgrom</p>
+
+        <div class="start-bar">
+            <p style="text-align:center">
+                <a class="btn" href="<%= root_url + 'apps/tasks/demo' %>" style="display:inline;margin:.5em">Live Demo</a>
+                <a class="btn" href="<%= new_assigning_tasks_instance_path %>" style="display:inline;margin:.5em">Start <span>&raquo;</span></a>
+            </p>
+        </div><!--.start-bar-->  
+
+    </div><!--.wrap-->
+</div><!--.page-content-->

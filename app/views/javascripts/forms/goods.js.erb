@@ -1,0 +1,43 @@
+// validation specific to dividing goods
+function validateHelper() {
+  var valid = true;
+
+  //need 2-15 people
+  if (participants < <%= @participants %> || participants > 15) {
+    $("#participants-error").append("<div class='alert alert-error'>There must be between <%= @participants %> and 15 participants.</div>");
+    valid = false;
+  }
+  
+  //need 3-100 items
+  if (resources < 3 || resources > 100) {
+    $("#resources-error").append("<div class='alert alert-error'>There must be between 3 and 100 items.</div>");
+    valid = false;
+  }
+
+  //check that the item names/descriptions are reasonable
+  var rnames = new Array();
+  var descriptions = new Array();
+  for (var i=0; i<resources; i++) {
+    rnames[i] = $("#rnames_"+i).val();
+    descriptions[i] = $("#descriptions_"+i).val();
+
+    if (rnames[i].length < 1 || rnames[i].length > 50) {
+      valid = false;
+      $('#rnames_'+i).addClass('error');
+    } else {
+      $('#rnames_'+i).removeClass('error');
+    }
+    if (descriptions[i].length > 200) {
+      $('#descriptions_'+i).addClass('error');
+      valid = false;
+    } else {
+      $('#descriptions_'+i).removeClass('error');
+    }
+  }
+
+  if (containsDuplicates(rnames)) {
+    $("#resources-error").append("<div class='alert alert-error'>There are duplicate item names.</div>");
+    valid = false;
+  }
+  return valid;
+}

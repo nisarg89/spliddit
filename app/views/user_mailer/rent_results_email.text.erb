@@ -1,0 +1,7 @@
+Hello <%= @agent.name %>,
+
+Here are your results from Spliddit's Sharing Rent App.
+
+<%= link_to splitting_rent_instance_url(@agent.instance, p: @agent.passcode), splitting_rent_instance_url(@agent.instance, p: @agent.passcode), only_path: false %>
+
+<%= render 'spliddit_info', :locals => {:application => "none"} %>
