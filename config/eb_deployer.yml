@@ -139,6 +139,7 @@ environments:
   dev:
     # overriding common settings
     strategy: inplace-update
+  testing:
   staging:
   stagingv2:
     strategy: inplace-update
