@@ -94,7 +94,7 @@ function remove_resource(id) {
   for (var i=id+1; i<resources; i++) {
     $("#resource-"+i).attr('id','resource-'+(i-1));
     $("#descriptions_"+i).attr('id','descriptions_'+(i-1)).attr('name','descriptions['+(i-1)+']');
-    $("#quantities_"+i).attr('id','quantities_'+(i-1)).attr('name','types['+(i-1)+']');
+    $("#quantities_"+i).attr('id','quantities_'+(i-1)).attr('name','quantities['+(i-1)+']');
     $("#types_"+i).attr('id','types_'+(i-1)).attr('name','types['+(i-1)+']');
     $("#rnames_"+i).attr('id','rnames_'+(i-1)).attr('name','rnames['+(i-1)+']');
     $("#resource-delete-"+i).html("<a class='btn-remove' href='#' onclick='remove_resource("+(i-1)+");return false'>Remove</a>").attr('id','resource-delete-'+(i-1));
