@@ -125,8 +125,10 @@ class Instance < ActiveRecord::Base
       return "&yen;".html_safe
     when "ils"
       return "&#8362;".html_safe
+    when "inr"
+      return "&#8377;".html_safe
     else
-      return "$"
+      return (currency+" ").upcase.html_safe
     end
   end
 

@@ -18,14 +18,14 @@ public class Main {
 		//randAuctions(151,250,3);
 		//randAuction(5).runAuction(0);
 		//fileAuction(args[0]);
-		minUtilityDifference(args[0]);
+		maximinUtility(args[0]);
 	}
 	
 	
 	
-	/* Find envy-free solution minimizing the maximum difference in utility */
+	/* Find envy-free solution maximizing the minimum utility */
 	/* For setting up CPLEX: https://www.youtube.com/watch?v=sf59_7r8QSY */
-	public static void minUtilityDifference(String file_name) throws NumberFormatException, IOException {
+	public static void maximinUtility(String file_name) throws NumberFormatException, IOException {
 		BufferedReader in = new BufferedReader(new FileReader(file_name));
 		int n = Integer.parseInt(in.readLine());
 		int rent = Integer.parseInt(in.readLine());
@@ -51,9 +51,9 @@ public class Main {
 			Map<String, String> allocation = welfareMaximize(values, agent_set, room_set);
 			
 			// now find nonnegative price vector if possible
-			Map<String, Double> prices = minPettiness(values, agent_set, room_set, allocation, rent, true);
+			Map<String, Double> prices = maximinPrices(values, agent_set, room_set, allocation, rent, true);
 			if (prices == null) {
-				prices = minPettiness(values, agent_set, room_set, allocation, rent, false);
+				prices = maximinPrices(values, agent_set, room_set, allocation, rent, false);
 				if (prices == null) {
 					System.out.println("failure");
 					return;
@@ -124,7 +124,7 @@ public class Main {
 	    return null;
 	}
 	
-	private static Map<String, Double> minPettiness(Map<String, Map<String, Integer>> values, Set<String> agent_set, Set<String> room_set, Map<String, String> assignment, int rent, boolean nonnegative_prices) throws IloException {
+	private static Map<String, Double> maximinPrices(Map<String, Map<String, Integer>> values, Set<String> agent_set, Set<String> room_set, Map<String, String> assignment, int rent, boolean nonnegative_prices) throws IloException {
 		IloCplex cplex = new IloCplex();
     	Map<String, IloNumVar> price_variables = new HashMap<String, IloNumVar>();
     	for (String r : room_set) {
@@ -135,10 +135,10 @@ public class Main {
     		}
     	}
     	
-    	// objective is maximum difference in utilities
-    	IloNumVar max_difference = cplex.numVar(0, Double.MAX_VALUE, "y");
+    	// objective is maximize minimum utility or minimize negative of minimum utility
+    	IloNumVar min_utility = cplex.numVar(0, Double.MAX_VALUE, "y");
     	IloLinearNumExpr objective = cplex.linearNumExpr();
-    	objective.addTerm(1, max_difference);
+    	objective.addTerm(-1, min_utility);
     	cplex.addMinimize(objective);
     	
     	// ensure prices sum to rent
@@ -159,22 +159,12 @@ public class Main {
     		}
     	}
     	
-    	// bound utility difference
+    	// bound minimim utility
     	for (String i : agent_set) {
-    		for (String j : agent_set) {
-    			if (i.equals(j)) continue;
-    			constraint = cplex.linearNumExpr();
-    			constraint.addTerm(price_variables.get(assignment.get(i)), -1);
-    			constraint.addTerm(price_variables.get(assignment.get(j)), 1);
-    			constraint.addTerm(max_difference, -1);
-    			cplex.addLe(constraint, values.get(j).get(assignment.get(j)) - values.get(i).get(assignment.get(i)));
-    			
-    			constraint = cplex.linearNumExpr();
-    			constraint.addTerm(price_variables.get(assignment.get(i)), 1);
-    			constraint.addTerm(price_variables.get(assignment.get(j)), -1);
-    			constraint.addTerm(max_difference, 1);
-    			cplex.addGe(constraint, values.get(i).get(assignment.get(i)) - values.get(j).get(assignment.get(j)));
-    		}
+			constraint = cplex.linearNumExpr();
+			constraint.addTerm(price_variables.get(assignment.get(i)), 1);
+			constraint.addTerm(min_utility, 1);
+			cplex.addLe(constraint, values.get(i).get(assignment.get(i)));
     	}
     	
     	cplex.setOut(null);
@@ -189,7 +179,7 @@ public class Main {
 	    return null;
 	}
 	
-	/* Run ASU Algorithm */
+/*	 Run ASU Algorithm 
 	public static void fileAuction(String file_name) throws NumberFormatException, IOException {
 		Map<String, Room> rooms = new HashMap<String, Room>();
 		Map<String, Agent> agents = new HashMap<String, Agent>();
@@ -335,7 +325,7 @@ public class Main {
 				}
 				
 				Auction auc = new Auction(agents, rooms, (int)minsum.toDouble());
-				int iters = auc.runAuction(/* (n-n_min)*trials_per_n + i + 1 */);
+				int iters = auc.runAuction( ); //(n-n_min)*trials_per_n + i + 1 
 				avgIters[n-n_min] += iters;
 				maxIters[n-n_min] = Math.max(iters, maxIters[n-n_min]);
 			}
@@ -347,5 +337,5 @@ public class Main {
 			System.out.println("Maximum iterations for " + i + " agents: " + maxIters[i-n_min]);
 		}
 	}
-
+*/
 }
