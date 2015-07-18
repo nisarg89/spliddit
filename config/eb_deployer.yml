@@ -141,7 +141,7 @@ environments:
     strategy: inplace-update
   testing:
   testing2:
-	test_07_18:
+  test0718:
   staging:
   stagingv2:
     strategy: inplace-update
