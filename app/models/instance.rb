@@ -119,14 +119,16 @@ class Instance < ActiveRecord::Base
       return "$"
     when "euro"
       return "&euro;".html_safe
+    when "eur"
+      return "&euro;".html_safe
     when "gbp"
       return "&pound;".html_safe
     when "jpy"
       return "&yen;".html_safe
     when "ils"
       return "&#8362;".html_safe
-    when "inr"
-      return "&#8377;".html_safe
+    # when "inr"
+    #   return "&#8377;".html_safe
     else
       return (currency+" ").upcase.html_safe
     end
