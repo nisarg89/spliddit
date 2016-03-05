@@ -9,6 +9,7 @@ common:
   # Tier name for environments. Current supported values are WebServer and Worker
   # tier: WebServer
 
+  region: us-east-1
   # AWS region to deploy. Default to us-east-1
   # region: us-west-1
 
