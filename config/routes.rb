@@ -10,8 +10,8 @@ Spliddit::Application.routes.draw do
 
   match 'apps/goods/create', to: 'dividing_goods_instances#create', via: [:post]
   match 'apps/goods/demo', to: 'dividing_goods_instances#demo'
-  match 'apps/goods/two-people', to: 'dividing_goods_instances#two_people'
-  match 'apps/goods/three-or-more-people', to: 'dividing_goods_instances#three_or_more_people'
+  # match 'apps/goods/two-people', to: 'dividing_goods_instances#two_people'
+  # match 'apps/goods/three-or-more-people', to: 'dividing_goods_instances#three_or_more_people'
   resources :dividing_goods_instances, path: "apps/goods", only: [:new, :show, :index]
   match 'apps/goods/:id/valuations/:pwd', to: 'dividing_goods_instances#submit_valuation'
   match 'apps/goods/:id/survey/:pwd', to: 'dividing_goods_instances#submit_survey'

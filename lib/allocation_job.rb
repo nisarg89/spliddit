@@ -16,6 +16,8 @@ class AllocationJob < Struct.new(:id)
       10.seconds
     elsif instance.application.abbr = 'fare'
       60.seconds
+    elsif instance.application.abbr = 'goods'
+      120.seconds
     else
       (instance.resources.count+3).seconds
     end

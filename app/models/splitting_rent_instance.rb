@@ -92,7 +92,7 @@ class SplittingRentInstance < Instance
       price = price_for[room.id]
       bid = bid_for[agent.id][room.id]
       net = bid - price
-      str = "Why is my assignment envy-free? "
+      str = "Why is my assignment envy free? "
       str += "You were assigned the room called '#{room.name}' for #{currency_sym}#{sprintf '%.2f', price}. "
       str += "Since you valued the room at #{currency_sym}#{sprintf '%.2f', bid}, you gained #{currency_sym}#{sprintf '%.2f', net}. "
 

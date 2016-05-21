@@ -15,7 +15,7 @@
 
         <h1>Fairness Properties</h1>
 
-        <div class="content-block" id="envy-free">
+        <div class="content-block" id="individual-rationality">
 
             <div class="align-right">
 
@@ -46,7 +46,7 @@
 
         </div><!--.content-block-->
 
-        <div class="content-block last" id="efficient">
+        <div class="content-block last" id="marginalism">
 
             <div class="align-left">
 
@@ -85,7 +85,7 @@
 
 
         <h1>Algorithm Overview</h1>
-        <p>We first compute the fares between each pair of addresses using <a href = "http://taxifarefinder.com" target="_blank">TaxiFareFinder</a>. We use these estimates to calculate the fare of a hypothetical ride to every subset of destinations, thereby obtaining the cost of every subset of passengers. The payment of an individual passenger is her Shapley value: her average (roughly speaking) marginal contribution to the cost of any subset of other passengers. Assuming the entire fare must be split, the Shapley Value is provably the <b>unique</b> method that satisfies marginalism together with another basic property called anonymity. When the estimated fare is different from the actual fare, we simply scale the individual payments to match the actual fare; this provably preserves all the guarantees. </p> 
+        <p>We first compute the fares between each pair of addresses using <a href = "http://taxifarefinder.com" target="_blank">TaxiFareFinder</a>. We use these estimates to calculate the fare of a hypothetical ride to every subset of destinations, thereby obtaining the cost of every subset of passengers. The payment of an individual passenger is her Shapley value: her average (roughly speaking) marginal contribution to the cost of any subset of other passengers. Assuming the entire fare must be split, the Shapley Value is provably the <b>unique</b> method that satisfies <a href="#marginalism">marginalism</a> together with another basic property called anonymity. When the estimated fare is different from the actual fare, we simply scale the individual payments to match the actual fare; this provably preserves all the guarantees. </p> 
         <p><strong>Reference:</strong> <a target="_blank" href="http://en.wikipedia.org/wiki/Shapley_value">Shapley Value (Wikipedia)</a></p>
         <!-- <p><a class="no-underline" target="_blank" href = "http://taxifarefinder.com"><%= image_tag "taxifarefinder.png" %></a></p> -->
         

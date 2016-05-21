@@ -91,7 +91,7 @@ module InstanceHelpers
 
     # build resources
     items_ct = params[:resources_ct].to_i
-    return if items_ct < 3 || items_ct > 100
+    return if items_ct < 2 || items_ct > 100 # TODO: magic numbers
     items_ct.times do |i|
       r = instance.resources.build(
         name: params[:rnames][i.to_s.to_sym], 

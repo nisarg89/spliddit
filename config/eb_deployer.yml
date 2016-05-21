@@ -141,7 +141,7 @@ environments:
     # overriding common settings
     strategy: inplace-update
   testing:
-  testing2:
+  testingMNW:
   test0718:
   staging:
   stagingv2:

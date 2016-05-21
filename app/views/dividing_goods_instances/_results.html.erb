@@ -17,7 +17,7 @@
               <% if a.ownership == 1 %>
                 <%= a.resource.name %><br>
               <% else %>
-                <%= a.resource.name %> (<%= sprintf "%.2f%", (a.ownership*100) %>)<br>
+                <%= a.resource.name %> (<%= sprintf "%d%", (a.ownership*100).round %>)<br>
               <% end %>
             <% end %>
           </p>

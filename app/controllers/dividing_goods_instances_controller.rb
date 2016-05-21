@@ -1,17 +1,10 @@
 class DividingGoodsInstancesController < InstancesController
   def new
-    if params[:people] == '2'
-      @participants = 2
-      @fixed_agents = true
-      @show_types = false
-      @instructions = "What is being divided? Add up to 100 items. For best results, make items as fine-grained as possible (e.g. list valuable paintings or pieces of jewelry separately)."
-    else
-      @participants = 3
-      @fixed_agents = false
-      @show_types = true
-      @instructions = "What is being divided? Add up to 100 items. For best results, make items as fine-grained as possible (e.g. list valuable paintings or pieces of jewelry separately), and mark items that can easily be broken down into smaller pieces (e.g. cash, stocks) as divisible."
-    end
-    @resources = 3
+  	@participants = 2
+  	@fixed_agents = false
+  	@show_types = true
+  	@instructions = "What is being divided? Add up to 100 items. For best results, make items as fine-grained as possible (e.g. list valuable paintings or pieces of jewelry separately), and mark items that can easily be broken down into smaller pieces (e.g. cash, stocks) as divisible."
+    @resources = 2
     @resource_name = "Item"
     @resource_types = [["Not Divisible", "indivisible"], ["Divisible", "divisible"]]
     @show_quantities = false
@@ -51,9 +44,9 @@ class DividingGoodsInstancesController < InstancesController
     redirect_to dividing_goods_instance_path(instance, p: password)
   end
 
-  def two_people
-  end
+  # def two_people
+  # end
 
-  def three_or_more_people
-  end
+  # def three_or_more_people
+  # end
 end

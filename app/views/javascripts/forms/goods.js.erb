@@ -8,9 +8,9 @@ function validateHelper() {
     valid = false;
   }
   
-  //need 3-100 items
-  if (resources < 3 || resources > 100) {
-    $("#resources-error").append("<div class='alert alert-error'>There must be between 3 and 100 items.</div>");
+  //need 2-100 items 
+  if (resources < 2 || resources > 100) {
+    $("#resources-error").append("<div class='alert alert-error'>There must be between 2 and 100 items.</div>");
     valid = false;
   }
 

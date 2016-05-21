@@ -16,16 +16,8 @@
                             <p id="basics-error" class="error-msg error-text"></p>
                         </div>
                         <div class="form-row">
-                            <% if params[:people].to_i == 2 %>
-                                <h2 style="margin-bottom:0">Participant 1</h2>                            
-                                <%= text_field_tag :participant1, "Alice", maxlength: 30, class: "ipt-small" %>
-                                <br><br>
-                                <h2 style="margin-bottom:0">Participant 2</h2>                            
-                                <%= text_field_tag :participant2, "Bob", maxlength: 30, class: "ipt-small" %>
-                            <% else %>
-                                <h2 style="margin-bottom:0">Participants (comma-separated)</h2>
-                                <%= text_field_tag :participants, "Alice, Bob, Claire", maxlength: 150, style: "width:90%" %>
-                            <% end %>
+                            <h2 style="margin-bottom:0">Participants (comma-separated)</h2>
+                            <%= text_field_tag :participants, "Alice, Bob, Claire", maxlength: 150, style: "width:90%" %>
                         </div>
                         <div class="form-row">
                             <h2 style="margin-bottom:0">Items (comma-separated)</h2>

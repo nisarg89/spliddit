@@ -1,6 +1,10 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore CPLEX and Matlab BGL Libraries for Goods Division
+/lib/goods/cplex/
+/lib/goods/matlab_bgl/
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.yml

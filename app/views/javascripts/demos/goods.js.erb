@@ -36,13 +36,13 @@ function validateUpdateForm() {
     return false;
   }
   var m = new_items.length;
-  if (m < 3 || m > 15) {
-    displayError("The demo only allows between 3 and 15 items.", "basics-error");
+  if (m < 2 || m > 15) {
+    displayError("The demo only allows between 2 and 15 items.", "basics-error");
     return false;
-  } else if (n > m) {
+  } /*else if (n > m) {
     displayError("There must be at least as many items as participants.", "basics-error");
     return false;   
-  }
+  }*/
 
   var i;
   for (i = 0; i < n; i++) {
