@@ -1,6 +1,6 @@
 class SplittingFareInstance < Instance
 
-  attr_accessible :pickup_address, :total_fare, :currency
+  attr_accessible :pickup_address, :total_fare, :currency, :error_message
 
   validates :pickup_address, presence: true, length: {minimum: 1, maximum: 100}
 
@@ -16,12 +16,14 @@ class SplittingFareInstance < Instance
       addresses[a.id][:lat] = a.name.split("::")[1]
       addresses[a.id][:long] = a.name.split("::")[2]
     end
-    
+
     # get TFF entity before computing any fares
     pickup_lat = pickup_address.split("::")[1]
     pickup_long = pickup_address.split("::")[2]
-    uri = URI.parse("http://api.taxifarefinder.com/entity?key=#{TFF_API_KEY}&location=#{pickup_lat},#{pickup_long}")
+    uri = URI.parse("https://api.taxifarefinder.com/entity?key=#{TFF_API_KEY}&location=#{pickup_lat},#{pickup_long}")
     http = Net::HTTP.new(uri.host, uri.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
     raise Error unless tff_check_response(response)
     entity_handle = response["handle"]
@@ -29,6 +31,8 @@ class SplittingFareInstance < Instance
     # compute flat_fare and currency
     uri = tff_uri(entity_handle, pickup_lat, pickup_long, addresses[agents.first.id][:lat], addresses[agents.first.id][:long])
     http = Net::HTTP.new(uri.host, uri.port)
+	http.use_ssl = true
+	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
     raise Error unless tff_check_response(response)
     flat_fare = response["initial_fare"]
@@ -90,6 +94,8 @@ class SplittingFareInstance < Instance
       # compute fare from pickup location to address
       uri = tff_uri(entity_handle, pickup_lat, pickup_long, addresses[a1.id][:lat], addresses[a1.id][:long])
       http = Net::HTTP.new(uri.host, uri.port)
+	  http.use_ssl = true
+	  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
       raise Error unless tff_check_response(response)
       fares[a1.id][:pickup] = response["total_fare"]
@@ -102,6 +108,8 @@ class SplittingFareInstance < Instance
           # a2.id < a1.id handled by symmetry
           uri = tff_uri(entity_handle, addresses[a1.id][:lat], addresses[a1.id][:long], addresses[a2.id][:lat], addresses[a2.id][:long])
           http = Net::HTTP.new(uri.host, uri.port)
+		  http.use_ssl = true
+		  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
           response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
           raise Error unless tff_check_response(response)
           fares[a1.id][a2.id] = response["total_fare"]
@@ -124,7 +132,7 @@ class SplittingFareInstance < Instance
 
       agents.each do |a1|
         uri = tff_uri(entity_handle, pickup_lat, pickup_long, addresses[a1.id][:lat], addresses[a1.id][:long])
-        multi.add "pickup_#{a1.id}".to_sym, EventMachine::HttpRequest.new(uri).get
+        multi.add "pickup_#{a1.id}".to_sym, EventMachine::HttpRequest.new(uri,use_ssl: true).get
         agents.each do |a2|
           # see if same address (either a1 = a2 or live in same place)
           if addresses[a1.id][:lat] == addresses[a2.id][:lat] && addresses[a1.id][:long] == addresses[a2.id][:long]
@@ -132,7 +140,7 @@ class SplittingFareInstance < Instance
           elsif a1.id < a2.id
             # a2.id < a1.id handled by symmetry
             uri = tff_uri(entity_handle, addresses[a1.id][:lat], addresses[a1.id][:long], addresses[a2.id][:lat], addresses[a2.id][:long])
-            multi.add "#{a1.id}_#{a2.id}".to_sym, EventMachine::HttpRequest.new(uri).get
+            multi.add "#{a1.id}_#{a2.id}".to_sym, EventMachine::HttpRequest.new(uri,use_ssl: true).get
           end
         end
       end
@@ -167,7 +175,7 @@ class SplittingFareInstance < Instance
 
   # Use TFF to calculate fare between two latlongs
   def tff_uri(handle, lat1, long1, lat2, long2)
-    URI.parse("http://api.taxifarefinder.com/fare?key=#{TFF_API_KEY}&entity_handle=#{handle}&origin=#{lat1},#{long1}&destination=#{lat2},#{long2}")
+    URI.parse("https://api.taxifarefinder.com/fare?key=#{TFF_API_KEY}&entity_handle=#{handle}&origin=#{lat1},#{long1}&destination=#{lat2},#{long2}")
   end
 
   # Check TFF Response for the status code, and raise Error if needed
