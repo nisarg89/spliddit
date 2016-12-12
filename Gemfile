@@ -11,6 +11,8 @@ gem 'bootstrap-tooltip-rails'
 gem 'honeypot-captcha'
 gem 'yaml_db'
 gem 'em-http-request'
+gem 'rake', '< 11.0'
+gem 'public_suffix', '~> 1.4.6'
 
 # Gems used only for assets and not required
 # in production environments by default.

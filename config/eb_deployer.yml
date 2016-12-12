@@ -140,9 +140,7 @@ environments:
   dev:
     # overriding common settings
     strategy: inplace-update
-  testing:
-  testingMNW:
-  test0718:
+  testCredit:
   staging:
   stagingv2:
     strategy: inplace-update
