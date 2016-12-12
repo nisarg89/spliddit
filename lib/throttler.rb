@@ -4,19 +4,19 @@ module Throttler
   end
 
   def throttle_apps
-    throttle(HOUR_CACHE, 'apps_count', 5, true)
+    throttle(HOUR_CACHE, 'apps_count', 50, true)
   end
 
   def throttle_demos
-    throttle(MINUTE_CACHE, 'demos_count', 3, false)
+    throttle(MINUTE_CACHE, 'demos_count', 10, false)
   end
 
   def throttle_feedback
-    throttle(HOUR_CACHE, 'emails_count', 3, true)
+    throttle(HOUR_CACHE, 'emails_count', 50, true)
   end
 
   def throttle_mailing_list
-    throttle(HOUR_CACHE, 'emails_count', 3, false)
+    throttle(HOUR_CACHE, 'emails_count', 50, false)
   end
 
   private
