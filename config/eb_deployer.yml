@@ -4,7 +4,7 @@ application: spliddit
 # common settings for all environments
 common:
   # Solution stack for elastic beanstalk, default is 64bit tomcat 7 for JAVA app
-  solution_stack_name: 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)
+  solution_stack_name: 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3
 
   # Tier name for environments. Current supported values are WebServer and Worker
   # tier: WebServer

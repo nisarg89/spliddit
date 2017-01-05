@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'nokogiri'
+gem 'nokogiri', '1.6.8'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'valid_email'
