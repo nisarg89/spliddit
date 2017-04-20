@@ -138,12 +138,8 @@ common:
 # You can define environment here. Each environment can overriden any common settings
 environments:
   dev:
-    # overriding common settings
     strategy: inplace-update
-  testCredit:
-  staging:
-  stagingv2:
-    strategy: inplace-update
+  testA:
   production:
     strategy: inplace-update
     option_settings:

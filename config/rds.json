@@ -68,7 +68,7 @@
                 "DBInstanceClass": "db.m1.small",
                 "AllocatedStorage": "5",
                 "MultiAZ": "false",
-                "EngineVersion": "9.3.3",
+                "EngineVersion": "9.3.14",
                 "DBName": {
                     "Ref": "DBName"
                 },

@@ -8,8 +8,10 @@ class SplittingFareInstance < Instance
   validates :currency, length: { minimum: 3, maximum: 4}, allow_nil: true
 
   def run(attempt)
-
     # setup
+
+    #Delayed::Worker.logger = Logger.new(File.join(Rails.root,'log','fare.log'))
+
     addresses = Hash.new
     agents.each do |a|
       addresses[a.id] = Hash.new
@@ -22,8 +24,8 @@ class SplittingFareInstance < Instance
     pickup_long = pickup_address.split("::")[2]
     uri = URI.parse("https://api.taxifarefinder.com/entity?key=#{TFF_API_KEY}&location=#{pickup_lat},#{pickup_long}")
     http = Net::HTTP.new(uri.host, uri.port)
-	http.use_ssl = true
-	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
     raise Error unless tff_check_response(response)
     entity_handle = response["handle"]
@@ -31,11 +33,11 @@ class SplittingFareInstance < Instance
     # compute flat_fare and currency
     uri = tff_uri(entity_handle, pickup_lat, pickup_long, addresses[agents.first.id][:lat], addresses[agents.first.id][:long])
     http = Net::HTTP.new(uri.host, uri.port)
-	http.use_ssl = true
-	http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
     raise Error unless tff_check_response(response)
-    flat_fare = response["initial_fare"]
+    flat_fare = response["initial_fare"].to_f
     if !currency
       update_attribute(:currency, response["currency"]["int_symbol"].downcase)
     end
@@ -55,10 +57,13 @@ class SplittingFareInstance < Instance
         if idx == 0
           shapley[a.id] += fares[a.id][:pickup]
         else
+          Delayed::Worker.logger.debug("Before This")
           shapley[a.id] += get_route_fare(fares, perm[0..idx], flat_fare).first - get_route_fare(fares, perm[0..(idx-1)], flat_fare).first
+          Delayed::Worker.logger.debug("After This")
         end
       end
     end
+
     # denominator is (# agents) factorial
     n_fact = (1..(agents.count)).inject(:*)
     agents.each do |a|
@@ -82,6 +87,8 @@ class SplittingFareInstance < Instance
       assignment.instance_id = id
       assignment.save
     end
+
+    #Delayed::Worker.logger.debug("Done Assignment")
   end
 
 
@@ -94,8 +101,8 @@ class SplittingFareInstance < Instance
       # compute fare from pickup location to address
       uri = tff_uri(entity_handle, pickup_lat, pickup_long, addresses[a1.id][:lat], addresses[a1.id][:long])
       http = Net::HTTP.new(uri.host, uri.port)
-	  http.use_ssl = true
-	  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
       raise Error unless tff_check_response(response)
       fares[a1.id][:pickup] = response["total_fare"]
@@ -108,8 +115,8 @@ class SplittingFareInstance < Instance
           # a2.id < a1.id handled by symmetry
           uri = tff_uri(entity_handle, addresses[a1.id][:lat], addresses[a1.id][:long], addresses[a2.id][:lat], addresses[a2.id][:long])
           http = Net::HTTP.new(uri.host, uri.port)
-		  http.use_ssl = true
-		  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
           response = JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
           raise Error unless tff_check_response(response)
           fares[a1.id][a2.id] = response["total_fare"]
@@ -149,6 +156,9 @@ class SplittingFareInstance < Instance
         multi.responses[:callback].each do |key, http|
           source = key.to_s.split("_")[0]
           dest = key.to_s.split("_")[1]
+
+          #Delayed::Worker.logger.debug("Got source/dest")
+
           response = JSON.parse(http.response)
           if !tff_check_response(response)
             EventMachine.stop

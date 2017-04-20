@@ -26,9 +26,9 @@ end
 
 gem 'jquery-rails', '2.0.2'
 
-group :test do
-  gem 'capybara', '1.1.2'
-end
+#group :test do
+#  gem 'capybara', '1.1.2'
+#end
 
 # group :production do
 #   gem 'pg', '0.12.2'
@@ -41,3 +41,10 @@ gem 'rspec-rails', '2.11.0'
 gem 'minitest'
 gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
 gem 'pry-debugger'
+gem 'childprocess', '0.6.3'
+gem 'rubyzip', '1.2.1'
+gem 'websocket', '1.2.4'
+gem 'selenium-webdriver', '2.53.4'
+gem 'xpath', '0.1.4'
+gem 'capybara', '1.1.2'
+gem 'ffi', '1.9.14'
