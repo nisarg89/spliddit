@@ -1,5 +1,5 @@
 class Instance < ActiveRecord::Base
-  attr_accessible :name, :separate_passwords, :passcode, :admin_email
+  attr_accessible :name, :separate_passwords, :passcode, :admin_email, :status
 
   has_many :agents, dependent: :destroy
   validates_associated :agents

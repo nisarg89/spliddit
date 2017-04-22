@@ -1,5 +1,5 @@
 class Agent < ActiveRecord::Base
-  attr_accessible :name, :email, :mailing_list, :send_results, :passcode
+  attr_accessible :name, :email, :mailing_list, :send_results, :passcode, :fairness_str
 
   validate :empty_or_valid_email
 

@@ -1,5 +1,6 @@
 class DividingGoodsInstance < Instance
   def run(attempt)
+    #Delayed::Worker.logger = Logger.new(File.join(Rails.root,'log','goods.log'))
     assignments.delete_all
     fname = "#{Rails.configuration.tmp_dir}/#{id}.txt"
 
@@ -29,9 +30,15 @@ class DividingGoodsInstance < Instance
     else
       # Linux (Amazon EC2) --> run bin/run_goods.sh with path to MCR and instance file.
       # Multiple commands to prevent Mass Assignment Security Error
-      FileUtils.chmod "u=wrx,go=rx", 'bin/run_goods.sh'
+      #FileUtils.chmod "u=wrx,go=rx", 'bin/run_goods.sh'
       FileUtils.chmod "u=wrx,go=rx", 'bin/goods'
-      allocation_str = `bin/run_goods.sh /home/ec2-user/MCR/INST/v85 #{fname}`
+      my_mcrroot = "/home/webapp/MCR/INST/v85"
+      lib_path = ".:#{my_mcrroot}/runtime/glnxa64:#{my_mcrroot}/bin/glnxa64:#{my_mcrroot}/sys/os/glnxa64:#{my_mcrroot}/sys/opengl/lib/glnxa64"
+      ENV["LD_LIBRARY_PATH"] = lib_path
+      ENV["PATH"] = ENV["PATH"] + ":" + lib_path
+      ENV["MCR_CACHE_ROOT"]="/tmp"
+      allocation_str = `bin/goods #{fname}`
+      #allocation_str = `bin/run_goods.sh /home/webapp/MCR/INST/v85 #{fname}`
     end
     raise Error if allocation_str.include? "failure"
 
