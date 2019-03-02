@@ -1,5 +1,9 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 gem 'nokogiri', '1.6.8'
+group :production do
+	gem 'rb-inotify', '0.9.10'
+end
+gem 'rack-cache', '1.5.0'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'valid_email'

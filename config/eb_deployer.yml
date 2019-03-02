@@ -140,6 +140,7 @@ environments:
   dev:
     strategy: inplace-update
   testA:
+  testB:
   production:
     strategy: inplace-update
     option_settings:
