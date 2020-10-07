@@ -75,7 +75,7 @@ module InstanceHelpers
 
     # build agents
     agent_ct = params[:agents_ct].to_i
-    return false if agent_ct < 2 or agent_ct > 15 # TODO: magic numbers
+    return false if agent_ct < 2 or agent_ct > 20 # TODO: magic numbers
     agent_ct.times do |i|
       if !separate_passwords
         a = instance.agents.build(

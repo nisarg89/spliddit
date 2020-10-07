@@ -3,8 +3,8 @@ function validateHelper() {
   var valid = true;
 
   //need 2-15 people
-  if (participants < <%= @participants %> || participants > 15) {
-    $("#participants-error").append("<div class='alert alert-error'>There must be between <%= @participants %> and 15 participants.</div>");
+  if (participants < <%= @participants %> || participants > 20) {
+    $("#participants-error").append("<div class='alert alert-error'>There must be between <%= @participants %> and 20 participants.</div>");
     valid = false;
   }
   
