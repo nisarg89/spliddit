@@ -83,6 +83,10 @@ common:
     # Following is an example of set EC2 ssh key name. This allow you ssh into the ec2
     # instance. See http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
     - namespace: aws:autoscaling:launchconfiguration
+      option_name: IamInstanceProfile
+      value: aws-elasticbeanstalk-ec2-role
+
+    - namespace: aws:autoscaling:launchconfiguration
       option_name: EC2KeyName
       value: spliddit-keypair
 
