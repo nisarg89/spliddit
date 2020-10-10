@@ -183,7 +183,7 @@ class DividingGoodsInstance < Instance
   end
 
   def max_agents
-    15
+    20
   end
 
   def min_resources

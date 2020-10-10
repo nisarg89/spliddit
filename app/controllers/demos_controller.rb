@@ -42,7 +42,7 @@ class DemosController < ApplicationController
 
       new_params[:agents_ct] = params[:input][:participants].count
       new_params[:resources_ct] = params[:input][:items].count
-      if new_params[:agents_ct] > 5 || new_params[:resources_ct] > 15 # TODO: magic numbers
+      if new_params[:agents_ct] > 5 || new_params[:resources_ct] > 20 # TODO: magic numbers
         return  
       end
       
