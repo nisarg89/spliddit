@@ -85,7 +85,7 @@ Spliddit::Application.configure do
   config.action_mailer.default_url_options = { :host => "spliddit.org" }
 
   # Prevent Mass Assignment Security Error
-  config.active_record.mass_assignment_sanitizer = :logger
+  #config.active_record.mass_assignment_sanitizer = :logger
 
   # config.after_initialize do 
   #   Delayed::Job.scaler = :heroku_cedar
