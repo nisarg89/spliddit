@@ -1,5 +1,10 @@
 class Instance < ActiveRecord::Base
-  attr_accessible :name, :separate_passwords, :passcode, :admin_email, :status
+  # attr_accessible :name, :separate_passwords, :passcode, :admin_email, :status
+  def instance_params
+    params.require(:instance).permit(:name, :separate_passwords, :passcode, :admin_email, :status)
+  end
+
+  has_many :instances, class_name: 'Instance'
 
   has_many :agents, dependent: :destroy
   validates_associated :agents
