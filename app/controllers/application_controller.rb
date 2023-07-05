@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Throttler
   include InstanceHelpers
 
-  before_filter :throttle_requests
+  before_action :throttle_requests
 
 
 end

@@ -21,13 +21,13 @@ gem 'public_suffix'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'compass-rails'
-  gem "breakpoint"
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+# group :assets do
+gem 'sass-rails'
+gem 'compass-rails'
+gem 'breakpoint'
+gem 'coffee-rails'
+gem 'uglifier'
+# end
 
 gem 'jquery-rails'
 

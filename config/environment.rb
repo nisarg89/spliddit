@@ -17,3 +17,4 @@ Spliddit::Application.initialize!
 # Added require statements
 require 'set'
 require 'munkres'
+require 'breakpoint'
