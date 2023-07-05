@@ -1,4 +1,4 @@
-class CreateEeInstances < ActiveRecord::Migration
+class CreateEeInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :ee_instances do |t|
       t.string :resultsJSON

@@ -1,4 +1,4 @@
-class CreateInstancesTable < ActiveRecord::Migration
+class CreateInstancesTable < ActiveRecord::Migration[7.0]
   def change
     create_table "instances", :force => true do |t|
       t.boolean  "init_email_sent",                  :default => false

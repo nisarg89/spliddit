@@ -1,4 +1,4 @@
-class CreateCeeiInstances < ActiveRecord::Migration
+class CreateCeeiInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :ceei_instances do |t|
       t.string :resultsJSON

@@ -1,4 +1,4 @@
-class CreateDemos < ActiveRecord::Migration
+class CreateDemos < ActiveRecord::Migration[7.0]
   def change
     create_table :demos do |t|
       t.integer :application_id
