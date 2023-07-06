@@ -1,0 +1,101 @@
+.equit {
+	//margin: 2em auto;
+	position: relative;
+	width: 281px; height: 281px;
+	// background-image: url(circle-ret.gif);
+ 	// background-size: 281px 281px;
+ 	// background-repeat: no-repeat;
+	background: url(circle.gif) no-repeat;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		opacity: 1;
+	}
+	&.fadeOut {
+		opacity: 0;
+	}
+	img {
+		//transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+    	-moz-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	}
+
+	.people {
+		position: absolute;
+		top: 55px;
+		left: 30px;
+		width: 221px;
+		height: 154px;
+	}
+	.large-box {
+		transition: all 1s;
+		position: absolute;
+		bottom: 30px;
+		left: 80px;
+		z-index: 20;
+		width: 74px;
+		height: 60px;
+		&.fadeOutLeft {
+			left: 20px;
+		}
+	}
+	.med-box {
+		width: 56px;
+		height: 48px;
+		transition: all 1s;
+		position: absolute;
+		bottom: 50px;
+		right: 90px;
+		z-index: 10;
+		&.fadeOutRight {
+			right: 20px;
+		}
+	}
+	.small-box {
+		width: 51px;
+		height: 39px;
+		transition: all 1s;
+		position: absolute;
+		bottom: 25px;
+		right: 90px;
+		z-index: 30;
+		&.fadeOutRight {
+			right: 20px;
+		}
+	}
+	.arm-guy {
+		width: 70px;
+		height: 120px;
+		transition: all 1.25s;
+		opacity: 0;
+		position: absolute;
+		bottom: 55px;
+		left: -23px;
+		&.fadeInUp {
+			bottom: 68px;
+			opacity: 1;
+		}
+	}
+	.arm-girl {
+		width: 70px;
+		height: 120px;
+		transition: all 1.25s;
+		opacity: 0;
+		position: absolute;
+		bottom: 55px;
+		right: -23px;
+		&.fadeInUp {
+			bottom: 68px;
+			opacity: 1;
+		}
+	}
+}
+
+.lt-ie9 .equit img {
+	background: transparent;
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */
+	zoom: 1;
+}

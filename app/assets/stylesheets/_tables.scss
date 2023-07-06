@@ -1,0 +1,60 @@
+// th {
+// 	@include breakpoint($bp-tiny-tables) {
+// 		position: absolute;
+// 	    clip: rect(1px 1px 1px 1px); 
+// 	    clip: rect(1px, 1px, 1px, 1px);
+// 	    padding: 0;
+// 	    border: 0;
+// 	    height: 1px; 
+// 	    width: 1px; 
+// 	    overflow: hidden;
+// 	}
+	
+// }
+
+// tbody, tr, th, td {
+// 	@include breakpoint($bp-tiny-tables) {
+// 	    display: block;
+// 	    padding: 0;
+// 	    text-align: left;
+// 	    white-space: normal;
+// 	}
+// }
+
+// td[data-title]:before {
+// 	@include breakpoint($bp-tiny-tables) {
+//       content: attr(data-title);
+//       display: block;
+//       font-size: 1.2em;
+//       margin-bottom: 1em;
+//       color: $color-primary;
+// 	}
+// }
+
+@import 'vars';
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 2em;
+}
+
+th,td {
+	color: $color-secondary;
+	padding: 1em 0;
+}
+
+thead {
+	border-bottom: 1px solid $color-secondary;
+}
+
+td {
+	input[type="text"],
+	select,
+	textarea {
+		width: 90%;
+	}
+	input[type="radio"] {
+		width: 20px;
+	}
+}
