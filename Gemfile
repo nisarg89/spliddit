@@ -23,7 +23,7 @@ gem 'public_suffix'
 # in production environments by default.
 # group :assets do
 gem 'sass-rails'
-gem 'compass-rails'
+gem 'compass-rails', '2.0.1'
 gem 'breakpoint'
 gem 'coffee-rails'
 gem 'uglifier'
@@ -58,3 +58,6 @@ gem 'ffi'
 gem 'execjs'
 gem 'webrick'
 gem 'tzinfo-data'
+gem 'sprockets', '4.2.0'
+
+#run this before rails s: RAILS_ENV=production rake assets:precompile
