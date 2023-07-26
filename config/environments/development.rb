@@ -4,6 +4,7 @@ Rails.configuration.java_dir = "C:/PROGRA~1/java/jdk1.7.0_04/bin/java"
 
 Spliddit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.eager_load = true
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
