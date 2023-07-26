@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController  
-  before_filter :throttle_feedback, only: :submit_feedback
+  before_action :throttle_feedback, only: :submit_feedback
   
   def feedback
   end

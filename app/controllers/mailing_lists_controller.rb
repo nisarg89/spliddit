@@ -1,6 +1,6 @@
 class MailingListsController < ApplicationController
 
-  before_filter :throttle_mailing_list, only: :mailing_list
+  before_action :throttle_mailing_list, only: :mailing_list
 
   def mailing_list
     respond_to do |format| 

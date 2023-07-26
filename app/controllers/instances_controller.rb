@@ -1,6 +1,6 @@
 class InstancesController < ApplicationController
 
-  before_filter :throttle_apps, only: :create
+  before_action :throttle_apps, only: :create
 
   def index
 

@@ -23,7 +23,7 @@ gem 'public_suffix'
 # in production environments by default.
 # group :assets do
 gem 'sass-rails'
-gem 'compass-rails'
+gem 'compass-rails', '2.0.1'
 gem 'breakpoint'
 gem 'coffee-rails'
 gem 'uglifier'
@@ -41,6 +41,7 @@ gem 'jquery-rails'
 
 gem 'eb_deployer'
 gem "pg"
+gem "ejs"
 gem 'sqlite3'
 gem 'rspec-rails'
 gem 'minitest'
@@ -58,3 +59,4 @@ gem 'ffi'
 gem 'execjs'
 gem 'webrick'
 gem 'tzinfo-data'
+gem 'sprockets', '4.2.0'

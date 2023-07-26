@@ -1,6 +1,6 @@
 class DemosController < ApplicationController
 
-  before_filter :throttle_demos, only: :create
+  before_action :throttle_demos, only: :create
 
   def create
     respond_to do |format| 
