@@ -60,3 +60,4 @@ gem 'execjs'
 gem 'webrick'
 gem 'tzinfo-data'
 gem 'sprockets', '4.2.0'
+#run this before rails s: RAILS_ENV=production rake assets:precompile
