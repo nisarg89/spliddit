@@ -60,4 +60,5 @@ gem 'execjs'
 gem 'webrick'
 gem 'tzinfo-data'
 gem 'sprockets', '4.2.0'
+gem 'protected_attributes_continued'
 #run this before rails s: RAILS_ENV=production rake assets:precompile

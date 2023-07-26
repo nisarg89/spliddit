@@ -1,6 +1,6 @@
 class SplittingRentInstance < Instance
 
-  attr_accessible :rent, :currency
+  attr_accessible :rent, :currency, :name, :separate_passwords, :passcode, :admin_email
 
   validates :rent, presence: true, numericality: { greater_than: 10, less_than: 1000000}
   validates :currency, presence: true, length: { minimum: 3, maximum: 4}
