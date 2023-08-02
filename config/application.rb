@@ -15,6 +15,7 @@ module Spliddit
   class Application < Rails::Application
     # handle 404 and 500
     config.exceptions_app = self.routes
+    config.assets.precompile += ['style.css']
 
     # Settings in config/environments/* take precedence over those specified here.
 
