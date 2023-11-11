@@ -1,6 +1,13 @@
 Rails.configuration.tmp_dir = "#{Rails.root.to_s}/tmp"
-Rails.configuration.cplex_lib = "C:/PROGRA~1/IBM/ILOG/CPLEX_Studio1251/cplex/bin/x64_win64"
-Rails.configuration.java_dir = "C:/PROGRA~1/java/jdk1.7.0_04/bin/java"
+
+# Windows
+# Rails.configuration.cplex_lib = "C:/PROGRA~1/IBM/ILOG/CPLEX_Studio1251/cplex/bin/x64_win64"
+# Rails.configuration.java_dir = "C:/PROGRA~1/java/jdk1.7.0_04/bin/java"
+
+# MacOSX
+Rails.configuration.cplex_lib = "/Applications/CPLEX_Studio_Community2211/cplex/bin/x86-64_osx/"
+Rails.configuration.java_dir = "/usr/local/opt/openjdk/bin/java"
+
 
 Spliddit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
