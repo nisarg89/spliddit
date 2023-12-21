@@ -4,7 +4,7 @@ application: spliddit
 # common settings for all environments
 common:
   # Solution stack for elastic beanstalk, default is 64bit tomcat 7 for JAVA app
-  solution_stack_name: 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3
+  solution_stack_name: 64bit Amazon Linux 2023 v4.0.1 running Ruby 3.2
 
   # Tier name for environments. Current supported values are WebServer and Worker
   # tier: WebServer
@@ -88,7 +88,7 @@ common:
 
     - namespace: aws:autoscaling:launchconfiguration
       option_name: EC2KeyName
-      value: spliddit-keypair
+      value: spliddit-soroush-keypair
 
     # Following is an example which changes EC2 instance type
     # from t1.micro (default) to m1.small. Instances with t1.micro type sometime
@@ -99,15 +99,15 @@ common:
       option_name: InstanceType
       value: t2.medium
 
-    - namespace: aws:elasticbeanstalk:application:environment
-      option_name: DATABASE_NAME
-      value: spliddit
-    - namespace: aws:elasticbeanstalk:application:environment
-      option_name: DATABASE_USERNAME
-      value: spliddit
-    - namespace: aws:elasticbeanstalk:application:environment
-      option_name: DATABASE_PASSWORD
-      value: splidditdb
+#    - namespace: aws:elasticbeanstalk:application:environment
+#      option_name: DATABASE_NAME
+#      value: spliddittmp
+#    - namespace: aws:elasticbeanstalk:application:environment
+#      option_name: DATABASE_USERNAME
+#      value: spliddit
+#    - namespace: aws:elasticbeanstalk:application:environment
+#      option_name: DATABASE_PASSWORD
+#      value: splidditdb
 
 
   # If resources specified, eb_deployer will use the CloudFormation
@@ -121,23 +121,23 @@ common:
   #    outputs => A Hash with key map to your CloudFormation template outputs and value as elastic beanstalk settings namespace and option_name.
   #    capabilities => An array. You need set it to ['CAPABILITY_IAM'] if the
   # template include IAM Instance Profile.
-  resources:
+#  resources:
     # Creating a RDS instance by CloudFormation, so that database will not hook up with any ElasticBeanstalk environment
-    template: config/rds.json
-    inputs:
-      DBName: spliddit
-      DBUser: spliddit
-      DBPassword: splidditdb
-    outputs:
-      RDSPassSecurityGroup:
-        namespace: aws:autoscaling:launchconfiguration
-        option_name: SecurityGroups
-      RDSHost:
-        namespace: aws:elasticbeanstalk:application:environment
-        option_name: DATABASE_HOST
-      RDSPort:
-        namespace: aws:elasticbeanstalk:application:environment
-        option_name: DATABASE_PORT
+#    template: config/rds.json
+#    inputs:
+#      DBName: spliddittmp
+#      DBUser: spliddit
+#      DBPassword: splidditdb
+#    outputs:
+#      RDSPassSecurityGroup:
+#        namespace: aws:autoscaling:launchconfiguration
+#        option_name: SecurityGroups
+#      RDSHost:
+#        namespace: aws:elasticbeanstalk:application:environment
+#        option_name: DATABASE_HOST
+#      RDSPort:
+#        namespace: aws:elasticbeanstalk:application:environment
+#        option_name: DATABASE_PORT
 
 # You can define environment here. Each environment can overriden any common settings
 environments:
@@ -150,7 +150,7 @@ environments:
     option_settings:
       - namespace: aws:autoscaling:asg
         option_name: MinSize
-        value: "3"
+        value: "1"
       - namespace: aws:autoscaling:asg
         option_name: MaxSize
-        value: "3"
+        value: "2"

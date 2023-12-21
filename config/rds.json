@@ -65,10 +65,10 @@
                         "Ref": "RDSDBSecurityGroup"
                     }
                 ],
-                "DBInstanceClass": "db.r3.large",
+                "DBInstanceClass": "db.t3.micro",
                 "AllocatedStorage": "5",
                 "MultiAZ": "false",
-                "EngineVersion": "9.3.25",
+                "EngineVersion": "15.2",
                 "DBName": {
                     "Ref": "DBName"
                 },
