@@ -1,6 +1,6 @@
 Rails.configuration.tmp_dir = '/tmp'
 Rails.configuration.cplex_lib = "bin/cplex/cplex/bin/x86-64_sles10_4.1/"
-Rails.configuration.java_dir = "java"
+Rails.configuration.java_dir = "java" 
 
 Spliddit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
