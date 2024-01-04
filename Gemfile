@@ -49,7 +49,6 @@ gem 'minitest'
 gem 'bigdecimal'
 #gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
 gem "aws-ses", git: "https://github.com/zebitex/aws-ses.git", ref: "78-sigv4-problem"
-gem 'pry-byebug'
 gem 'childprocess'
 gem 'rubyzip'
 gem 'websocket'
@@ -62,4 +61,5 @@ gem 'webrick'
 gem 'tzinfo-data'
 gem 'sprockets', '4.2.0'
 gem 'protected_attributes_continued'
+gem 'puma', '6.4.0'
 #run this before rails s: RAILS_ENV=production rake assets:precompile

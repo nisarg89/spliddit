@@ -25,10 +25,7 @@ test:
 #   timeout: 5000
 
 production:
-  adapter: postgresql
-  database: <%= ENV['DATABASE_NAME'] || 'spliddit_production' %>
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
-  port: <%= ENV['DATABASE_PORT'] || 5432 %>
-  username: <%= ENV['DATABASE_USERNAME'] || "Jon" %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  min_messages: ERROR
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000

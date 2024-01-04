@@ -25,3 +25,5 @@ data.yml
 gistfile1.sh
 rbenv-vars.rb
 public/assets/**
+
+/config/master.key
