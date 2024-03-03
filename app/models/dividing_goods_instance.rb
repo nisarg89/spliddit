@@ -24,22 +24,7 @@ class DividingGoodsInstance < Instance
 
     # call the MNW algorithm
     allocation_str = ""
-    if Gem.win_platform? 
-      # Windows --> just run bin/goods.exe with instance file. 
-      allocation_str = `bin/goods #{fname}`
-    else
-      # Linux (Amazon EC2) --> run bin/run_goods.sh with path to MCR and instance file.
-      # Multiple commands to prevent Mass Assignment Security Error
-      #FileUtils.chmod "u=wrx,go=rx", 'bin/run_goods.sh'
-      FileUtils.chmod "u=wrx,go=rx", 'bin/goods'
-      my_mcrroot = "/home/webapp/MCR/INST/v85"
-      lib_path = ".:#{my_mcrroot}/runtime/glnxa64:#{my_mcrroot}/bin/glnxa64:#{my_mcrroot}/sys/os/glnxa64:#{my_mcrroot}/sys/opengl/lib/glnxa64"
-      ENV["LD_LIBRARY_PATH"] = lib_path
-      ENV["PATH"] = ENV["PATH"] + ":" + lib_path
-      ENV["MCR_CACHE_ROOT"]="/tmp"
-      allocation_str = `bin/goods #{fname}`
-      #allocation_str = `bin/run_goods.sh /home/webapp/MCR/INST/v85 #{fname}`
-    end
+    allocation_str = `python3 lib/goods_mnw/goods_solver_wrapper.py #{fname}`
     raise Error if allocation_str.include? "failure"
 
     # create assignments
@@ -63,7 +48,7 @@ class DividingGoodsInstance < Instance
     own_bundle_value = Hash.new
     own_bundle_value.default = 0.0
     agents.each do |agent|
-      agent.assignments.each do |assignment|
+      agent.assignments.where(instance_id: id).each do |assignment|
         own_bundle_value[agent.id] += agent.valuations.find_by_resource_id(assignment.resource_id).value * assignment.ownership
       end
     end
@@ -82,7 +67,7 @@ class DividingGoodsInstance < Instance
         next if agent.id == other_agent.id
         other_bundle_values[agent.id][other_agent.id] = Hash.new
         other_bundle_values[agent.id][other_agent.id].default = 0.0
-        other_agent.assignments.each do |assignment|
+        other_agent.assignments.where(instance_id: id).each do |assignment|
           v = agent.valuations.find_by_resource_id(assignment.resource_id).value * assignment.ownership
           other_bundle_values[agent.id][other_agent.id][assignment.resource_id] = v
           other_bundle_total_value[agent.id][other_agent.id] += v
