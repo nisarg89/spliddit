@@ -6,6 +6,7 @@ Rails.configuration.tmp_dir = "#{Rails.root.to_s}/tmp"
 
 # MacOSX
 Rails.configuration.cplex_lib = "/Applications/CPLEX_Studio_Community2211/cplex/bin/x86-64_osx/"
+Rails.configuration.gurobi_lic = "~/gurobi/gurobi.lic"
 Rails.configuration.java_dir = "/usr/local/opt/openjdk/bin/java"
 
 

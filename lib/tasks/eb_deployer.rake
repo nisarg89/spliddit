@@ -17,9 +17,9 @@ namespace :eb do
   task :package => [:clean, :environment] do
     sh "echo \"ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base, access_key_id: \'#{ENV['AWS_ACCESS_KEY_ID']}\', secret_access_key: \'#{ENV['AWS_SECRET_ACCESS_KEY']}\', signature_version: 4\" > config/initializers/amazon_ses.rb"
     sh "echo \"TFF_API_KEY = \'#{ENV['TFF_API_KEY']}\'\" > config/initializers/taxifarefinder.rb"
-    sh "cp -r /Applications/CPLEX_Studio_Community2211/cplex/bin/x86-64_osx/cplex bin/cplex"
-    sh "(find bin/cplex && git ls-files) | zip #{eb_deployer_package} Gemfile.lock -@"
-    sh "rm -r bin/cplex"
+    sh "cp ~/gurobi/aws-gurobi-mnw.lic config/gurobi.lic"
+    sh "(find config/gurobi.lic && git ls-files) | zip #{eb_deployer_package} Gemfile.lock -@"
+    sh "rm config/gurobi.lic"
     sh "echo \"ActionMailer::Base.add_delivery_method :ses, AWS::SES::Base, access_key_id: ENV[\'AWS_ACCESS_KEY_ID\'], secret_access_key: ENV[\'AWS_SECRET_ACCESS_KEY\'], signature_version: 4\" > config/initializers/amazon_ses.rb"
     sh "echo \"TFF_API_KEY = ENV[\'TFF_API_KEY\']\" > config/initializers/taxifarefinder.rb"
   end

@@ -1,5 +1,6 @@
 Rails.configuration.tmp_dir = '/tmp'
 Rails.configuration.cplex_lib = "bin/cplex/cplex/bin/x86-64_sles10_4.1/"
+Rails.configuration.gurobi_lic = "config/gurobi.lic"
 Rails.configuration.java_dir = "java" 
 
 Spliddit::Application.configure do

@@ -36,7 +36,7 @@ class SplittingRentInstance < Instance
     end
 
     # call Python
-    allocation_str = `python3 lib/rent_division/rent_wrapper.py #{fname}`
+    allocation_str = `GRB_LICENSE_FILE=#{Rails.configuration.gurobi_lic} python3 lib/rent_division/rent_wrapper.py #{fname}`
 
     if allocation_str.include? "failure"
       raise Error

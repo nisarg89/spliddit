@@ -24,7 +24,7 @@ class DividingGoodsInstance < Instance
 
     # call the MNW algorithm
     allocation_str = ""
-    allocation_str = `python3 lib/goods_mnw/goods_solver_wrapper.py #{fname}`
+    allocation_str = `GRB_LICENSE_FILE=#{Rails.configuration.gurobi_lic} python3 lib/goods_mnw/goods_solver_wrapper.py #{fname}`
     raise Error if allocation_str.include? "failure"
 
     # create assignments
