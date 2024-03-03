@@ -42,7 +42,6 @@ def solve_rent_division(f_name):
         print("failure")
         return
     reverse_to_room_id = {ind: room_id for room_id, ind in r_loader.room_ids.items()}
-    print(matching, prices, r_loader.vals, r_loader.agent_ids, r_loader.room_ids, sep='\n')
     for agent_id, a_ind in r_loader.agent_ids.items():
         assigned_room_ind = matching[a_ind]
         print(agent_id, reverse_to_room_id[assigned_room_ind], prices[assigned_room_ind])
