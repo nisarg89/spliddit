@@ -35,8 +35,8 @@ class SplittingRentInstance < Instance
       end
     end
 
-    # call Java
-    allocation_str = `#{Rails.configuration.java_dir} -Djava.library.path=#{Rails.configuration.cplex_lib} -jar bin/rent.jar #{fname}`
+    # call Python
+    allocation_str = `python3 lib/rent_division/rent_wrapper.py #{fname}`
 
     if allocation_str.include? "failure"
       raise Error
