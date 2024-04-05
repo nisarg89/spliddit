@@ -1656,6 +1656,9 @@ html{
     -webkit-transition:all,.25s;
     transition:all,.25s
 }
+.btn-disabled{
+    background: #888 !important;
+}
 .page-content .btn:hover{
     border:0;
     background:#456087
