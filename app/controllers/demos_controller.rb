@@ -122,7 +122,7 @@ class DemosController < ApplicationController
       # fare app is somehwat slower...
       @message = "Your request is being processed. This may take up to 30 seconds.<br><img src='../../../assets/ajax-loader.gif' style='display:block;margin:0 auto;' alt = ''>".html_safe
     else
-      @message = "Your request is being processed. This may take a moment.<br><img src='../../../assets/ajax-loader.gif' style='display:block;margin:0 auto;' alt = ''>".html_safe
+      @message = "Your request is being processed. This may take a moment.<br><img src='/assets/ajax-loader-14608f15ae08aa23f5f3dedcf48fc7fd92bee88b9442173680557031e2ecfdaf.gif' style='display:block;margin:0 auto;' alt=''>".html_safe
     end
     @success = true
   end
