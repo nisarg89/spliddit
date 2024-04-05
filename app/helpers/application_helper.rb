@@ -19,7 +19,8 @@ module ApplicationHelper
   end
 
   def include_javascript(file)
-    s = "<script type=\"text/javascript\">" + render(:file => Rails.root.join('app/views/javascripts/'+file+'.erb'), :formats => :js) + "</script>"
+    js_content = File.read(Rails.root.join("app/views/javascripts/#{file}.erb"))
+    s = "<script type=\"text/javascript\">#{ERB.new(js_content).result(binding)}</script>"
     content_for(:scripts, raw(s))
   end
 end
