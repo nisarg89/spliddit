@@ -23,7 +23,7 @@ gem 'public_suffix'
 # in production environments by default.
 # group :assets do
 gem 'sass-rails'
-gem 'sassc', '~> 2.1.0'
+gem 'sassc'
 # gem 'compass-rails', '2.0.1'
 gem 'breakpoint'
 gem 'coffee-rails'
