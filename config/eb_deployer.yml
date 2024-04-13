@@ -88,7 +88,7 @@ common:
 
     - namespace: aws:autoscaling:launchconfiguration
       option_name: EC2KeyName
-      value: spliddit-soroush-keypair
+      value: spliddit-keypair
 
     # Following is an example which changes EC2 instance type
     # from t1.micro (default) to m1.small. Instances with t1.micro type sometime

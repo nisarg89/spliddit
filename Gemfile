@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'nokogiri'
 group :production do
-        gem 'rb-inotify'
+        gem 'rb-inotify', :require => false
 end
 gem 'chunky_png'
 gem 'rack-cache'
@@ -23,7 +23,7 @@ gem 'public_suffix'
 # in production environments by default.
 # group :assets do
 gem 'sass-rails'
-gem 'sassc', '2.4.0'
+gem 'sassc', '~> 2.1.0'
 # gem 'compass-rails', '2.0.1'
 gem 'breakpoint'
 gem 'coffee-rails'
@@ -48,7 +48,7 @@ gem 'rspec-rails'
 gem 'minitest'
 gem 'bigdecimal'
 #gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
-gem "aws-ses", git: "https://github.com/zebitex/aws-ses.git", ref: "78-sigv4-problem"
+gem "aws-ses", "~> 0.7.0", :require => 'aws/ses'
 gem 'childprocess'
 gem 'rubyzip'
 gem 'websocket'

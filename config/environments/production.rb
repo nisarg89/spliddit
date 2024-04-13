@@ -7,7 +7,7 @@ Spliddit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   config.eager_load = false
 
-  config.secret_key_base = ENV['AWS_SECRET']
+  config.secret_key_base = ENV['AWS_SECRET_ACCESS_KEY']
     
   # rate limiting -- using app memory so this doesn't scale to multiple nodes or many users...
   # config.middleware.use RateLimiting do |r|
