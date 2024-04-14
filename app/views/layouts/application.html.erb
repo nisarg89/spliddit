@@ -5,6 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y92Z25ED96"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y92Z25ED96');
+    </script>
     <title><%= full_title(yield(:title)) %></title>
 
     <%= stylesheet_link_tag 'style' %>
