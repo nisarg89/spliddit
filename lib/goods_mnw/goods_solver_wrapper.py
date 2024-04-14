@@ -22,8 +22,7 @@ class GoodsInstanceLoader(object):
                 g_id, g_type = f.readline().split()
                 g_id = int(g_id)
                 self.goods_ids.append(g_id)
-                self.g_divisibility.append(g_type == 'indivisible')
-                assert self.g_divisibility[-1]
+                self.g_divisibility.append(g_type == 'divisible')
 
             self.agent_ids = list()
             self.vals = np.zeros((n, m), dtype=int)
@@ -41,7 +40,7 @@ class GoodsInstanceLoader(object):
 def print_mnw_allocation(f_name):
     g_instance = GoodsInstanceLoader()
     g_instance.load_from_file(f_name)
-    alloc = find_mnw_allocation(g_instance.vals)
+    alloc = find_mnw_allocation(g_instance.vals, g_instance.g_divisibility)
     n, m = g_instance.vals.shape
     for i in range(n):
         for j in range(m):
