@@ -126,14 +126,14 @@ class AssigningTasksInstance < Instance
       else
         str += "a division that is envy free up to one task. "
       end
-      str += "You assigned a total of #{sprintf '%.1f', 100*own_bundle_value[agent.id]/total_value[agent.id]}% of the total work, according to your submitted evaluations."
+      str += "You assigned a total of #{sprintf '%.1f', 100*own_bundle_value[agent.id]/total_value[agent.id]}% of the total work, according to your submitted evaluations. "
       if !is_ef
         r = resources.find(own_max_task[agent.id])
         str += "After not having to do task \"#{r.name}\""
         if r.quantity > 1
           str += " once,"
         end
-        str += " you assigned a total of #{sprintf '%.1f', 100*own_bundle_value_upto_one[agent.id]/total_value[agent.id]}% of the total work."
+        str += " you assigned a total of #{sprintf '%.1f', 100*own_bundle_value_upto_one[agent.id]/total_value[agent.id]}% of the total work. "
       end
       str += "In comparison, you assigned "
       i = 0
