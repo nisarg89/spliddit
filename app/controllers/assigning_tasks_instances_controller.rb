@@ -16,7 +16,7 @@ class AssigningTasksInstancesController < InstancesController
     # TODO: factor this function out and add use the long name of the Application model
     instance = assigning_tasks_instance_builder(params)
     if instance && instance.separate_passwords
-      flash[:success] = "<strong>Your Distributing Tasks instance has been created successfully!</strong> We are in the process of sending emails to all of the addresses listed, each containing a unique, private evaluation link. Once everyone has submitted their evaluations, we'll send another email with the final results. Thanks for using Spliddit!<br><br><a href = '#{root_url}apps/tasks'>Back to Dividing Goods information page</a>".html_safe
+      flash[:success] = "<strong>Your Distributing Tasks instance has been created successfully!</strong> We are in the process of sending emails to all of the addresses listed, each containing a unique, private evaluation link. Once everyone has submitted their evaluations, we'll send another email with the final results. Thanks for using Spliddit!<br><br><a href = '#{root_url}apps/tasks'>Back to Distributing Tasks information page</a>".html_safe
       redirect_to root_url + 'success'
     elsif instance && !instance.separate_passwords
       flash[:success] = "<strong>Your Distributing Tasks instance has been created successfully!</strong> Please direct everyone participating to <a href='#{root_url}apps/tasks/#{instance.id}?p=#{instance.passcode}'>#{root_url}apps/tasks/#{instance.id}?p=#{instance.passcode}</a> to submit their evaluations. Please make sure you copy the link before leaving this page.".html_safe
