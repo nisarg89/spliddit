@@ -126,25 +126,25 @@ class AssigningTasksInstance < Instance
       else
         str += "a division that is envy free up to one task. "
       end
-      str += "You assigned a total of #{sprintf '%.1f', 100*own_bundle_value[agent.id]/total_value[agent.id]}% of the total work, according to your submitted evaluations. "
+      str += "You were assigned #{sprintf '%.1f', 100*own_bundle_value[agent.id]/total_value[agent.id]}% of the total work, according to your submitted evaluations. "
       if !is_ef
         r = resources.find(own_max_task[agent.id])
-        str += "After not having to do task \"#{r.name}\""
+        str += "If you didn't have to do task \"#{r.name}\""
         if r.quantity > 1
           str += " once,"
         end
-        str += " you assigned a total of #{sprintf '%.1f', 100*own_bundle_value_upto_one[agent.id]/total_value[agent.id]}% of the total work. "
+        str += " you would be assigned #{sprintf '%.1f', 100*own_bundle_value_upto_one[agent.id]/total_value[agent.id]}% of the total work. "
       end
-      str += "In comparison, you assigned "
+      str += "In comparison, "
       i = 0
       agents.each do |other_agent|
         next if agent.id == other_agent.id
         i += 1
-        str += "#{sprintf '%.1f', 100*other_bundle_total_value[agent.id][other_agent.id]/total_value[agent.id]}% of the total work to #{other_agent.name}'s tasks"
+        str += "#{other_agent.name} was assigned #{sprintf '%.1f', 100*other_bundle_total_value[agent.id][other_agent.id]/total_value[agent.id]}% of the total work"
         if i == agents.count-2
           str += ", and "
         elsif i == agents.count-1
-          str += "."
+          str += ", according to your submitted evaluations."
         else
           str += ", "
         end
