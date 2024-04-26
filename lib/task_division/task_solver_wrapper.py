@@ -25,7 +25,7 @@ class TaskDivisionInstanceLoader(object):
                 assert self.supplies[-1] > 0
 
             self.agent_ids = list()
-            self.vals = np.zeros((n, m), dtype=int)
+            self.vals = np.zeros((n, m))
             for i in range(n):
                 for j in range(m):
                     a_id, t_id, cost = f.readline().split()
