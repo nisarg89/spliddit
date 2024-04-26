@@ -10,7 +10,7 @@ $(document).ready(function() {
     }
   });
   $(".comparison").each(function() {
-    if ($(this).val() == "equal" && $(this).attr("checked") == "checked") {
+    if ($(this).val() == "equal" && $(this).prop('checked')) {
       $(this).parent().parent().find(".valuation_ipt").attr("disabled", "disabled");
       $(this).parent().parent().find(".valuation_ipt").val("");
     } else {

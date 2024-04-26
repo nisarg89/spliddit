@@ -77,8 +77,8 @@ function updateSliders() {
 }
 
 function checkValid() {
-  var email_results = $('#send_results').attr('checked');
-  var mailing_list = $('#mailing_list').attr('checked');
+  var email_results = $('#send_results').prop('checked');
+  var mailing_list = $('#mailing_list').prop('checked');
   var email_valid = validateEmail($('#email').val());
   var email_present = $('#email').val() != "";
   var name_present = <%= @instance.separate_passwords %> || $('#name').val() != "";
