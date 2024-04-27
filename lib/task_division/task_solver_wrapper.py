@@ -36,7 +36,7 @@ class TaskDivisionInstanceLoader(object):
                     else:
                         assert self.agent_ids[-1] == a_id
                     assert t_id == self.task_ids[j]
-                    self.vals[i, j] = -cost
+                    self.vals[i, j] = -cost / self.supplies[j]
 
 
 def print_ef1_po_allocation(f_name):
@@ -52,5 +52,4 @@ def print_ef1_po_allocation(f_name):
 
 if __name__ == '__main__':
     f_name = sys.argv[1]
-    # f_name = '../../tmp/41.txt'
     print_ef1_po_allocation(f_name)
