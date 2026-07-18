@@ -1,4 +1,4 @@
-class CreateAsuInstances < ActiveRecord::Migration
+class CreateAsuInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :asu_instances do |t|
       t.decimal :rent, :precision => 10, :scale => 2

@@ -1,4 +1,4 @@
-class UpdateApplications < ActiveRecord::Migration
+class UpdateApplications < ActiveRecord::Migration[7.0]
   def change
     remove_column :applications, :description
     remove_column :applications, :short_description

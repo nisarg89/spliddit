@@ -1,0 +1,81 @@
+@import 'breakpoint';
+@import 'vars';
+@import 'tools';
+@import 'typography';
+
+.start-bar {
+    margin: 3em 0;
+    @include breakpoint($bp-medium) {
+        background: url(shared/start-bar.png) no-repeat center center;
+    }
+    &.last {
+        @include breakpoint($bp-medium) {
+            margin: 0 0 3em;
+        }
+    }
+}
+
+.page-content {
+    .btn {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        background: $color-primary;
+        border: 0;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 10px;
+        @extend %font-medium;
+        font-size: em(18px);
+        padding: 1em;
+        max-width: 180px;
+        transition: all 0.25s;
+        &:hover {
+            border: 0;
+            background: $color-secondary;
+        }
+        &:disabled {
+            background: $font-primary-color;
+            &:hover {
+                background: $font-primary-color;
+            }
+        }
+        span {
+            @include image-replace(8px,14px);
+            background: url(shared/btn-arrow.png) no-repeat;
+            display: inline-block;
+            margin-left: 0.5em;
+            width: 8px; /* Adjust the width based on the arrow image dimensions */
+            height: 14px; /* Adjust the height based on the arrow image dimensions */
+            text-indent: -9999px; /* Hide the text content off-screen */
+            overflow: hidden; /* Ensure any excess content is hidden */
+            white-space: nowrap; /* Prevent line breaks */
+        }
+    }
+
+    .refresh a {
+        opacity: 0;
+        border: none;
+        @include image-replace(8px,14px);
+        background: url(shared/btn-refresh2.gif) no-repeat;
+        transition: all 1s;
+        &:hover {
+          transform: rotate(360deg);
+        }
+        &.fadeIn {
+          opacity: 1;
+        }
+    }
+
+    .btn-remove {
+        @include image-replace(20px,20px);
+        background: url(shared/btn-remove.gif) no-repeat;
+        border-color: transparent;
+        transition: all 1s;
+        &:hover {
+            opacity: 0.7;
+            border-color: transparent;
+        }
+    }
+}
+

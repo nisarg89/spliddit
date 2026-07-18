@@ -1,4 +1,4 @@
-class MakeStringColumnsText < ActiveRecord::Migration
+class MakeStringColumnsText < ActiveRecord::Migration[7.0]
   def up
       change_column :problems, :description, :text
       change_column :mechanisms, :description, :text

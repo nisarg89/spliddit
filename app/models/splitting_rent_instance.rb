@@ -1,6 +1,6 @@
 class SplittingRentInstance < Instance
 
-  attr_accessible :rent, :currency
+  attr_accessible :rent, :currency, :name, :separate_passwords, :passcode, :admin_email
 
   validates :rent, presence: true, numericality: { greater_than: 10, less_than: 1000000}
   validates :currency, presence: true, length: { minimum: 3, maximum: 4}
@@ -35,8 +35,8 @@ class SplittingRentInstance < Instance
       end
     end
 
-    # call Java
-    allocation_str = `#{Rails.configuration.java_dir} -Djava.library.path=#{Rails.configuration.cplex_lib} -jar bin/rent.jar #{fname}`
+    # call Python
+    allocation_str = `GRB_LICENSE_FILE=#{Rails.configuration.gurobi_lic} python3 lib/rent_division/rent_wrapper.py #{fname}`
 
     if allocation_str.include? "failure"
       raise Error

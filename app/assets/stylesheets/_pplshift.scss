@@ -1,0 +1,156 @@
+.pplshift-circle {
+	img {
+		//transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+    	-moz-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	}
+	position: relative;
+	width: 281px; height: 281px;
+	background: url(circle.gif) no-repeat;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		opacity: 1;
+	}
+}
+
+.podium {
+	z-index: 10;
+	width: 125px; height: 41px;
+	position: absolute;
+	top: 85px; left: 80px;
+}
+
+.baby-front {
+	width: 81px; height: 88px;
+	position: absolute;
+	top: 27px; left: 100px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInUp {
+		opacity: 1;
+		top: 7px;
+	}
+	&.fadeOutDown {
+		opacity: 0;
+		top: 27px;
+	}
+}
+
+.man-back-8 {
+	width: 125px; height: 111px;
+	position: absolute;
+	top: 135px; left: -53px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInRight {
+		opacity: 1;
+		left: -3px;
+	}
+	&.fadeOutRight {
+		opacity: 0;
+		left: -53px;
+	}
+}
+
+.lady-back-10,
+.lady-back-10b {
+	width: 121px; height: 110px;
+	position: absolute;
+	top: 136px; left: 193px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInLeft {
+		opacity: 1;
+		left: 143px;
+	}
+	&.fadeOutLeft {
+		opacity: 0;
+		left: 193px;
+	}
+}
+
+.man-front {
+	width: 80px; height: 111px;
+	position: absolute;
+	top: 25px; left: 100px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInUp {
+		opacity: 1;
+		top: -15px;
+	}
+	&.fadeOutDown {
+		opacity: 0;
+		top: 25px;
+	}
+}
+
+.baby-back-8 {
+	width: 117px; height: 90px;
+	position: absolute;
+	top: 156px; left: -53px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInRight {
+		opacity: 1;
+		left: -3px;
+	}
+	&.fadeOutRight {
+		opacity:0;
+		left: -53px;
+	}
+}
+
+.lady-front {
+	width: 79px; height: 109px;
+	position: absolute;
+	top: 25px; left: 100px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInUp {
+		opacity: 1;
+		top: -12px; 
+	}
+}
+
+.baby-back-10 {
+	width: 117px; height: 90px;
+	position: absolute;
+	top: 156px; left: 192px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInLeft {
+		opacity: 1;
+		left: 142px;
+	}
+}
+
+.man-back-9 {
+	width: 124px; height: 111px;
+	position: absolute;
+	top: 135px; left: -42px;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeInRight {
+		opacity: 1;
+		left: 8px;
+	}
+}
+
+.lt-ie9 .pplshift-circle img {
+	background: transparent;
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */
+	zoom: 1;
+}

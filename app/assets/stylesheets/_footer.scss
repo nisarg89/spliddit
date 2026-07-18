@@ -1,0 +1,197 @@
+@import "breakpoint";
+@import "vars";
+@import "tools";
+@import 'typography';
+
+.site-footer {
+	background: url(shared/bg-blue.gif) repeat;
+	padding: 2em 0;
+	@include breakpoint($bp-medium) {
+		padding: 6em 0;
+	}
+}//.site-footer
+
+.primary-footer {
+	.primary-footer::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.footer-logo {
+		display: none;
+		max-width: 180px;
+		margin: 0 auto 2em;
+		img {
+			max-width: 180px;
+			height: auto;
+		}
+		@include breakpoint($bp-medium) {
+			display: block;
+			margin: 0;
+			float: left;
+			//@include grid(300,1200);
+		}
+	}
+	.footer-nav {
+		display: none;
+		text-align: center;
+		margin-bottom: 2em;
+		@include breakpoint($bp-medium) {
+			display: block;
+			text-align: left;
+			margin: 0;
+			float: left;
+			@include grid(430,1200);
+		}
+		@include breakpoint($bp-large) {
+			@include grid(600,1200);
+		}
+		.nav-set-1 {
+			@include breakpoint($bp-medium) {
+				@include grid(260,500);
+				float: left;
+			}
+			@include breakpoint($bp-large) {
+				@include grid(250,600);
+			}
+		}
+		.nav-set-2 {
+			@include breakpoint($bp-medium) {
+				@include grid(130,500);
+				float: left;
+			}
+		}
+		.nav-set-1 {
+			@include breakpoint($bp-medium) {
+				margin-left: 1em;
+				padding-left: 1em;
+				border-left: 1px solid $color-primary;
+			}
+			@include breakpoint($bp-large) {
+				margin-left: 2em;
+				padding-left: 2em;
+			}
+		}
+		li {
+			@include breakpoint($bp-medium) {
+				margin: 0 0 0.8em 0;
+				&:last-child {
+					margin: 0;
+				}
+			}
+		}
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			color: white;
+			display: block;
+			padding: 0.8em 0;
+			text-decoration: none;
+			text-transform: uppercase;
+			background: $color-primary;
+			color: white;
+			border-bottom: 1px solid white;
+			transition: all 0.25s;
+			@include breakpoint($bp-medium) {
+				background: transparent;
+				border: 0;
+				padding: 0;
+			}
+			&:hover, &.active {
+				background: $color-secondary;
+				@include breakpoint($bp-medium) {
+					background: transparent;
+					color: $color-primary;
+				}
+			}
+		}
+		.nav-set-2 li:last-child a {
+			border: 0;
+		}
+	}//.footer-nav
+	.social {
+		.social::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		text-align: center;
+		margin: 0 auto 2em;
+		max-width: 220px;
+		@include breakpoint($bp-medium) {
+			text-align: left;
+			margin: 0;
+			float: right;
+		}
+		li {
+			float: left;
+		}
+		.share {
+			color: white;
+			text-transform: uppercase;
+			font-size: em(16px);
+			@extend %font-medium;
+			margin-right: 1em;
+			span {
+				position: relative;
+				top: 0.7em;
+			}
+		}
+		a {
+			border: 0;
+			transition: all 0.25s;
+		}
+		.fb a {
+			@include image-replace(42px,34px);
+			background: url(shared/sprite-social.png) no-repeat 0 0;
+			&:hover {
+				background-position: 0 -34px;
+			}
+		}
+		.tw a {
+			@include image-replace(51px,34px);
+			background: url(shared/sprite-social.png) no-repeat -42px 0;
+			&:hover {
+				background-position: -42px -34px;
+			}
+		}
+		.gp a {
+			@include image-replace(42px,34px);
+			background: url(shared/sprite-social.png) no-repeat -93px 0;
+			&:hover {
+				background-position: -93px -34px;
+			}
+		}
+	}
+}//.primary-footer
+
+.credits {
+	text-align: center;
+	.credits::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	@include breakpoint($bp-medium) {
+		margin-top: 4.5em;
+	}
+	.copyright,
+	.imagebox {
+		@include breakpoint($bp-medium) {
+			float: left;
+			@include grid(600,1200);
+		}
+	}
+	.copyright {
+		@include breakpoint($bp-medium) {
+			text-align: left;
+		}
+	}
+	.imagebox {
+		margin-top: 1em;
+		@include breakpoint($bp-medium) {
+			margin: 0;
+			text-align: right;
+		}
+	}
+}//.credits

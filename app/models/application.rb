@@ -1,5 +1,8 @@
 class Application < ActiveRecord::Base
-  attr_accessible :name, :abbr, :instances_count
+  #attr_accessible :name, :abbr, :instances_count
+  def application_params
+    params.require(:application).permit(:name, :abbr, :instances_count)
+  end
 
   validates :abbr, presence: true, length: { minimum: 1, maximum: 20 }
   validates :name, presence: true, length: { minimum: 1, maximum: 50 }

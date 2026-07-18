@@ -1,0 +1,263 @@
+@import 'breakpoint';
+@import 'vars';
+@import 'tools';
+
+/*-------------------------------------
+	
+	Configuration
+
+-------------------------------------*/ 
+
+// Selection Text
+::-moz-selection { background: $color-primary; color: white; }
+::selection { background: $color-primary; color: white; } 
+
+html,body {
+	// declare base font size and family, see _vars.scss
+    font-size: $base-font-size;
+    font-family: $font-primary;
+}
+
+// function to generate em's from pixels
+// Usage: font-size: em(20px);
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em;
+}
+
+/*-------------------------------------
+
+	Global
+
+--------------------------------------*/
+
+strong {font-weight: bold;}
+em {font-style: italic;}
+button {outline: none;}
+
+/*-------------------------------------
+	
+	Extends
+
+-------------------------------------*/
+
+%font-light {
+	font-weight: 300; 
+}
+
+%font-normal {
+	font-weight: 400; 
+}
+
+%font-medium {
+	font-weight: 500; 
+}
+
+%font-bold {
+	font-weight: 700; 
+}
+
+
+/*-------------------------------------
+	
+	Header
+
+-------------------------------------*/
+
+.header-nav {
+	a {
+		@extend %font-medium;
+		font-size: em(16px);
+	}
+} //.header-nav
+
+
+.page-title,
+.page-title-thin {
+	@extend %font-normal;
+	text-transform: uppercase;
+	color: white;
+	//text-align: center;
+	font-size: em(22px);
+	@include breakpoint($bp-medium) {
+		text-align: left;
+		font-size: em(40px);
+	}
+	@include breakpoint($bp-large) {
+		font-size: em(50px);
+	}
+	@include breakpoint($bp-xlarge) {
+		font-size: em(65px);
+	}
+}
+
+/*-------------------------------------
+	
+	Page Content
+
+-------------------------------------*/
+
+.page-content {
+	
+	h1 {
+		color: $color-primary;
+		font-size: em(28px);
+		@include breakpoint($bp-medium) {
+			font-size: em(34px);
+		}
+		@extend %font-light;
+		margin-bottom: 1em;
+	}
+
+	.lead-paragraph,
+	h2 {
+		color: $color-secondary;
+		font-size: em(20px);
+		line-height: em(26px);
+		@extend %font-normal;
+		margin-bottom: 1em;
+		@include breakpoint($bp-medium) {
+			font-size: em(22px);
+			line-height: em(28px);
+		}
+	}
+
+	p {
+		color: $font-primary-color;
+		font-size: em(15px);
+		line-height: em(25px);
+		@include breakpoint($bp-medium) {
+			font-size: em(18px);
+			line-height: em(28px);
+		}
+		margin-bottom: 1em;
+	}
+
+	.columns {
+		.columns::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.column-one,
+		.column-two {
+			margin-bottom: 1em;
+			@include breakpoint($bp-medium) {
+				margin-bottom: 0;
+				float: left;
+				@include grid(501,1062);
+			}
+		}
+		.column-one {
+			@include breakpoint($bp-medium) {
+				@include mright(60,1062);
+			}
+		}
+	}
+
+	ol,ul {
+		list-style: decimal;
+		color: $font-primary-color;
+		font-size: em(20px);
+		line-height: em(26px);
+		@include breakpoint($bp-medium) {
+			font-size: em(22px);
+			line-height: em(28px);
+		}
+		margin-left: 1.5em;
+		li {
+			margin-bottom: 1em;
+		}
+		&.steps {
+			color: $color-secondary;
+			font-size: em(20px);
+			line-height: em(26px);
+			@include breakpoint($bp-medium) {
+				font-size: em(22px);
+				line-height: em(28px);
+			}
+			list-style: none;
+			margin-left: 0;
+		}
+	}
+
+	ul {
+		list-style: square;
+		&.steps {
+			//list-style: square;
+			margin-left: 1.5em;
+		}
+	}
+
+	a {
+		color: $color-primary;
+		text-decoration: none;
+		border-bottom: 2px solid transparent;
+		transition: all 0.25s;
+		&:hover {
+			border-bottom: 2px solid $color-primary;
+		}
+	}
+
+}//.page-content
+
+.align-left,.align-right {
+	h2 {
+		text-align: center;
+		margin-bottom: 2em;
+	}
+}
+
+
+/*-------------------------------------
+	
+	Footer
+
+-------------------------------------*/
+
+.copyright,
+.subscribe,
+.imagebox {
+	@extend %font-medium;
+	color: $color-primary;
+	font-size: em(16px);
+	a {
+		color: $color-primary;
+		text-decoration: none;
+		border-bottom: 2px solid transparent;
+		transition: all 0.25s;
+		&:hover {
+			border-bottom: 2px solid $color-primary;
+		}
+	}
+}
+
+
+/*-------------------------------------
+	
+	Homepage
+
+-------------------------------------*/
+
+.home-banner {
+	text-align: center;
+	color: white;
+	h1 {
+		text-transform: uppercase;
+		margin-bottom: 0.5em;
+		@extend %font-normal;
+		font-size: em(35px);
+		@include breakpoint($bp-medium) {
+			font-size: em(80px);
+		}
+	}
+	h3 {
+		@extend %font-light;
+		font-size: em(16px);
+		line-height: em(26px);
+		@include breakpoint($bp-medium) {
+			font-size: em(25px);
+			max-width: 875px;
+			margin: 0 auto;
+		}
+	}
+}

@@ -4,7 +4,7 @@
     <div class="wrap">
       <% flash.each do |key, value| %>
             <% if key == :success %>
-                <p class="lead-paragraph"><%= value %></p>
+                <p class="lead-paragraph"><%= sanitize(value) %></p>
             <% end %>
       <% end %>   
     </div><!--.wrap-->

@@ -1,4 +1,4 @@
-class CreateLeadersInstances < ActiveRecord::Migration
+class CreateLeadersInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :leaders_instances do |t|
       t.string :resultsJSON

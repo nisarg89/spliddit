@@ -3,7 +3,7 @@
 <div class="page-content">
     <div class="wrap">
       <% flash.each do |key, value| %>
-        <p><%= value %></p>
+        <p><%= sanitize(value) %></p>
       <% end %>   
     </div><!--.wrap-->
 </div><!--.page-content-->

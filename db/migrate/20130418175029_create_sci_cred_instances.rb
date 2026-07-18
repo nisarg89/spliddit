@@ -1,4 +1,4 @@
-class CreateSciCredInstances < ActiveRecord::Migration
+class CreateSciCredInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :sci_cred_instances do |t|
       t.string :resultsJSON

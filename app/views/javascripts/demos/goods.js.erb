@@ -1,8 +1,4 @@
-<% if params[:people].to_i == 2 %>
-var participants = ["Alice", "Bob"];
-<% else %>
 var participants = ["Alice", "Bob", "Claire"];
-<% end %>
 var items = ["Gold Ring", "Diamond Ring", "Pearl Necklace", "Ruby Earrings", "Gold Watch", "Silver Bracelet"];
 var target = 1000;
 var sum = [0, 0, 0];
@@ -23,11 +19,7 @@ $(document).ready(function() {
 function validateUpdateForm() {
   var error;
 
-  <% if params[:people].to_i == 2 %>
-    var new_participants = [$('#participant1').val(), $('#participant2').val()];
-  <% else %>
-    var new_participants = $('#participants').val().split(",");
-  <% end %>
+  var new_participants = $('#participants').val().split(",");
   var new_items = $('#items').val().split(",");
 
   var n = new_participants.length;

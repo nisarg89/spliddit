@@ -1,9 +1,13 @@
 Rails.configuration.tmp_dir = '/tmp'
 Rails.configuration.cplex_lib = "bin/cplex/cplex/bin/x86-64_sles10_4.1/"
-Rails.configuration.java_dir = "java"
+Rails.configuration.gurobi_lic = "config/gurobi.lic"
+Rails.configuration.java_dir = "java" 
 
 Spliddit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.eager_load = false
+
+  config.secret_key_base = ENV['AWS_SECRET_ACCESS_KEY']
     
   # rate limiting -- using app memory so this doesn't scale to multiple nodes or many users...
   # config.middleware.use RateLimiting do |r|
@@ -57,7 +61,8 @@ Spliddit::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # config.action_controller.asset_host = "http://spliddit.org"
+  config.action_mailer.asset_host = "http://spliddit.org"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
@@ -85,7 +90,7 @@ Spliddit::Application.configure do
   config.action_mailer.default_url_options = { :host => "spliddit.org" }
 
   # Prevent Mass Assignment Security Error
-  config.active_record.mass_assignment_sanitizer = :logger
+  #config.active_record.mass_assignment_sanitizer = :logger
 
   # config.after_initialize do 
   #   Delayed::Job.scaler = :heroku_cedar

@@ -1,4 +1,4 @@
-class MakeSurveyText < ActiveRecord::Migration
+class MakeSurveyText < ActiveRecord::Migration[7.0]
   def up
     change_column :agents, :feedback, :text
   end

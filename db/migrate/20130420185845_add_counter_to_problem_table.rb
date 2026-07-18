@@ -1,4 +1,4 @@
-class AddCounterToProblemTable < ActiveRecord::Migration
+class AddCounterToProblemTable < ActiveRecord::Migration[7.0]
   def change
     add_column :problems, :uses, :integer
     add_column :problems, :single_use, :string

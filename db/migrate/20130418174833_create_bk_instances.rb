@@ -1,4 +1,4 @@
-class CreateBkInstances < ActiveRecord::Migration
+class CreateBkInstances < ActiveRecord::Migration[7.0]
   def change
     create_table :bk_instances do |t|
       t.decimal :rent, :precision => 10, :scale => 2

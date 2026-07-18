@@ -1,0 +1,102 @@
+.cake-circle {
+	position: relative;
+	width: 281px;
+	height: 281px;
+	background: url(circle.gif) no-repeat;
+  
+	img {
+	  transform: translate3d(0, 0, 0);
+	}
+  
+	.ppl-plate {
+	  width: 245px;
+	  height: 244px;
+	  position: absolute;
+	  top: 15px;
+	  left: 17px;
+	}
+  
+	.cake-full {
+	  width: 112px;
+	  height: 62px;
+	  position: absolute;
+	  bottom: 30px;
+	  left: 87px;
+	  z-index: 10;
+	  transition: all 2s;
+	  opacity: 1;
+  
+	  &.fadeOut {
+		opacity: 0;
+	  }
+	}
+  
+	.yaaaycake1 {
+	  z-index: 0;
+	}
+  
+	transition: all 2s;
+	opacity: 0;
+  
+	&.fadeIn {
+	  opacity: 1;
+	}
+  
+	.knife-slice {
+	  width: 135px;
+	  height: 109px;
+	  position: absolute;
+	  top: 133px;
+	  left: 29px;
+	  z-index: 10;
+	  transition: all 2s;
+	  opacity: 0;
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  
+	  &.fadeIn {
+		opacity: 1;
+  
+		&.fadeOut {
+		  opacity: 0;
+		}
+	  }
+	}
+  
+	.yaaaycake1 {
+	  width: 73px;
+	  height: 58px;
+	  position: absolute;
+	  bottom: 33px;
+	  left: 88px;
+	  opacity: 0;
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	  transition: all 2s;
+  
+	  &.fadeIn {
+		opacity: 1;
+	  }
+	}
+  
+	.yaaaycake2 {
+	  width: 98px;
+	  height: 71px;
+	  position: absolute;
+	  bottom: 71px;
+	  right: 30px;
+	  opacity: 0;
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	  transition: all 2s;
+  
+	  &.fadeIn {
+		opacity: 1;
+	  }
+	}
+  }
+  
+  .lt-ie9 .cake-circle img {
+	background: transparent;
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */
+	zoom: 1;
+  }
+  

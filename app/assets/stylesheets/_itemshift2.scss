@@ -1,0 +1,111 @@
+.family-circle-2 {
+	position: relative;
+	width: 281px; height: 281px;
+	img {
+		//transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+    	-moz-transform: translate3d(0, 0, 0);
+    	transform: translate3d(0, 0, 0);
+	}
+	// background-image: url(circle-ret.gif);
+ 	// background-size: 281px 281px;
+ 	// background-repeat: no-repeat;
+	background: url(circle.gif) no-repeat;
+	transition: all 2s;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	&.fadeIn {
+		opacity: 1;
+	}
+	&.fadeOut {
+		opacity: 0;
+	}
+}
+
+.family-2 {
+	width: 241px; height: 253px;
+	position: absolute;
+	top: -6px; left: 20px;
+}
+
+.baby-eyes1 {
+	width: 36px; height: 9px;
+	position: absolute;
+	top: 40px; left: 101px;
+	opacity: 1;
+	transition: all 1s;
+	&.fadeOut {
+		opacity: 0;
+	}
+}
+
+.baby-eyes2 {
+	width: 38px; height: 8px;
+	position: absolute;
+	top: 40px; left: 100px;
+	opacity: 0;
+	transition: all 1s;
+	&.fadeIn {
+		opacity: 1;
+	}
+}
+
+.lady-smile {
+	width: 31px; height: 19px;
+	position: absolute;
+	top: 197px; left: 180px;
+	opacity: 1;
+	transition: all 1s;
+	&.fadeOut {
+		opacity: 0;
+	}	
+}
+
+.lady-frown {
+	width: 31px; height: 14px;
+	position: absolute;
+	top: 197px; left: 180px;
+	opacity: 0;
+	transition: all 1s;
+	&.fadeIn {
+		opacity: 1;
+	}
+}
+
+
+.football-2 {
+	width: 67px; height: 36px;
+	position: absolute;
+	top: 230px; left: 47px;
+	//@include transition(all, 1s);
+}
+
+.bottle-2 {
+	width: 31px; height: 57px;
+	position: absolute;
+	top: 65px; left: 143px;
+	transition: all 1s;
+	&.move {
+		left: 60px;
+	}
+}
+
+.purse-2 {
+	width: 59px; height: 59px;
+	position: absolute;
+	top: 198px; left: 216px;
+	transition: all 1s;
+	&.move {
+		top: 60px; left: 143px;
+	}
+	&.move-back {
+		top: 198px; left: 216px;
+	}
+}
+
+.lt-ie9 .family-circle img {
+	background: transparent;
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);   /* IE6 & 7 */
+	zoom: 1;
+}

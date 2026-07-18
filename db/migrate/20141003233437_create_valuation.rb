@@ -1,4 +1,4 @@
-class CreateValuation < ActiveRecord::Migration
+class CreateValuation < ActiveRecord::Migration[7.0]
   def change
     create_table :valuations do |t|
       t.integer :agent_id

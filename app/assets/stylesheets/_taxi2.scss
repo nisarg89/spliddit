@@ -8,27 +8,27 @@
     	transform: translate3d(0, 0, 0);
 	}
 	background: url(circle.gif) no-repeat;
-	@include transition(opacity, 2s);
-	@include opacity(0);
+	transition: opacity 2s;
+	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	&.fadeIn {
-		@include opacity(1);
+		opacity: 1;
 	}
 	&.fadeOut {
-		@include opacity(0);
+		opacity: 0;
 	}
 	.staxi {
 		position: absolute;
 		top: 40px;
 		left: -10px;
 		width: 315px; height: 201px;
-		@include transition(opacity, 2s);
-		@include opacity(0);
+		transition: opacity 2s;
+		opacity: 0;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	
@@ -36,39 +36,39 @@
 	// 	width: 38px; height: 61px;
 	// 	position: absolute;
 	// 	top: 83px; left: 74px;
-	// 	@include transition(opacity, 2s);
-	// 	@include opacity(0);
+	// 	transition: opacity 2s;
+	// 	opacity: 0;
 	// 	&.fadeIn {
-	// 		@include opacity(1);
+	// 		opacity: 1;
 	// 	}
 	// 	&.fadeOut {
-	// 		@include opacity(0);
+	// 		opacity: 0;
 	// 	}
 	// }
 	.sguylast {
 		width: 38px; height: 61px;
 		position: absolute;
 		top: 83px; left: 28px;
-		@include transition(opacity, 2s);
-		@include opacity(0);
+		transition: opacity 2s;
+		opacity: 0;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	.sguyb {
 		width: 38px; height: 61px;
 		position: absolute;
 		top: 83px; left: 40px;
-		@include opacity(0);
-		@include transition(opacity, 2s);
+		opacity: 0;
+		transition: opacity 2s;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 
@@ -76,13 +76,13 @@
 		width: 38px; height: 61px;
 		position: absolute;
 		top: 83px; left: 40px;
-		@include opacity(0);
-		@include transition(opacity, 2s);
+		opacity: 0;
+		transition: opacity 2s;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 
@@ -90,65 +90,65 @@
 		width: 39px; height: 55px;
 		position: absolute;
 		top: 89px; left: 100px;
-		@include opacity(0);
-		@include transition(all, 2s);
+		opacity: 0;
+		transition: opacity 2s;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	.sgirllast {
 		width: 39px; height: 55px;
 		position: absolute;
 		top: 89px; left: 72px;
-		@include opacity(0);
-		@include transition(all, 2s);
+		opacity: 0;
+		transition: opacity 2s;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	.sguy2 {
 		width: 36px; height: 60px;
 		position: absolute;
 		top: 84px; left: 105px;
-		@include transition(all, 2s);
-		@include opacity(0);
+		transition: opacity 2s;
+		opacity: 0;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	.sguy2last {
 		width: 36px; height: 60px;
 		position: absolute;
 		top: 84px; left: 115px;
-		@include transition(all, 2s);
-		@include opacity(0);
+		transition: opacity 2s;
+		opacity: 0;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	.sguy2b {
 		width: 36px; height: 60px;
 		position: absolute;
 		top: 84px; left: 123px;
-		@include transition(all, 2s);
-		@include opacity(0);
+		transition: opacity 2s;
+		opacity: 0;
 		&.fadeIn {
-			@include opacity(1);
+			opacity: 1;
 		}
 		&.fadeOut {
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 }//taxi1

@@ -18,7 +18,7 @@ class Agent < ActiveRecord::Base
 
   scope :by_password, lambda { |pwd| where("agents.passcode = (?)",pwd) }
 
-  default_scope order('id ASC')
+  default_scope { order('id ASC') }
 
   def submitted_survey?
     satisfaction != nil

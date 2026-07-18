@@ -14,5 +14,5 @@ class Resource < ActiveRecord::Base
   has_many :assignments
   has_many :assignees, through: :assignments, class_name: "Agent"
 
-  default_scope order('id ASC')
+  default_scope { order('id ASC') }
 end
