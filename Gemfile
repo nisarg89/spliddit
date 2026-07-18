@@ -53,7 +53,7 @@ gem "aws-ses", git: "https://github.com/zebitex/aws-ses.git", ref: "78-sigv4-pro
 gem 'childprocess'
 gem 'rubyzip'
 gem 'websocket'
-gem 'selenium-webdriver'
+gem 'selenium-webdriver', '~> 4.20'
 gem 'xpath'
 gem 'capybara'
 gem 'ffi'
