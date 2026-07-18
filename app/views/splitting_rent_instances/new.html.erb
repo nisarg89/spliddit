@@ -1,5 +1,5 @@
 <% provide(:title, 'New Share Rent Instance') %>
-<% provide(:description, "Enter a list of roommates, a list of bedrooms, and the monthly rent to get started. We'll then send everyone a link where they specify how much they would pay to live in each bedroom.") %>
+<% provide(:description, "Enter a list of roommates, a list of bedrooms, and the total rent to get started. We'll then send everyone a link where they specify how much they would pay to live in each bedroom.") %>
 <%= include_javascript 'forms/base.js' %>
 <%= include_javascript 'forms/rent.js' %>
 
@@ -14,7 +14,7 @@
           <%= text_field_tag :instance_name, nil, maxlength: 50, class: "ipt-small" %>
         </div>
         <div class="form-row">
-          <h2 style="margin-bottom:0">Monthly Rent</h2>
+          <h2 style="margin-bottom:0">Total Rent</h2>
           <span class="addon">
             <%= select_tag "currency".to_sym, 
               options_for_select([["$","usd"],
